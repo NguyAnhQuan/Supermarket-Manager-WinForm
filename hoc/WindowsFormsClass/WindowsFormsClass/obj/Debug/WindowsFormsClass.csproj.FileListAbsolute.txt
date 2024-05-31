@@ -1,0 +1,14 @@
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\hoc\WindowsFormsClass\WindowsFormsClass\bin\Debug\WindowsFormsClass.exe.config
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\hoc\WindowsFormsClass\WindowsFormsClass\bin\Debug\WindowsFormsClass.exe
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\hoc\WindowsFormsClass\WindowsFormsClass\bin\Debug\WindowsFormsClass.pdb
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\hoc\WindowsFormsClass\WindowsFormsClass\obj\Debug\WindowsFormsClass.csproj.AssemblyReference.cache
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\hoc\WindowsFormsClass\WindowsFormsClass\obj\Debug\WindowsFormsClass.Form1.resources
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\hoc\WindowsFormsClass\WindowsFormsClass\obj\Debug\WindowsFormsClass.Properties.Resources.resources
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\hoc\WindowsFormsClass\WindowsFormsClass\obj\Debug\WindowsFormsClass.csproj.GenerateResource.cache
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\hoc\WindowsFormsClass\WindowsFormsClass\obj\Debug\WindowsFormsClass.csproj.CoreCompileInputs.cache
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\hoc\WindowsFormsClass\WindowsFormsClass\obj\Debug\WindowsFormsClass.exe
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\hoc\WindowsFormsClass\WindowsFormsClass\obj\Debug\WindowsFormsClass.pdb
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\hoc\WindowsFormsClass\WindowsFormsClass\obj\Debug\UserControl1.baml
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\hoc\WindowsFormsClass\WindowsFormsClass\obj\Debug\UserControl1.g.cs
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\hoc\WindowsFormsClass\WindowsFormsClass\obj\Debug\WindowsFormsClass_MarkupCompile.cache
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\hoc\WindowsFormsClass\WindowsFormsClass\obj\Debug\WindowsFormsClass.g.resources

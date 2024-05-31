@@ -1,0 +1,14 @@
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\hoc\WindowsFormsClass\WpfApp1\bin\Debug\WpfApp1.exe.config
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\hoc\WindowsFormsClass\WpfApp1\bin\Debug\WpfApp1.exe
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\hoc\WindowsFormsClass\WpfApp1\bin\Debug\WpfApp1.pdb
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\hoc\WindowsFormsClass\WpfApp1\obj\Debug\WpfApp1.csproj.AssemblyReference.cache
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\hoc\WindowsFormsClass\WpfApp1\obj\Debug\UserControl.baml
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\hoc\WindowsFormsClass\WpfApp1\obj\Debug\UserControl.g.cs
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\hoc\WindowsFormsClass\WpfApp1\obj\Debug\App.g.cs
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\hoc\WindowsFormsClass\WpfApp1\obj\Debug\WpfApp1_MarkupCompile.cache
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\hoc\WindowsFormsClass\WpfApp1\obj\Debug\WpfApp1.g.resources
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\hoc\WindowsFormsClass\WpfApp1\obj\Debug\WpfApp1.Properties.Resources.resources
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\hoc\WindowsFormsClass\WpfApp1\obj\Debug\WpfApp1.csproj.GenerateResource.cache
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\hoc\WindowsFormsClass\WpfApp1\obj\Debug\WpfApp1.csproj.CoreCompileInputs.cache
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\hoc\WindowsFormsClass\WpfApp1\obj\Debug\WpfApp1.exe
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\hoc\WindowsFormsClass\WpfApp1\obj\Debug\WpfApp1.pdb
