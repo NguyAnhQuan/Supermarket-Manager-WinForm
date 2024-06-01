@@ -25,5 +25,27 @@ namespace MiniMart
 
             database.CloseConnection();
         }
+
+        private void DangNhapBtn_click(object sender, EventArgs e)
+        {
+            // Lấy thông tin từ các control trên form
+            string maDangNhap = TaiKhoanTxt.Text;
+            string matKhau = MatKhauTxt.Text;
+
+            // Gọi phương thức để kiểm tra đăng nhập từ repository
+            bool isValidLogin = MiniMart.DataAccessLayer.Repositories.Login.KiemTraDangNhap(maDangNhap, matKhau);
+
+            // Kiểm tra kết quả đăng nhập
+            if (isValidLogin)
+            {
+                // Đăng nhập thành công
+                MessageBox.Show("Đăng nhập thành công!");
+            }
+            else
+            {
+                // Đăng nhập thất bại
+                MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng.");
+            }
+        }
     }
 }

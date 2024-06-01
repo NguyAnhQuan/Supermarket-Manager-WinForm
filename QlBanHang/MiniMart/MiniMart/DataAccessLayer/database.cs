@@ -42,5 +42,10 @@ namespace MiniMart.DataAccessLayer
                 MessageBox.Show("Close connection failed: " + ex.Message);
             }
         }
+
+        public static SqlConnection GetConnection()
+        {
+            return con;
+        }
     }
 }
