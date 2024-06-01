@@ -1,0 +1,10 @@
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\QlBanHang\MiniMart\MiniMart\bin\Debug\MiniMart.exe.config
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\QlBanHang\MiniMart\MiniMart\bin\Debug\MiniMart.exe
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\QlBanHang\MiniMart\MiniMart\bin\Debug\MiniMart.pdb
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\QlBanHang\MiniMart\MiniMart\obj\Debug\MiniMart.csproj.AssemblyReference.cache
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\QlBanHang\MiniMart\MiniMart\obj\Debug\MiniMart.Properties.Resources.resources
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\QlBanHang\MiniMart\MiniMart\obj\Debug\MiniMart.csproj.GenerateResource.cache
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\QlBanHang\MiniMart\MiniMart\obj\Debug\MiniMart.csproj.CoreCompileInputs.cache
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\QlBanHang\MiniMart\MiniMart\obj\Debug\MiniMart.exe
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\QlBanHang\MiniMart\MiniMart\obj\Debug\MiniMart.pdb
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\QlBanHang\MiniMart\MiniMart\obj\Debug\MiniMart.LoginForm.resources
