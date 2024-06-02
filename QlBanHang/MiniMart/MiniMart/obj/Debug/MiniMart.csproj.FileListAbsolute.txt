@@ -8,3 +8,4 @@ D:\DCCNTT13.10.5\năm 2\ki2\dotnet\QlBanHang\MiniMart\MiniMart\obj\Debug\MiniMar
 D:\DCCNTT13.10.5\năm 2\ki2\dotnet\QlBanHang\MiniMart\MiniMart\obj\Debug\MiniMart.exe
 D:\DCCNTT13.10.5\năm 2\ki2\dotnet\QlBanHang\MiniMart\MiniMart\obj\Debug\MiniMart.pdb
 D:\DCCNTT13.10.5\năm 2\ki2\dotnet\QlBanHang\MiniMart\MiniMart\obj\Debug\MiniMart.LoginForm.resources
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\QlBanHang\MiniMart\MiniMart\obj\Debug\MiniMart.PresentationLayer.Form.FormKho.resources

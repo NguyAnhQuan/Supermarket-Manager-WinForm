@@ -18,7 +18,7 @@ namespace MiniMart.DataAccessLayer
                 if (con.State == ConnectionState.Closed)
                 {
                     con.Open();
-                    MessageBox.Show("The connection is: " + con.State.ToString());
+                    //MessageBox.Show("The connection is: " + con.State.ToString());
                 }
             }
             catch (Exception ex)
@@ -34,7 +34,7 @@ namespace MiniMart.DataAccessLayer
                 if (con.State == ConnectionState.Open)
                 {
                     con.Close();
-                    MessageBox.Show("The connection is: " + con.State.ToString());
+                    //MessageBox.Show("The connection is: " + con.State.ToString());
                 }
             }
             catch (Exception ex)

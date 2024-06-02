@@ -10,12 +10,13 @@ namespace MiniMart.DataAccessLayer.Repositories
 {
     internal class Login
     {
+        // Khai báo chuỗi kết nối từ file database.cs
         private static SqlConnection con = database.GetConnection();
 
-        // Phương thức để kiểm tra đăng nhập
-        public static bool KiemTraDangNhap(string maDangNhap, string matKhau)
+        // Phương thức để kiểm tra đăng nhập và lấy chức vụ
+        public static string KiemTraDangNhapVaLayChucVu(string maDangNhap, string matKhau)
         {
-            bool isValid = false;
+            string chucVu = null;
             try
             {
                 // Mở kết nối
@@ -24,18 +25,23 @@ namespace MiniMart.DataAccessLayer.Repositories
                     con.Open();
                 }
 
-                // Tạo câu lệnh SQL để kiểm tra đăng nhập
-                string query = "SELECT COUNT(*) FROM DangNhap WHERE Mdn = @maDangNhap AND MatKhau = @matKhau";
+                // Tạo câu lệnh SQL để kiểm tra đăng nhập và lấy chức vụ
+                string query = @"
+                    SELECT nv.ChucVu 
+                    FROM DangNhap dn
+                    JOIN NhanVien nv ON dn.Mnv = nv.Mnv
+                    WHERE dn.Mdn = @maDangNhap AND dn.MatKhau = @matKhau";
                 SqlCommand cmd = new SqlCommand(query, con);
                 cmd.Parameters.AddWithValue("@maDangNhap", maDangNhap);
                 cmd.Parameters.AddWithValue("@matKhau", matKhau);
 
-                // Thực thi câu lệnh SQL
-                int count = Convert.ToInt32(cmd.ExecuteScalar());
-                if (count > 0)
+                // Thực thi câu lệnh SQL và lấy chức vụ
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
                 {
-                    isValid = true;
+                    chucVu = reader["ChucVu"].ToString();
                 }
+                reader.Close();
             }
             catch (Exception ex)
             {
@@ -50,7 +56,7 @@ namespace MiniMart.DataAccessLayer.Repositories
                     con.Close();
                 }
             }
-            return isValid;
+            return chucVu;
         }
     }
 }

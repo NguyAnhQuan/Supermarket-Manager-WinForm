@@ -48,15 +48,24 @@
   <ItemGroup>
     <Compile Include="DataAccessLayer\database.cs" />
     <Compile Include="DataAccessLayer\Repositories\Login.cs" />
-    <Compile Include="PresentationLayer\Form\Login.cs">
+    <Compile Include="PresentationLayer\Forms\FormKho.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PresentationLayer\Form\Login.Designer.cs">
+    <Compile Include="PresentationLayer\Forms\FormKho.Designer.cs">
+      <DependentUpon>FormKho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Forms\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Forms\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="PresentationLayer\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="PresentationLayer\Form\Login.resx">
+    <EmbeddedResource Include="PresentationLayer\Forms\FormKho.resx">
+      <DependentUpon>FormKho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
