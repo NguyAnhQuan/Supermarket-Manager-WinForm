@@ -12,7 +12,7 @@ using MiniMart.DataAccessLayer;
 
 namespace MiniMart
 {
-    public partial class LoginForm : Form
+    public partial class LoginForm : System.Windows.Forms.Form
     {
         public LoginForm()
         {
@@ -20,7 +20,7 @@ namespace MiniMart
 
             
         }
-
+        private IDatabaseConnection database = new Database();
         private void LoginForm_Load(object sender, EventArgs e)
         {
             database.OpenConnection();
@@ -35,25 +35,36 @@ namespace MiniMart
             string matKhau = MatKhauTxt.Text;
 
             // Gọi phương thức để kiểm tra đăng nhập và lấy chức vụ từ repository
-            string chucVu = MiniMart.DataAccessLayer.Repositories.Login.KiemTraDangNhapVaLayChucVu(maDangNhap, matKhau);
+            string chucVuin = MiniMart.DataAccessLayer.Repositories.Login.KiemTraDangNhapVaLayChucVu(maDangNhap, matKhau);
 
             // Kiểm tra kết quả đăng nhập và mở form tương ứng
-            if (chucVu != null)
+            if (chucVuin != null)
             {
+                // Gọi phương thức GetMnvChucVu để lấy mã nhân viên và chức vụ
+                var (chucVu, mnv) = MiniMart.DataAccessLayer.Repositories.Login.GetMnvChucVu(chucVuin);
+
                 // Đăng nhập thành công, mở form tương ứng với chức vụ
-                MessageBox.Show("Đăng nhập thành công! Chức vụ: " + chucVu);
+                MessageBox.Show($"\tĐăng nhập thành công!\t \n\tChức vụ: {chucVu} \n\tMã nhân viên: {mnv}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 Form formToOpen = null;
-                switch (chucVu)
+                switch (chucVuin)
                 {
                     case "Kho":
                         formToOpen = new MiniMart.PresentationLayer.Form.FormKho();
                         break;
-                    // Thêm các trường hợp khác cho các chức vụ khác nhau
-                    // case "Admin":
-                    //     formToOpen = new AdminForm();
-                    //     break;
-                    // v.v.
+                    case "Admin":
+                        formToOpen = new MiniMart.PresentationLayer.Forms.FormAdmin();
+                        break;
+                    case "NhanVien":
+                        formToOpen = new MiniMart.PresentationLayer.Forms.FormNhanVien();
+                        break;
+                    case "ThuNgan":
+                        formToOpen = new MiniMart.PresentationLayer.Forms.FormThuNgan();
+                        break;
+                    case "KeToan":
+                        formToOpen = new MiniMart.PresentationLayer.Forms.FromKeToan();
+                        break;
+
                     default:
                         MessageBox.Show("Chức vụ không xác định.");
                         return;

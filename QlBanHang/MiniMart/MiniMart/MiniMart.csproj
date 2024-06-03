@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogicLayer\Services\LoginLogic.cs" />
     <Compile Include="DataAccessLayer\database.cs" />
+    <Compile Include="DataAccessLayer\IDatabaseConnection.cs" />
     <Compile Include="DataAccessLayer\Repositories\Login.cs" />
     <Compile Include="PresentationLayer\Forms\FormAdmin.cs">
       <SubType>Form</SubType>
@@ -126,8 +128,6 @@
   <ItemGroup>
     <None Include="PresentationLayer\App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BusinessLogicLayer\Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

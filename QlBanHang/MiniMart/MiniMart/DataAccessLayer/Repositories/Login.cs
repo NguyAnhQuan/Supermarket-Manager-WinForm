@@ -1,37 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace MiniMart.DataAccessLayer.Repositories
 {
     internal class Login
     {
-        // Khai báo chuỗi kết nối từ file database.cs
-        private static SqlConnection con = database.GetConnection();
+        private static IDatabaseConnection database = new Database();
 
         // Phương thức để kiểm tra đăng nhập và lấy chức vụ
         public static string KiemTraDangNhapVaLayChucVu(string maDangNhap, string matKhau)
         {
-            string chucVu = null;
+            string chucVuin = null;
             try
             {
                 // Mở kết nối
-                if (con.State == ConnectionState.Closed)
-                {
-                    con.Open();
-                }
+                database.OpenConnection();
 
                 // Tạo câu lệnh SQL để kiểm tra đăng nhập và lấy chức vụ
                 string query = @"
-                    SELECT nv.ChucVu 
+                    SELECT  LEFT(nv.ChucVu, CHARINDEX(' ', nv.ChucVu) - 1) AS ChucVu
                     FROM DangNhap dn
                     JOIN NhanVien nv ON dn.Mnv = nv.Mnv
                     WHERE dn.Mdn = @maDangNhap AND dn.MatKhau = @matKhau";
-                SqlCommand cmd = new SqlCommand(query, con);
+                SqlCommand cmd = new SqlCommand(query, database.GetConnection());
                 cmd.Parameters.AddWithValue("@maDangNhap", maDangNhap);
                 cmd.Parameters.AddWithValue("@matKhau", matKhau);
 
@@ -39,24 +32,60 @@ namespace MiniMart.DataAccessLayer.Repositories
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
-                    chucVu = reader["ChucVu"].ToString();
+                    chucVuin = reader["ChucVu"].ToString();
                 }
                 reader.Close();
             }
             catch (Exception ex)
             {
                 // Xử lý exception
-                Console.WriteLine("Error: " + ex.Message);
+                MessageBox.Show("Error: " + ex.Message);
             }
             finally
             {
                 // Đóng kết nối sau khi thực hiện xong
-                if (con.State == ConnectionState.Open)
-                {
-                    con.Close();
-                }
+                database.CloseConnection();
             }
-            return chucVu;
+            return chucVuin;
+        }
+
+        public static (string, string) GetMnvChucVu(string chucVuout)
+        {
+            string mnv = null;
+            string chucVu = null;
+            try
+            {
+                // Mở kết nối
+                database.OpenConnection();
+
+                // Tạo câu lệnh SQL để kiểm tra chức vụ
+                string query = @"
+                    SELECT Mnv, ChucVu
+                    FROM NhanVien
+                    WHERE ChucVu LIKE @chucVu + '%'";
+                SqlCommand cmd = new SqlCommand(query, database.GetConnection());
+                cmd.Parameters.AddWithValue("@chucVu", chucVuout);
+
+                // Thực thi câu lệnh SQL và lấy chức vụ, Mnv
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    chucVu = reader["ChucVu"].ToString();
+                    mnv = reader["Mnv"].ToString();
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                // Xử lý exception
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                // Đóng kết nối sau khi thực hiện xong
+                database.CloseConnection();
+            }
+            return (chucVu, mnv);
         }
     }
 }

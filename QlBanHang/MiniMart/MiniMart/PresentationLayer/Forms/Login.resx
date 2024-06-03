@@ -121,7 +121,7 @@
   <data name="panel1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAlQAAAF8CAYAAAAJjyXvAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DwAACw8BkvkDpQAA/7JJREFUeF7snQVcVOn3h3ft7kDFxO7u7u7uWLtj7cDu7sDERBAERQRRCZEQxcZG
+        DQAACw0B7QfALAAA/7JJREFUeF7snQVcVOn3h3ft7kDFxO7u7u7uWLtj7cDu7sDERBAERQRRCZEQxcZG
         7EBBmpnv+b/nhYsDO7u/3f+Wu/vu5/PsvfPOvXfu3JndeTjn3PN+R0QKhUKhUCgUit+B0UGFQqFQKBQK
         xa/H6KBCoVAoFAqF4tdjdFChUCgUCoVC8esxOqhQKBQKhUKh+PUYHVQoFAqFQqFQ/HqMDioUCoVCoVAo
         fj1GBxUKhUKhUCgUvx6jgwqFQqFQKBSKX4/RQYVCoVAoFArFr8fooEKhUCgUCoXi12N0UKFQKBQKhULx
@@ -1571,6 +1571,9 @@
         7f8BpIC2yby5dkAAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="MatKhauToolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>50, 20</value>
+  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAgIAAAAEAIAAoCAEAFgAAACgAAACAAAAAAAEAAAEAIAAAAAAAAAABAGEHAABhBwAAAAAAAAAA

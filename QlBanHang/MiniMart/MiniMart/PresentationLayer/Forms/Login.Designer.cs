@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.DangNhaplabel = new System.Windows.Forms.Label();
@@ -36,6 +37,7 @@
             this.MatKhauLabel = new System.Windows.Forms.Label();
             this.TaiKhoanLabel = new System.Windows.Forms.Label();
             this.DangNhapBtn = new System.Windows.Forms.Button();
+            this.MatKhauToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,6 +75,7 @@
             this.MatKhauTxt.Size = new System.Drawing.Size(306, 44);
             this.MatKhauTxt.TabIndex = 5;
             this.MatKhauTxt.Text = "admin";
+            this.MatKhauToolTip.SetToolTip(this.MatKhauTxt, "Caps Look đang bật");
             // 
             // TaiKhoanTxt
             // 
@@ -110,11 +113,16 @@
             this.DangNhapBtn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.DangNhapBtn.Location = new System.Drawing.Point(395, 375);
             this.DangNhapBtn.Name = "DangNhapBtn";
-            this.DangNhapBtn.Size = new System.Drawing.Size(203, 55);
+            this.DangNhapBtn.Size = new System.Drawing.Size(239, 55);
             this.DangNhapBtn.TabIndex = 0;
             this.DangNhapBtn.Text = "Đăng  Nhập";
             this.DangNhapBtn.UseVisualStyleBackColor = true;
             this.DangNhapBtn.Click += new System.EventHandler(this.DangNhapBtn_click);
+            // 
+            // MatKhauToolTip
+            // 
+            this.MatKhauToolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Warning;
+            this.MatKhauToolTip.ToolTipTitle = "Caps Look";
             // 
             // LoginForm
             // 
@@ -145,6 +153,7 @@
         private System.Windows.Forms.TextBox TaiKhoanTxt;
         private System.Windows.Forms.Label MatKhauLabel;
         private System.Windows.Forms.Label TaiKhoanLabel;
+        private System.Windows.Forms.ToolTip MatKhauToolTip;
     }
 }
 
