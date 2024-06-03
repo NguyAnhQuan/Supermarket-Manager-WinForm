@@ -49,10 +49,11 @@ namespace MiniMart.DataAccessLayer.Repositories
             return chucVuin;
         }
 
-        public static (string, string) GetMnvChucVu(string chucVuout)
+        public static (string, string, string) GetMnvChucVu(string chucVuout)
         {
             string mnv = null;
             string chucVu = null;
+            string hoten = null;
             try
             {
                 // Mở kết nối
@@ -60,18 +61,19 @@ namespace MiniMart.DataAccessLayer.Repositories
 
                 // Tạo câu lệnh SQL để kiểm tra chức vụ
                 string query = @"
-                    SELECT Mnv, ChucVu
+                    SELECT Mnv, ChucVu, HoTen
                     FROM NhanVien
                     WHERE ChucVu LIKE @chucVu + '%'";
                 SqlCommand cmd = new SqlCommand(query, database.GetConnection());
                 cmd.Parameters.AddWithValue("@chucVu", chucVuout);
 
-                // Thực thi câu lệnh SQL và lấy chức vụ, Mnv
+                // Thực thi câu lệnh SQL và lấy chức vụ, Mnv, hoten
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
                     chucVu = reader["ChucVu"].ToString();
                     mnv = reader["Mnv"].ToString();
+                    hoten = reader["HoTen"].ToString();
                 }
                 reader.Close();
             }
@@ -85,7 +87,7 @@ namespace MiniMart.DataAccessLayer.Repositories
                 // Đóng kết nối sau khi thực hiện xong
                 database.CloseConnection();
             }
-            return (chucVu, mnv);
+            return (chucVu, mnv, hoten);
         }
     }
 }

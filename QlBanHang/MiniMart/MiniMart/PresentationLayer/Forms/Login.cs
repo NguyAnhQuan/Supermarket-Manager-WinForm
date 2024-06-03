@@ -17,7 +17,6 @@ namespace MiniMart
         public LoginForm()
         {
             InitializeComponent();
-
             
         }
         private IDatabaseConnection database = new Database();
@@ -27,12 +26,16 @@ namespace MiniMart
 
             database.CloseConnection();
         }
+        public static string MNV;
+        public static string HOTEN;
 
         private void DangNhapBtn_click(object sender, EventArgs e)
         {
             // Lấy thông tin từ các control trên form
             string maDangNhap = TaiKhoanTxt.Text;
             string matKhau = MatKhauTxt.Text;
+
+
 
             // Gọi phương thức để kiểm tra đăng nhập và lấy chức vụ từ repository
             string chucVuin = MiniMart.DataAccessLayer.Repositories.Login.KiemTraDangNhapVaLayChucVu(maDangNhap, matKhau);
@@ -41,10 +44,12 @@ namespace MiniMart
             if (chucVuin != null)
             {
                 // Gọi phương thức GetMnvChucVu để lấy mã nhân viên và chức vụ
-                var (chucVu, mnv) = MiniMart.DataAccessLayer.Repositories.Login.GetMnvChucVu(chucVuin);
+                var (chucvu, mnv, hoten) = MiniMart.DataAccessLayer.Repositories.Login.GetMnvChucVu(chucVuin);
 
                 // Đăng nhập thành công, mở form tương ứng với chức vụ
-                MessageBox.Show($"\tĐăng nhập thành công!\t \n\tChức vụ: {chucVu} \n\tMã nhân viên: {mnv}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show($"\tĐăng nhập thành công!\t \n\tChức vụ: {chucvu} \n\tMã nhân viên: {mnv} \n\tHọ tên: {hoten}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MNV = mnv;
+                HOTEN = hoten;
 
                 Form formToOpen = null;
                 switch (chucVuin)

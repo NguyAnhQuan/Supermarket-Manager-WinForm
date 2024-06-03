@@ -15,6 +15,7 @@ namespace MiniMart.PresentationLayer.Forms
         public FormAdmin()
         {
             InitializeComponent();
+            
         }
     }
 }
