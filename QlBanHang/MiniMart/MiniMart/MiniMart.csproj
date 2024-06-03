@@ -48,11 +48,47 @@
   <ItemGroup>
     <Compile Include="DataAccessLayer\database.cs" />
     <Compile Include="DataAccessLayer\Repositories\Login.cs" />
+    <Compile Include="PresentationLayer\Forms\FormAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Forms\FormAdmin.Designer.cs">
+      <DependentUpon>FormAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Forms\FormKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Forms\FormKhachHang.Designer.cs">
+      <DependentUpon>FormKhachHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="PresentationLayer\Forms\FormKho.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PresentationLayer\Forms\FormKho.Designer.cs">
       <DependentUpon>FormKho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Forms\FormNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Forms\FormNhanVien.Designer.cs">
+      <DependentUpon>FormNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Forms\FormThuNgan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Forms\FormThuNgan.Designer.cs">
+      <DependentUpon>FormThuNgan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Forms\FormUuDai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Forms\FormUuDai.Designer.cs">
+      <DependentUpon>FormUuDai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Forms\FromKeToan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Forms\FromKeToan.Designer.cs">
+      <DependentUpon>FromKeToan.cs</DependentUpon>
     </Compile>
     <Compile Include="PresentationLayer\Forms\Login.cs">
       <SubType>Form</SubType>
