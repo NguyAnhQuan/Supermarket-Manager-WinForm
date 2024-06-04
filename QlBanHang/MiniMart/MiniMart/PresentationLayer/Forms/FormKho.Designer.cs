@@ -39,23 +39,18 @@
             this.MnvTextBox = new System.Windows.Forms.TextBox();
             this.TitleLabel = new System.Windows.Forms.Label();
             this.TimeTextBox = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.SuaButton = new System.Windows.Forms.Button();
-            this.XoaButton = new System.Windows.Forms.Button();
-            this.ThemButton = new System.Windows.Forms.Button();
             this.TimKiemButton = new System.Windows.Forms.Button();
             this.TimKiemTextBox = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
             this.TimKiemComboBox = new System.Windows.Forms.ComboBox();
             this.TabControl = new System.Windows.Forms.TabControl();
             this.NhapTabPage = new System.Windows.Forms.TabPage();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.NhapDataGridView = new System.Windows.Forms.DataGridView();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.XoaButton = new System.Windows.Forms.Button();
+            this.SuaButton = new System.Windows.Forms.Button();
+            this.ThemButton = new System.Windows.Forms.Button();
             this.XuatTabPage = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
@@ -64,33 +59,31 @@
             this.SanPhamTabPage = new System.Windows.Forms.TabPage();
             this.BieuDoTabPage = new System.Windows.Forms.TabPage();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.TitlePanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.TabControl.SuspendLayout();
             this.NhapTabPage.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NhapDataGridView)).BeginInit();
             this.XuatTabPage.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.BieuDoTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // TitlePanel
             // 
-            this.TitlePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.TitlePanel.Controls.Add(this.flowLayoutPanel1);
             this.TitlePanel.Controls.Add(this.TitleLabel);
             this.TitlePanel.Controls.Add(this.TimeTextBox);
-            this.TitlePanel.Location = new System.Drawing.Point(9, 9);
+            this.TitlePanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TitlePanel.Location = new System.Drawing.Point(0, 0);
             this.TitlePanel.Name = "TitlePanel";
-            this.TitlePanel.Size = new System.Drawing.Size(1933, 82);
+            this.TitlePanel.Size = new System.Drawing.Size(1489, 82);
             this.TitlePanel.TabIndex = 0;
             // 
             // flowLayoutPanel1
@@ -98,7 +91,7 @@
             this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.Controls.Add(this.HoTenTextBox);
             this.flowLayoutPanel1.Controls.Add(this.MnvTextBox);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(1813, 7);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(1369, 6);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(109, 72);
             this.flowLayoutPanel1.TabIndex = 0;
@@ -130,7 +123,7 @@
             this.TitleLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.TitleLabel.AutoSize = true;
             this.TitleLabel.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TitleLabel.Location = new System.Drawing.Point(874, 23);
+            this.TitleLabel.Location = new System.Drawing.Point(584, 13);
             this.TitleLabel.Name = "TitleLabel";
             this.TitleLabel.Size = new System.Drawing.Size(321, 56);
             this.TitleLabel.TabIndex = 3;
@@ -148,55 +141,14 @@
             this.TimeTextBox.Size = new System.Drawing.Size(127, 37);
             this.TimeTextBox.TabIndex = 2;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.SuaButton);
-            this.panel2.Controls.Add(this.XoaButton);
-            this.panel2.Controls.Add(this.ThemButton);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 877);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1896, 56);
-            this.panel2.TabIndex = 1;
-            // 
-            // SuaButton
-            // 
-            this.SuaButton.Location = new System.Drawing.Point(606, 2);
-            this.SuaButton.Margin = new System.Windows.Forms.Padding(2);
-            this.SuaButton.Name = "SuaButton";
-            this.SuaButton.Size = new System.Drawing.Size(100, 30);
-            this.SuaButton.TabIndex = 2;
-            this.SuaButton.Text = "Sửa";
-            this.SuaButton.UseVisualStyleBackColor = true;
-            // 
-            // XoaButton
-            // 
-            this.XoaButton.Location = new System.Drawing.Point(968, 2);
-            this.XoaButton.Margin = new System.Windows.Forms.Padding(2);
-            this.XoaButton.Name = "XoaButton";
-            this.XoaButton.Size = new System.Drawing.Size(100, 30);
-            this.XoaButton.TabIndex = 1;
-            this.XoaButton.Text = "Xóa";
-            this.XoaButton.UseVisualStyleBackColor = true;
-            // 
-            // ThemButton
-            // 
-            this.ThemButton.Location = new System.Drawing.Point(266, 2);
-            this.ThemButton.Margin = new System.Windows.Forms.Padding(2);
-            this.ThemButton.Name = "ThemButton";
-            this.ThemButton.Size = new System.Drawing.Size(100, 30);
-            this.ThemButton.TabIndex = 0;
-            this.ThemButton.Text = "Thêm";
-            this.ThemButton.UseVisualStyleBackColor = true;
-            // 
             // TimKiemButton
             // 
             this.TimKiemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.TimKiemButton.Location = new System.Drawing.Point(514, 2);
+            this.TimKiemButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.TimKiemButton.Location = new System.Drawing.Point(1297, 4);
             this.TimKiemButton.Margin = new System.Windows.Forms.Padding(2);
             this.TimKiemButton.Name = "TimKiemButton";
-            this.TimKiemButton.Size = new System.Drawing.Size(124, 25);
+            this.TimKiemButton.Size = new System.Drawing.Size(124, 31);
             this.TimKiemButton.TabIndex = 3;
             this.TimKiemButton.Text = "Tìm Kiếm";
             this.TimKiemButton.UseVisualStyleBackColor = true;
@@ -205,7 +157,8 @@
             // 
             this.TimKiemTextBox.BackColor = System.Drawing.SystemColors.HighlightText;
             this.TimKiemTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TimKiemTextBox.Location = new System.Drawing.Point(2, 2);
+            this.TimKiemTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.TimKiemTextBox.Location = new System.Drawing.Point(837, 6);
             this.TimKiemTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.TimKiemTextBox.Name = "TimKiemTextBox";
             this.TimKiemTextBox.Size = new System.Drawing.Size(195, 38);
@@ -216,21 +169,9 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.TimKiemComboBox);
-            this.panel1.Controls.Add(this.TimKiemButton);
-            this.panel1.Controls.Add(this.TimKiemTextBox);
-            this.panel1.Location = new System.Drawing.Point(1253, 2);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(641, 52);
-            this.panel1.TabIndex = 4;
-            // 
             // TimKiemComboBox
             // 
+            this.TimKiemComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.TimKiemComboBox.FormattingEnabled = true;
             this.TimKiemComboBox.Items.AddRange(new object[] {
             "Mnx",
@@ -238,7 +179,7 @@
             "Mncc",
             "SoLuong",
             "TongGia"});
-            this.TimKiemComboBox.Location = new System.Drawing.Point(227, 2);
+            this.TimKiemComboBox.Location = new System.Drawing.Point(1042, 6);
             this.TimKiemComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.TimKiemComboBox.Name = "TimKiemComboBox";
             this.TimKiemComboBox.Size = new System.Drawing.Size(243, 39);
@@ -246,9 +187,8 @@
             // 
             // TabControl
             // 
-            this.TabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TabControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.TabControl.Controls.Add(this.NhapTabPage);
             this.TabControl.Controls.Add(this.XuatTabPage);
             this.TabControl.Controls.Add(this.SapHetHanTabPage);
@@ -256,95 +196,93 @@
             this.TabControl.Controls.Add(this.SanPhamTabPage);
             this.TabControl.Controls.Add(this.BieuDoTabPage);
             this.TabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.TabControl.Location = new System.Drawing.Point(8, 96);
+            this.TabControl.Location = new System.Drawing.Point(8, 134);
             this.TabControl.Margin = new System.Windows.Forms.Padding(2);
             this.TabControl.Name = "TabControl";
             this.TabControl.SelectedIndex = 0;
-            this.TabControl.Size = new System.Drawing.Size(1932, 1004);
+            this.TabControl.Size = new System.Drawing.Size(1431, 881);
             this.TabControl.TabIndex = 2;
             // 
             // NhapTabPage
             // 
             this.NhapTabPage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.NhapTabPage.Controls.Add(this.panel3);
+            this.NhapTabPage.Controls.Add(this.NhapDataGridView);
             this.NhapTabPage.Location = new System.Drawing.Point(8, 45);
             this.NhapTabPage.Margin = new System.Windows.Forms.Padding(2);
             this.NhapTabPage.Name = "NhapTabPage";
             this.NhapTabPage.Padding = new System.Windows.Forms.Padding(2);
-            this.NhapTabPage.Size = new System.Drawing.Size(1916, 951);
+            this.NhapTabPage.Size = new System.Drawing.Size(1415, 828);
             this.NhapTabPage.TabIndex = 0;
             this.NhapTabPage.Text = "Trang Nhập";
             this.NhapTabPage.UseVisualStyleBackColor = true;
             // 
-            // panel3
+            // NhapDataGridView
             // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.Controls.Add(this.panel5);
-            this.panel3.Controls.Add(this.panel2);
-            this.panel3.Controls.Add(this.NhapDataGridView);
-            this.panel3.Location = new System.Drawing.Point(4, 12);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1896, 933);
-            this.panel3.TabIndex = 0;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.panel6);
-            this.panel5.Controls.Add(this.panel1);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1896, 56);
-            this.panel5.TabIndex = 1;
-            // 
-            // panel6
-            // 
-            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.NhapDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel6.Controls.Add(this.dateTimePicker1);
-            this.panel6.Controls.Add(this.dateTimePicker2);
-            this.panel6.Location = new System.Drawing.Point(3, 3);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(718, 50);
-            this.panel6.TabIndex = 7;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(2, 2);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(293, 38);
-            this.dateTimePicker1.TabIndex = 5;
+            this.NhapDataGridView.ColumnHeadersHeight = 46;
+            this.NhapDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.NhapDataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.NhapDataGridView.Location = new System.Drawing.Point(-1, 1);
+            this.NhapDataGridView.Margin = new System.Windows.Forms.Padding(2);
+            this.NhapDataGridView.Name = "NhapDataGridView";
+            this.NhapDataGridView.RowHeadersWidth = 82;
+            this.NhapDataGridView.RowTemplate.Height = 33;
+            this.NhapDataGridView.Size = new System.Drawing.Size(1451, 821);
+            this.NhapDataGridView.TabIndex = 0;
             // 
             // dateTimePicker2
             // 
             this.dateTimePicker2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(410, 2);
+            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.dateTimePicker2.Location = new System.Drawing.Point(325, 8);
             this.dateTimePicker2.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(293, 38);
-            this.dateTimePicker2.TabIndex = 6;
+            this.dateTimePicker2.TabIndex = 5;
             // 
-            // NhapDataGridView
+            // dateTimePicker1
             // 
-            this.NhapDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.NhapDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.NhapDataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.NhapDataGridView.Location = new System.Drawing.Point(2, 70);
-            this.NhapDataGridView.Margin = new System.Windows.Forms.Padding(2);
-            this.NhapDataGridView.Name = "NhapDataGridView";
-            this.NhapDataGridView.RowHeadersWidth = 82;
-            this.NhapDataGridView.RowTemplate.Height = 33;
-            this.NhapDataGridView.Size = new System.Drawing.Size(1890, 791);
-            this.NhapDataGridView.TabIndex = 0;
+            this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.dateTimePicker1.Location = new System.Drawing.Point(12, 8);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(293, 38);
+            this.dateTimePicker1.TabIndex = 6;
+            // 
+            // XoaButton
+            // 
+            this.XoaButton.Location = new System.Drawing.Point(639, 30);
+            this.XoaButton.Margin = new System.Windows.Forms.Padding(2);
+            this.XoaButton.Name = "XoaButton";
+            this.XoaButton.Size = new System.Drawing.Size(193, 38);
+            this.XoaButton.TabIndex = 1;
+            this.XoaButton.Text = "Xóa";
+            this.XoaButton.UseVisualStyleBackColor = true;
+            this.XoaButton.Click += new System.EventHandler(this.XoaButton_Click);
+            // 
+            // SuaButton
+            // 
+            this.SuaButton.Location = new System.Drawing.Point(406, 29);
+            this.SuaButton.Margin = new System.Windows.Forms.Padding(2);
+            this.SuaButton.Name = "SuaButton";
+            this.SuaButton.Size = new System.Drawing.Size(193, 39);
+            this.SuaButton.TabIndex = 2;
+            this.SuaButton.Text = "Sửa";
+            this.SuaButton.UseVisualStyleBackColor = true;
+            // 
+            // ThemButton
+            // 
+            this.ThemButton.Location = new System.Drawing.Point(161, 20);
+            this.ThemButton.Margin = new System.Windows.Forms.Padding(2);
+            this.ThemButton.Name = "ThemButton";
+            this.ThemButton.Size = new System.Drawing.Size(193, 48);
+            this.ThemButton.TabIndex = 0;
+            this.ThemButton.Text = "Thêm";
+            this.ThemButton.UseVisualStyleBackColor = true;
             // 
             // XuatTabPage
             // 
@@ -353,7 +291,7 @@
             this.XuatTabPage.Margin = new System.Windows.Forms.Padding(2);
             this.XuatTabPage.Name = "XuatTabPage";
             this.XuatTabPage.Padding = new System.Windows.Forms.Padding(2);
-            this.XuatTabPage.Size = new System.Drawing.Size(1916, 951);
+            this.XuatTabPage.Size = new System.Drawing.Size(1465, 917);
             this.XuatTabPage.TabIndex = 2;
             this.XuatTabPage.Text = "Trang Xuất";
             this.XuatTabPage.UseVisualStyleBackColor = true;
@@ -382,7 +320,7 @@
             // 
             this.SapHetHanTabPage.Location = new System.Drawing.Point(8, 45);
             this.SapHetHanTabPage.Name = "SapHetHanTabPage";
-            this.SapHetHanTabPage.Size = new System.Drawing.Size(1916, 951);
+            this.SapHetHanTabPage.Size = new System.Drawing.Size(1465, 917);
             this.SapHetHanTabPage.TabIndex = 3;
             this.SapHetHanTabPage.Text = "Sản phẩm sắp hết hạn";
             this.SapHetHanTabPage.UseVisualStyleBackColor = true;
@@ -391,7 +329,7 @@
             // 
             this.NhaCungCapTabPage.Location = new System.Drawing.Point(8, 45);
             this.NhaCungCapTabPage.Name = "NhaCungCapTabPage";
-            this.NhaCungCapTabPage.Size = new System.Drawing.Size(1916, 951);
+            this.NhaCungCapTabPage.Size = new System.Drawing.Size(1465, 917);
             this.NhaCungCapTabPage.TabIndex = 4;
             this.NhaCungCapTabPage.Text = "Nhà cung cấp";
             this.NhaCungCapTabPage.UseVisualStyleBackColor = true;
@@ -400,7 +338,7 @@
             // 
             this.SanPhamTabPage.Location = new System.Drawing.Point(8, 45);
             this.SanPhamTabPage.Name = "SanPhamTabPage";
-            this.SanPhamTabPage.Size = new System.Drawing.Size(1916, 951);
+            this.SanPhamTabPage.Size = new System.Drawing.Size(1465, 917);
             this.SanPhamTabPage.TabIndex = 5;
             this.SanPhamTabPage.Text = "Sản phẩm";
             this.SanPhamTabPage.UseVisualStyleBackColor = true;
@@ -410,7 +348,7 @@
             this.BieuDoTabPage.Controls.Add(this.chart1);
             this.BieuDoTabPage.Location = new System.Drawing.Point(8, 45);
             this.BieuDoTabPage.Name = "BieuDoTabPage";
-            this.BieuDoTabPage.Size = new System.Drawing.Size(1916, 951);
+            this.BieuDoTabPage.Size = new System.Drawing.Size(1465, 917);
             this.BieuDoTabPage.TabIndex = 6;
             this.BieuDoTabPage.Text = "Biểu đồ";
             this.BieuDoTabPage.UseVisualStyleBackColor = true;
@@ -431,11 +369,38 @@
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.XoaButton);
+            this.panel1.Controls.Add(this.SuaButton);
+            this.panel1.Controls.Add(this.ThemButton);
+            this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.panel1.Location = new System.Drawing.Point(252, 1020);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1045, 79);
+            this.panel1.TabIndex = 3;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.TimKiemButton);
+            this.panel2.Controls.Add(this.TimKiemComboBox);
+            this.panel2.Controls.Add(this.dateTimePicker1);
+            this.panel2.Controls.Add(this.dateTimePicker2);
+            this.panel2.Controls.Add(this.TimKiemTextBox);
+            this.panel2.Location = new System.Drawing.Point(7, 85);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1470, 49);
+            this.panel2.TabIndex = 3;
+            // 
             // FormKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1951, 1111);
+            this.ClientSize = new System.Drawing.Size(1489, 1142);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.TabControl);
             this.Controls.Add(this.TitlePanel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
@@ -448,20 +413,17 @@
             this.TitlePanel.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.TabControl.ResumeLayout(false);
             this.NhapTabPage.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.NhapDataGridView)).EndInit();
             this.XuatTabPage.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.BieuDoTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -474,30 +436,27 @@
         private System.Windows.Forms.TextBox HoTenTextBox;
         private System.Windows.Forms.TextBox MnvTextBox;
         private System.Windows.Forms.TextBox TimeTextBox;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button ThemButton;
         private System.Windows.Forms.Button TimKiemButton;
-        private System.Windows.Forms.Button SuaButton;
         private System.Windows.Forms.TextBox TimKiemTextBox;
-        private System.Windows.Forms.Button XoaButton;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ComboBox TimKiemComboBox;
         private System.Windows.Forms.TabControl TabControl;
         private System.Windows.Forms.TabPage NhapTabPage;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TabPage XuatTabPage;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.TabPage SapHetHanTabPage;
         private System.Windows.Forms.TabPage NhaCungCapTabPage;
         private System.Windows.Forms.TabPage SanPhamTabPage;
         private System.Windows.Forms.TabPage BieuDoTabPage;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DataGridView NhapDataGridView;
+        private System.Windows.Forms.Button XoaButton;
+        private System.Windows.Forms.Button SuaButton;
+        private System.Windows.Forms.Button ThemButton;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }

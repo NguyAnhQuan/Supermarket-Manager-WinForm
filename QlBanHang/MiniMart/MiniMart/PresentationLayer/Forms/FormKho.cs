@@ -65,6 +65,9 @@ namespace MiniMart.PresentationLayer.Form
             }
         }
 
-        
+        private void XoaButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
