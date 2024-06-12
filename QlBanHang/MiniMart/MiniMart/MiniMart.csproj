@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogicLayer\Services\KhoLG.cs" />
     <Compile Include="BusinessLogicLayer\Services\LoginLogic.cs" />
     <Compile Include="DataAccessLayer\database.cs" />
     <Compile Include="DataAccessLayer\IDatabaseConnection.cs" />

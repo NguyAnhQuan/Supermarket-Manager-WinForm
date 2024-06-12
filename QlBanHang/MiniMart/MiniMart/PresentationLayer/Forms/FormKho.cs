@@ -35,6 +35,7 @@ namespace MiniMart.PresentationLayer.Form
 
         private void LoadDataIntoTabPage(string tabPageName, DataTable data)
         {
+
             // Tìm TabPage có tên là tabPageName
             TabPage tabPage = null;
             foreach (TabPage tp in TabControl.TabPages)
@@ -69,5 +70,26 @@ namespace MiniMart.PresentationLayer.Form
         {
 
         }
+
+        private void NhapDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        //string timkiemtextbox = FormKho.TimKiemTextBox.Text;
+
+        public static DateTime date1;
+        public static DateTime date2;
+
+        private void TinhNgay()
+        {
+            DateTime date1 = dateTimePicker1.Value;
+            MessageBox.Show(date1.ToString());
+
+            DateTime date2 = dateTimePicker2.Value;
+            MessageBox.Show(date1.ToString());
+        }
+
+        
     }
 }
