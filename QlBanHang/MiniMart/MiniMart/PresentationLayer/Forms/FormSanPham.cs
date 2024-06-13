@@ -16,5 +16,6 @@ namespace MiniMart.PresentationLayer.Forms
         {
             InitializeComponent();
         }
+
     }
 }
