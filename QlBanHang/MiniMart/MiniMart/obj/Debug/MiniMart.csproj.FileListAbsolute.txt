@@ -10,3 +10,16 @@ D:\DCCNTT13.10.5\năm 2\ki2\dotnet\QlBanHang\MiniMart\MiniMart\obj\Debug\MiniMar
 D:\DCCNTT13.10.5\năm 2\ki2\dotnet\QlBanHang\MiniMart\MiniMart\obj\Debug\MiniMart.LoginForm.resources
 D:\DCCNTT13.10.5\năm 2\ki2\dotnet\QlBanHang\MiniMart\MiniMart\obj\Debug\MiniMart.PresentationLayer.Form.FormKho.resources
 D:\DCCNTT13.10.5\năm 2\ki2\dotnet\QlBanHang\MiniMart\MiniMart\obj\Debug\MiniMart.PresentationLayer.Forms.FormAdmin.resources
+D:\13.10.5 DCCNTT\DOTNET_WINFROM\Supermarket-Manager-WinForm\QlBanHang\MiniMart\MiniMart\bin\Debug\MiniMart.exe.config
+D:\13.10.5 DCCNTT\DOTNET_WINFROM\Supermarket-Manager-WinForm\QlBanHang\MiniMart\MiniMart\bin\Debug\MiniMart.exe
+D:\13.10.5 DCCNTT\DOTNET_WINFROM\Supermarket-Manager-WinForm\QlBanHang\MiniMart\MiniMart\bin\Debug\MiniMart.pdb
+D:\13.10.5 DCCNTT\DOTNET_WINFROM\Supermarket-Manager-WinForm\QlBanHang\MiniMart\MiniMart\obj\Debug\MiniMart.csproj.AssemblyReference.cache
+D:\13.10.5 DCCNTT\DOTNET_WINFROM\Supermarket-Manager-WinForm\QlBanHang\MiniMart\MiniMart\obj\Debug\MiniMart.PresentationLayer.Forms.FormAdmin.resources
+D:\13.10.5 DCCNTT\DOTNET_WINFROM\Supermarket-Manager-WinForm\QlBanHang\MiniMart\MiniMart\obj\Debug\MiniMart.PresentationLayer.Form.FormKho.resources
+D:\13.10.5 DCCNTT\DOTNET_WINFROM\Supermarket-Manager-WinForm\QlBanHang\MiniMart\MiniMart\obj\Debug\MiniMart.PresentationLayer.Forms.FormSanPham.resources
+D:\13.10.5 DCCNTT\DOTNET_WINFROM\Supermarket-Manager-WinForm\QlBanHang\MiniMart\MiniMart\obj\Debug\MiniMart.LoginForm.resources
+D:\13.10.5 DCCNTT\DOTNET_WINFROM\Supermarket-Manager-WinForm\QlBanHang\MiniMart\MiniMart\obj\Debug\MiniMart.Properties.Resources.resources
+D:\13.10.5 DCCNTT\DOTNET_WINFROM\Supermarket-Manager-WinForm\QlBanHang\MiniMart\MiniMart\obj\Debug\MiniMart.csproj.GenerateResource.cache
+D:\13.10.5 DCCNTT\DOTNET_WINFROM\Supermarket-Manager-WinForm\QlBanHang\MiniMart\MiniMart\obj\Debug\MiniMart.csproj.CoreCompileInputs.cache
+D:\13.10.5 DCCNTT\DOTNET_WINFROM\Supermarket-Manager-WinForm\QlBanHang\MiniMart\MiniMart\obj\Debug\MiniMart.exe
+D:\13.10.5 DCCNTT\DOTNET_WINFROM\Supermarket-Manager-WinForm\QlBanHang\MiniMart\MiniMart\obj\Debug\MiniMart.pdb
