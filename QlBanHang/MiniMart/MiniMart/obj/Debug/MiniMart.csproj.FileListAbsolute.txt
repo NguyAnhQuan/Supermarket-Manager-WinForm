@@ -23,3 +23,4 @@ D:\13.10.5 DCCNTT\DOTNET_WINFROM\Supermarket-Manager-WinForm\QlBanHang\MiniMart\
 D:\13.10.5 DCCNTT\DOTNET_WINFROM\Supermarket-Manager-WinForm\QlBanHang\MiniMart\MiniMart\obj\Debug\MiniMart.csproj.CoreCompileInputs.cache
 D:\13.10.5 DCCNTT\DOTNET_WINFROM\Supermarket-Manager-WinForm\QlBanHang\MiniMart\MiniMart\obj\Debug\MiniMart.exe
 D:\13.10.5 DCCNTT\DOTNET_WINFROM\Supermarket-Manager-WinForm\QlBanHang\MiniMart\MiniMart\obj\Debug\MiniMart.pdb
+D:\13.10.5 DCCNTT\DOTNET_WINFROM\Supermarket-Manager-WinForm\QlBanHang\MiniMart\MiniMart\obj\Debug\MiniMart.PresentationLayer.Forms.FormKhachHang.resources

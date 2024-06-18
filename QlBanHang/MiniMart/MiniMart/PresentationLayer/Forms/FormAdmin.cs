@@ -17,5 +17,15 @@ namespace MiniMart.PresentationLayer.Forms
             InitializeComponent();
             
         }
+
+        private void FormAdmin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TitlePanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

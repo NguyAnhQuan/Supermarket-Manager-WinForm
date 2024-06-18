@@ -16,5 +16,10 @@ namespace MiniMart.PresentationLayer.Forms
         {
             InitializeComponent();
         }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
