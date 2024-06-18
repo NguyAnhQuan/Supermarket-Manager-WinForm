@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormKho));
             this.TitlePanel = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -51,8 +48,6 @@
             this.SapHetHanTabPage = new System.Windows.Forms.TabPage();
             this.NhaCungCapTabPage = new System.Windows.Forms.TabPage();
             this.SanPhamTabPage = new System.Windows.Forms.TabPage();
-            this.BieuDoTabPage = new System.Windows.Forms.TabPage();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.XoaButton = new System.Windows.Forms.Button();
@@ -75,8 +70,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.NhapDataGridView)).BeginInit();
             this.XuatTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.BieuDoTabPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -90,7 +83,7 @@
             this.TitlePanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.TitlePanel.Location = new System.Drawing.Point(0, 0);
             this.TitlePanel.Name = "TitlePanel";
-            this.TitlePanel.Size = new System.Drawing.Size(1489, 82);
+            this.TitlePanel.Size = new System.Drawing.Size(1423, 82);
             this.TitlePanel.TabIndex = 0;
             // 
             // flowLayoutPanel1
@@ -98,7 +91,7 @@
             this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.Controls.Add(this.HoTenTextBox);
             this.flowLayoutPanel1.Controls.Add(this.MnvTextBox);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(1369, 6);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(1303, 6);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(109, 72);
             this.flowLayoutPanel1.TabIndex = 0;
@@ -130,7 +123,7 @@
             this.TitleLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.TitleLabel.AutoSize = true;
             this.TitleLabel.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TitleLabel.Location = new System.Drawing.Point(584, 13);
+            this.TitleLabel.Location = new System.Drawing.Point(551, 13);
             this.TitleLabel.Name = "TitleLabel";
             this.TitleLabel.Size = new System.Drawing.Size(321, 56);
             this.TitleLabel.TabIndex = 3;
@@ -159,6 +152,7 @@
             this.TimKiemButton.TabIndex = 3;
             this.TimKiemButton.Text = "Tìm Kiếm";
             this.TimKiemButton.UseVisualStyleBackColor = true;
+            this.TimKiemButton.Click += new System.EventHandler(this.TimKiemButton_Click);
             // 
             // TimKiemTextBox
             // 
@@ -201,7 +195,6 @@
             this.TabControl.Controls.Add(this.SapHetHanTabPage);
             this.TabControl.Controls.Add(this.NhaCungCapTabPage);
             this.TabControl.Controls.Add(this.SanPhamTabPage);
-            this.TabControl.Controls.Add(this.BieuDoTabPage);
             this.TabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.TabControl.Location = new System.Drawing.Point(8, 134);
             this.TabControl.Margin = new System.Windows.Forms.Padding(2);
@@ -227,7 +220,6 @@
             // 
             this.NhapDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.NhapDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.NhapDataGridView.ColumnHeadersHeight = 46;
             this.NhapDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.NhapDataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -238,7 +230,6 @@
             this.NhapDataGridView.RowTemplate.Height = 33;
             this.NhapDataGridView.Size = new System.Drawing.Size(940, 821);
             this.NhapDataGridView.TabIndex = 0;
-            this.NhapDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.NhapDataGridView_CellContentClick);
             // 
             // XuatTabPage
             // 
@@ -291,32 +282,6 @@
             this.SanPhamTabPage.Text = "Sản phẩm";
             this.SanPhamTabPage.UseVisualStyleBackColor = true;
             // 
-            // BieuDoTabPage
-            // 
-            this.BieuDoTabPage.Controls.Add(this.chart1);
-            this.BieuDoTabPage.Location = new System.Drawing.Point(8, 45);
-            this.BieuDoTabPage.Name = "BieuDoTabPage";
-            this.BieuDoTabPage.Size = new System.Drawing.Size(945, 828);
-            this.BieuDoTabPage.TabIndex = 6;
-            this.BieuDoTabPage.Text = "Biểu đồ";
-            this.BieuDoTabPage.UseVisualStyleBackColor = true;
-            // 
-            // chart1
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(3, 3);
-            this.chart1.Name = "chart1";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(939, 822);
-            this.chart1.TabIndex = 0;
-            this.chart1.Text = "chart1";
-            // 
             // dateTimePicker2
             // 
             this.dateTimePicker2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -360,6 +325,7 @@
             this.SuaButton.TabIndex = 2;
             this.SuaButton.Text = "Sửa";
             this.SuaButton.UseVisualStyleBackColor = true;
+            this.SuaButton.Click += new System.EventHandler(this.SuaButton_Click_1);
             // 
             // ThemButton
             // 
@@ -370,6 +336,7 @@
             this.ThemButton.TabIndex = 0;
             this.ThemButton.Text = "Thêm";
             this.ThemButton.UseVisualStyleBackColor = true;
+            this.ThemButton.Click += new System.EventHandler(this.ThemButton_Click);
             // 
             // panel1
             // 
@@ -381,7 +348,7 @@
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.panel1.Location = new System.Drawing.Point(252, 1020);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1045, 79);
+            this.panel1.Size = new System.Drawing.Size(979, 79);
             this.panel1.TabIndex = 3;
             // 
             // panel2
@@ -408,7 +375,7 @@
             this.panel3.Controls.Add(this.ThoiGianTextBox);
             this.panel3.Controls.Add(this.TongGiaTextBox);
             this.panel3.Controls.Add(this.MNXtextBox);
-            this.panel3.Location = new System.Drawing.Point(1047, 163);
+            this.panel3.Location = new System.Drawing.Point(981, 163);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(441, 843);
             this.panel3.TabIndex = 4;
@@ -495,7 +462,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1489, 1142);
+            this.ClientSize = new System.Drawing.Size(1423, 1142);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
@@ -516,8 +483,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.NhapDataGridView)).EndInit();
             this.XuatTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.BieuDoTabPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -546,8 +511,6 @@
         private System.Windows.Forms.TabPage SapHetHanTabPage;
         private System.Windows.Forms.TabPage NhaCungCapTabPage;
         private System.Windows.Forms.TabPage SanPhamTabPage;
-        private System.Windows.Forms.TabPage BieuDoTabPage;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DataGridView NhapDataGridView;
         private System.Windows.Forms.Button XoaButton;
