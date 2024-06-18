@@ -1,22 +1,19 @@
-﻿using MiniMart.DataAccessLayer.Repositories;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using MiniMart.BusinessLogicLayer.Services;
 
 namespace MiniMart.PresentationLayer.Form
 {
     public partial class FormKho : System.Windows.Forms.Form
     {
+        private KhoLG khoService;
+
         public FormKho()
         {
             InitializeComponent();
+
+            khoService = new KhoLG();
 
             MnvTextBox.Text = LoginForm.MNV;
             HoTenTextBox.Text = LoginForm.HOTEN;
@@ -29,14 +26,18 @@ namespace MiniMart.PresentationLayer.Form
 
         private void FormKho_Load(object sender, EventArgs e)
         {
-            LoadDataIntoTabPage("NhapTabPage", KhoDb.DataNhap()); 
-            LoadDataIntoTabPage("XuatTabPage", KhoDb.DataXuat());
+            RefreshData();
+        }
+
+        private void RefreshData()
+        {
+            LoadDataIntoTabPage("NhapTabPage", khoService.GetNhapData());
+            LoadDataIntoTabPage("XuatTabPage", khoService.GetXuatData());
+            LoadDataIntoTabPage("SapHetHanTabPage", khoService.GetSanPhamHetHan());
         }
 
         private void LoadDataIntoTabPage(string tabPageName, DataTable data)
         {
-
-            // Tìm TabPage có tên là tabPageName
             TabPage tabPage = null;
             foreach (TabPage tp in TabControl.TabPages)
             {
@@ -49,15 +50,16 @@ namespace MiniMart.PresentationLayer.Form
 
             if (tabPage != null)
             {
-                // Tạo một DataGridView mới
-                DataGridView dataGridView = new DataGridView();
-                dataGridView.Dock = DockStyle.Fill;
-                dataGridView.DataSource = data;
+                DataGridView dataGridView = new DataGridView
+                {
+                    Dock = DockStyle.Fill,
+                    DataSource = data,
+                    Name = tabPageName + "DataGridView"
+                };
 
-                // Xóa bất kỳ điều khiển nào đã được thêm vào TabPage trước đó
+                dataGridView.CellClick += DataGridView_CellClick;
+
                 tabPage.Controls.Clear();
-
-                // Thêm DataGridView vào TabPage
                 tabPage.Controls.Add(dataGridView);
             }
             else
@@ -66,30 +68,139 @@ namespace MiniMart.PresentationLayer.Form
             }
         }
 
+        private void DataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridView dataGridView = sender as DataGridView;
+                DataGridViewRow row = dataGridView.Rows[e.RowIndex];
+
+                MNXtextBox.Text = row.Cells["Mnx"].Value.ToString();
+                MspTextBox.Text = row.Cells["Msp"].Value.ToString();
+                MnccTextBox.Text = row.Cells["Mncc"].Value.ToString();
+                SoLuongTextBox.Text = row.Cells["SoLuong"].Value.ToString();
+                TongGiaTextBox.Text = row.Cells["TongGia"].Value.ToString();
+                ThoiGianTextBox.Text = row.Cells["ThoiGian"].Value.ToString();
+            }
+        }
+
+        private void ThemButton_Click(object sender, EventArgs e)
+        {
+            string mnx = MNXtextBox.Text;
+            string msp = MspTextBox.Text;
+            string mncc = MnccTextBox.Text;
+            int soLuong = int.Parse(SoLuongTextBox.Text);
+            decimal tongGia = decimal.Parse(TongGiaTextBox.Text);
+
+            DateTime thoiGian;
+            if (string.IsNullOrEmpty(ThoiGianTextBox.Text))
+            {
+                thoiGian = DateTime.Now;
+            }
+            else
+            {
+                thoiGian = DateTime.Parse(ThoiGianTextBox.Text);
+            }
+
+            if (khoService.CheckDuplicate(mnx))
+            {
+                MessageBox.Show("Mã nhập/xuất đã tồn tại, vui lòng kiểm tra lại.");
+            }
+            else
+            {
+                khoService.AddNewEntry(mnx, msp, mncc, soLuong, tongGia, thoiGian);
+                MessageBox.Show("Đã thêm mới thành công.");
+                ClearTextBoxes();
+                RefreshData();
+            }
+        }      
+
         private void XoaButton_Click(object sender, EventArgs e)
         {
+            string mnx = MNXtextBox.Text;
+            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa dữ liệu này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                khoService.DeleteEntry(mnx);
+                MessageBox.Show("Đã xóa thành công.");
+                ClearTextBoxes();
+                RefreshData();
+            }
+        }     
 
-        }
-
-        private void NhapDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void ClearTextBoxes()
         {
-
+            MNXtextBox.Text = "";
+            MspTextBox.Text = "";
+            MnccTextBox.Text = "";
+            SoLuongTextBox.Text = "";
+            TongGiaTextBox.Text = "";
+            ThoiGianTextBox.Text = "";
         }
 
-        //string timkiemtextbox = FormKho.TimKiemTextBox.Text;
-
-        public static DateTime date1;
-        public static DateTime date2;
-
-        private void TinhNgay()
+        private void SuaButton_Click_1(object sender, EventArgs e)
         {
-            DateTime date1 = dateTimePicker1.Value;
-            MessageBox.Show(date1.ToString());
+            string mnx = MNXtextBox.Text;
+            string msp = MspTextBox.Text;
+            string mncc = MnccTextBox.Text;
+            int soLuong;
+            decimal tongGia;
+            DateTime thoiGian;
 
-            DateTime date2 = dateTimePicker2.Value;
-            MessageBox.Show(date1.ToString());
+            if (string.IsNullOrEmpty(ThoiGianTextBox.Text))
+            {
+                thoiGian = DateTime.Now;
+            }
+            else
+            {
+                thoiGian = DateTime.Parse(ThoiGianTextBox.Text);
+            }
+
+            if (string.IsNullOrEmpty(mnx) || 
+                string.IsNullOrEmpty(msp) || 
+                string.IsNullOrEmpty(mncc) ||
+                !int.TryParse(SoLuongTextBox.Text, out soLuong) || 
+                !decimal.TryParse(TongGiaTextBox.Text, out tongGia))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ và đúng thông tin.");
+                return;
+            }
+
+            khoService.UpdateEntry(mnx, msp, mncc, soLuong, tongGia, thoiGian);
+            MessageBox.Show("Đã cập nhật thành công.");
+            ClearTextBoxes();
+            RefreshData();
         }
 
-        
+        private void TimKiemButton_Click(object sender, EventArgs e)
+        {
+            
+            string columnName = TimKiemComboBox.SelectedItem?.ToString();
+            
+            string keyword = TimKiemTextBox.Text;
+            
+            DateTime fromDate = dateTimePicker1.Value;
+            DateTime toDate = dateTimePicker2.Value;
+
+            
+            if (string.IsNullOrEmpty(columnName) || string.IsNullOrEmpty(keyword))
+            {
+                MessageBox.Show("Vui lòng chọn cột và nhập từ khóa tìm kiếm.");
+                return;
+            }
+
+            
+            DataTable searchData = khoService.SearchData(columnName, keyword, fromDate, toDate);
+
+            
+            if (searchData != null && searchData.Rows.Count > 0)
+            {
+                LoadDataIntoTabPage("NhapTabPage", searchData);
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy dữ liệu phù hợp.");
+            }
+        }
     }
 }
