@@ -43,10 +43,28 @@ namespace MiniMart.DataAccessLayer.Repositories
             return ExecuteQuery(query);
         }
 
-        public static Database SanPhamHetHan()
+        public static DataTable SanPhamHetHan()
         {
+            DataTable dataTable = new DataTable();
             string query = @"SELECT * FROM SanPham WHERE HetHan < GETDATE()";
-            return ExecuteQuery(query);
+            try
+            {
+                database.OpenConnection();
+                SqlCommand cmd = new SqlCommand(query, database.GetConnection());
+                SqlDataReader reader = cmd.ExecuteReader();
+                dataTable.Load(reader);
+                reader.Close();
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                return null; 
+            }
+            finally
+            {
+                database.CloseConnection();
+            }
         }
 
         public static bool CheckDuplicate(string mnx)
