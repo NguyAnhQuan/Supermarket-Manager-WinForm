@@ -113,7 +113,7 @@ namespace MiniMart.PresentationLayer.Form
                 ClearTextBoxes();
                 RefreshData();
             }
-        }      
+        }
 
         private void XoaButton_Click(object sender, EventArgs e)
         {
@@ -126,7 +126,7 @@ namespace MiniMart.PresentationLayer.Form
                 ClearTextBoxes();
                 RefreshData();
             }
-        }     
+        }
 
         private void ClearTextBoxes()
         {
@@ -156,10 +156,10 @@ namespace MiniMart.PresentationLayer.Form
                 thoiGian = DateTime.Parse(ThoiGianTextBox.Text);
             }
 
-            if (string.IsNullOrEmpty(mnx) || 
-                string.IsNullOrEmpty(msp) || 
+            if (string.IsNullOrEmpty(mnx) ||
+                string.IsNullOrEmpty(msp) ||
                 string.IsNullOrEmpty(mncc) ||
-                !int.TryParse(SoLuongTextBox.Text, out soLuong) || 
+                !int.TryParse(SoLuongTextBox.Text, out soLuong) ||
                 !decimal.TryParse(TongGiaTextBox.Text, out tongGia))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ và đúng thông tin.");
@@ -174,25 +174,25 @@ namespace MiniMart.PresentationLayer.Form
 
         private void TimKiemButton_Click(object sender, EventArgs e)
         {
-            
+
             string columnName = TimKiemComboBox.SelectedItem?.ToString();
-            
+
             string keyword = TimKiemTextBox.Text;
-            
+
             DateTime fromDate = dateTimePicker1.Value;
             DateTime toDate = dateTimePicker2.Value;
 
-            
+
             if (string.IsNullOrEmpty(columnName) || string.IsNullOrEmpty(keyword))
             {
                 MessageBox.Show("Vui lòng chọn cột và nhập từ khóa tìm kiếm.");
                 return;
             }
 
-            
+
             DataTable searchData = khoService.SearchData(columnName, keyword, fromDate, toDate);
 
-            
+
             if (searchData != null && searchData.Rows.Count > 0)
             {
                 LoadDataIntoTabPage("NhapTabPage", searchData);
