@@ -37,11 +37,7 @@ namespace MiniMart.DataAccessLayer.Repositories
             return ExecuteQuery(query);
         }
 
-        public static DataTable DataXuat()
-        {
-            string query = @"SELECT * FROM KhoNX WHERE Mnx LIKE 'KX%'";
-            return ExecuteQuery(query);
-        }
+        
 
         public static DataTable SanPhamHetHan()
         {
@@ -67,27 +63,7 @@ namespace MiniMart.DataAccessLayer.Repositories
             }
         }
 
-        public static bool CheckDuplicate(string mnx)
-        {
-            string query = @"SELECT COUNT(*) FROM KhoNX WHERE Mnx = @Mnx";
-            try
-            {
-                database.OpenConnection();
-                SqlCommand cmd = new SqlCommand(query, database.GetConnection());
-                cmd.Parameters.AddWithValue("@Mnx", mnx);
-                int count = (int)cmd.ExecuteScalar();
-                return count > 0;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-                return false;
-            }
-            finally
-            {
-                database.CloseConnection();
-            }
-        }
+        
 
         public static void AddNewEntry(string mnx, string msp, string mncc, int soLuong, decimal tongGia, DateTime thoiGian)
         {
@@ -143,7 +119,30 @@ namespace MiniMart.DataAccessLayer.Repositories
 
         public static void DeleteEntry(string mnx)
         {
-            string query = @"DELETE FROM KhoNX WHERE Mnx = @Mnx";
+            try
+            {
+                DeleteRelatedEntries(mnx);
+
+                string query = @"DELETE FROM KhoNX WHERE Mnx = @Mnx";
+                database.OpenConnection();
+                SqlCommand cmd = new SqlCommand(query, database.GetConnection());
+                cmd.Parameters.AddWithValue("@Mnx", mnx);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                database.CloseConnection();
+            }
+        }
+
+
+        public static void DeleteRelatedEntries(string mnx)
+        {
+            string query = @"DELETE FROM NganSach WHERE Mnx = @Mnx";
             try
             {
                 database.OpenConnection();
@@ -160,6 +159,7 @@ namespace MiniMart.DataAccessLayer.Repositories
                 database.CloseConnection();
             }
         }
+
 
         public static DataTable SearchData(string columnName, string keyword, DateTime fromDate, DateTime toDate)
         {

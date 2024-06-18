@@ -7,8 +7,8 @@ namespace MiniMart.DataAccessLayer
 {
     internal class Database : IDatabaseConnection
     {
-        //private static SqlConnection con = new SqlConnection("Data Source=NGUYEN-ANH-QUAN\\ANHQUANHAV;Initial Catalog=QuanLySieuThi;Integrated Security=True");
-        private static SqlConnection con = new SqlConnection("Data Source=VUN\\NGUYEN_VAN_VU;Initial Catalog=QuanLySieuThi;Integrated Security=True");
+        private static SqlConnection con = new SqlConnection("Data Source=NGUYEN-ANH-QUAN\\ANHQUANHAV;Initial Catalog=QuanLySieuThi;Integrated Security=True");
+        //private static SqlConnection con = new SqlConnection("Data Source=VUN\\NGUYEN_VAN_VU;Initial Catalog=QuanLySieuThi;Integrated Security=True");
 
         public void OpenConnection()
         {

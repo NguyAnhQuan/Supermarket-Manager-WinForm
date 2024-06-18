@@ -32,3 +32,4 @@ D:\DCCNTT13.10.5\năm 2\ki2\dotnet\QlBanHang\MiniMart\MiniMart\obj\Debug\MiniMar
 D:\DCCNTT13.10.5\năm 2\ki2\dotnet\QlBanHang\MiniMart\MiniMart\obj\Debug\MiniMart.PresentationLayer.Forms.FormSanPham.resources
 D:\DCCNTT13.10.5\năm 2\ki2\dotnet\QlBanHang\MiniMart\MiniMart\obj\Debug\MiniMart.PresentationLayer.Forms.FormThuNgan.resources
 D:\DCCNTT13.10.5\năm 2\ki2\dotnet\QlBanHang\MiniMart\MiniMart\obj\Debug\MiniMart.PresentationLayer.Forms.FromKeToan.resources
+D:\DCCNTT13.10.5\năm 2\ki2\dotnet\QlBanHang\MiniMart\MiniMart\obj\Debug\MiniMart.PresentationLayer.Forms.FormNhaCungCap.resources

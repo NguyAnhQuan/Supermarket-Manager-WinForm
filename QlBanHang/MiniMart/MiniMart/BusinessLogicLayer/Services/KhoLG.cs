@@ -11,20 +11,12 @@ namespace MiniMart.BusinessLogicLayer.Services
             return KhoDb.DataNhap();
         }
 
-        public DataTable GetXuatData()
-        {
-            return KhoDb.DataXuat();
-        }
-
         public DataTable GetSanPhamHetHan()
         {
             return KhoDb.SanPhamHetHan();
         }
 
-        public bool CheckDuplicate(string mnx)
-        {
-            return KhoDb.CheckDuplicate(mnx);
-        }
+
 
         public void AddNewEntry(string mnx, string msp, string mncc, int soLuong, decimal tongGia, DateTime thoiGian)
         {
