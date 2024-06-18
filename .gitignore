@@ -1,2 +1,6 @@
 .vs/
 hoc
+*.exe
+*.pdb
+/QlBanHang/MiniMart/MiniMart/bin/Debug/
+/QlBanHang/MiniMart/MiniMart/obj/Debug/
