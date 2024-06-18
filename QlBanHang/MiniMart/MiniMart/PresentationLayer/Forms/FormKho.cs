@@ -18,13 +18,15 @@ namespace MiniMart.PresentationLayer.Form
             MnvTextBox.Text = LoginForm.MNV;
             HoTenTextBox.Text = LoginForm.HOTEN;
 
+            // Bind data to DataGridView when the form is loaded
             LoadDataToDataGridView();
 
+            // Attach event handlers for CellClick event and buttons
             KhoDataGridView.CellClick += KhoDataGridView_CellClick;
             ThemButton.Click += ThemButton_Click;
             SuaButton.Click += SuaButton_Click;
             XoaButton.Click += XoaButton_Click;
-            TimKiemTextBox.Click += TimKiemKhoButton_Click;
+            TimKiemKhoBitton.Click += TimKiemKhoButton_Click;
         }
 
         private void LoadDataToDataGridView()
@@ -55,12 +57,12 @@ namespace MiniMart.PresentationLayer.Form
                 string mncc = MnccTextBox.Text;
                 int soLuong = int.Parse(SoLuongTextBox.Text);
                 decimal tongGia = decimal.Parse(TongGiaTextBox.Text);
-                DateTime thoiGian = DateTime.Now; 
+                DateTime thoiGian = DateTime.Now; // Sử dụng thời gian hiện tại của máy
 
                 khoService.AddNewEntry(mnx, msp, mncc, soLuong, tongGia, thoiGian);
                 MessageBox.Show("Thêm dữ liệu thành công!");
 
-                LoadDataToDataGridView(); 
+                LoadDataToDataGridView(); // Refresh data grid view
             }
             catch (Exception ex)
             {
@@ -82,7 +84,7 @@ namespace MiniMart.PresentationLayer.Form
                 khoService.UpdateEntry(mnx, msp, mncc, soLuong, tongGia, thoiGian);
                 MessageBox.Show("Cập nhật dữ liệu thành công!");
 
-                LoadDataToDataGridView(); 
+                LoadDataToDataGridView(); // Refresh data grid view
             }
             catch (Exception ex)
             {
@@ -96,46 +98,55 @@ namespace MiniMart.PresentationLayer.Form
             {
                 string mnx = MnxTextBox.Text;
 
+                // Hiển thị thông báo xác nhận trước khi xóa
                 DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa mục này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes)
                 {
+                    // Nếu người dùng chọn "Yes", thực hiện xóa
                     khoService.DeleteEntry(mnx);
                     MessageBox.Show("Xóa dữ liệu thành công!");
 
-                    LoadDataToDataGridView(); 
+                    LoadDataToDataGridView(); // Làm mới DataGridView
                 }
+                // Nếu người dùng chọn "No", không làm gì
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
-
 
         private void TimKiemKhoButton_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string columnName = TimKiemComboBox.SelectedItem.ToString();
-                string keyword = TimKiemTextBox.Text;
-                DateTime fromDate = dateTimePicker1.Value;
-                DateTime toDate = dateTimePicker2.Value;
+            // Lấy giá trị của các điều khiển từ người dùng nhập vào
+            string keyword = TimKiemTextBox.Text.Trim();
+            DateTime fromDate = dateTimePicker1.Value;
+            DateTime toDate = dateTimePicker2.Value;
 
-                if (string.IsNullOrWhiteSpace(keyword))
-                {
-                    KhoDataGridView.DataSource = khoService.SearchData(columnName, "%", fromDate, toDate);
-                }
-                else
-                {
-                    KhoDataGridView.DataSource = khoService.SearchData(columnName, keyword, fromDate, toDate);
-                }
-            }
-            catch (Exception ex)
+            // Kiểm tra xem TimKiemComboBox đã chọn hay chưa
+            if (TimKiemComboBox.SelectedItem == null || string.IsNullOrEmpty(TimKiemComboBox.SelectedItem.ToString()))
             {
-                MessageBox.Show("Lỗi: " + ex.Message);
+                MessageBox.Show("Vui lòng chọn tiêu chí tìm kiếm.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; // Dừng xử lý tiếp theo
+            }
+
+            string columnName = TimKiemComboBox.SelectedItem.ToString();
+
+            // Gọi phương thức để thực hiện tìm kiếm dữ liệu
+            DataTable result = khoService.SearchData(columnName, keyword, fromDate, toDate);
+
+            // Hiển thị kết quả lên KhoDataGridView (giả sử đã có phương thức hiển thị dữ liệu lên DataGridView)
+            if (result != null)
+            {
+                KhoDataGridView.DataSource = result;
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy dữ liệu phù hợp.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
 
         private void timer1_Tick(object sender, EventArgs e)
         {

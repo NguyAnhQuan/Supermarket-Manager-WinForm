@@ -161,6 +161,8 @@ namespace MiniMart.DataAccessLayer.Repositories
         }
 
 
+
+
         public static DataTable SearchData(string columnName, string keyword, DateTime fromDate, DateTime toDate)
         {
             string query = $@"SELECT * FROM KhoNX
