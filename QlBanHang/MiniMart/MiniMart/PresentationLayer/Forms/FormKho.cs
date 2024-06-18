@@ -19,10 +19,7 @@ namespace MiniMart.PresentationLayer.Form
             HoTenTextBox.Text = LoginForm.HOTEN;
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            TimeTextBox.Text = DateTime.Now.ToString("HH:mm:ss");
-        }
+        
 
         private void FormKho_Load(object sender, EventArgs e)
         {
@@ -76,8 +73,8 @@ namespace MiniMart.PresentationLayer.Form
                 DataGridViewRow row = dataGridView.Rows[e.RowIndex];
 
                 MNXtextBox.Text = row.Cells["Mnx"].Value.ToString();
-                MspTextBox.Text = row.Cells["Msp"].Value.ToString();
-                MnccTextBox.Text = row.Cells["Mncc"].Value.ToString();
+                ThoiGianTextBox.Text = row.Cells["Msp"].Value.ToString();
+                MnxTextBox.Text = row.Cells["Mncc"].Value.ToString();
                 SoLuongTextBox.Text = row.Cells["SoLuong"].Value.ToString();
                 TongGiaTextBox.Text = row.Cells["TongGia"].Value.ToString();
                 ThoiGianTextBox.Text = row.Cells["ThoiGian"].Value.ToString();
@@ -87,8 +84,8 @@ namespace MiniMart.PresentationLayer.Form
         private void ThemButton_Click(object sender, EventArgs e)
         {
             string mnx = MNXtextBox.Text;
-            string msp = MspTextBox.Text;
-            string mncc = MnccTextBox.Text;
+            string msp = ThoiGianTextBox.Text;
+            string mncc = MnxTextBox.Text;
             int soLuong = int.Parse(SoLuongTextBox.Text);
             decimal tongGia = decimal.Parse(TongGiaTextBox.Text);
 
@@ -131,8 +128,8 @@ namespace MiniMart.PresentationLayer.Form
         private void ClearTextBoxes()
         {
             MNXtextBox.Text = "";
-            MspTextBox.Text = "";
-            MnccTextBox.Text = "";
+            ThoiGianTextBox.Text = "";
+            MnxTextBox.Text = "";
             SoLuongTextBox.Text = "";
             TongGiaTextBox.Text = "";
             ThoiGianTextBox.Text = "";
@@ -141,8 +138,8 @@ namespace MiniMart.PresentationLayer.Form
         private void SuaButton_Click_1(object sender, EventArgs e)
         {
             string mnx = MNXtextBox.Text;
-            string msp = MspTextBox.Text;
-            string mncc = MnccTextBox.Text;
+            string msp = ThoiGianTextBox.Text;
+            string mncc = MnxTextBox.Text;
             int soLuong;
             decimal tongGia;
             DateTime thoiGian;
@@ -201,6 +198,11 @@ namespace MiniMart.PresentationLayer.Form
             {
                 MessageBox.Show("Không tìm thấy dữ liệu phù hợp.");
             }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            TimeTextBox.Text = DateTime.Now.ToString("HH:mm:ss");
         }
     }
 }

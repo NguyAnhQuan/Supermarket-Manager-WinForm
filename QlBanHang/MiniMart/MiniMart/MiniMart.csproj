@@ -90,11 +90,11 @@
     <Compile Include="PresentationLayer\Forms\FormThuNgan.Designer.cs">
       <DependentUpon>FormThuNgan.cs</DependentUpon>
     </Compile>
-    <Compile Include="PresentationLayer\Forms\FormUuDai.cs">
+    <Compile Include="PresentationLayer\Forms\FormNhaCungCap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PresentationLayer\Forms\FormUuDai.Designer.cs">
-      <DependentUpon>FormUuDai.cs</DependentUpon>
+    <Compile Include="PresentationLayer\Forms\FormNhaCungCap.Designer.cs">
+      <DependentUpon>FormNhaCungCap.cs</DependentUpon>
     </Compile>
     <Compile Include="PresentationLayer\Forms\FromKeToan.cs">
       <SubType>Form</SubType>
@@ -118,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\Forms\FormKho.resx">
       <DependentUpon>FormKho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Forms\FormNhaCungCap.resx">
+      <DependentUpon>FormNhaCungCap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\Forms\FormNhanVien.resx">
       <DependentUpon>FormNhanVien.cs</DependentUpon>
