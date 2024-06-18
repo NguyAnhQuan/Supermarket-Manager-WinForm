@@ -15,11 +15,14 @@ namespace MiniMart.PresentationLayer.Forms
         public FormThuNgan()
         {
             InitializeComponent();
+
+            MnvTextBox.Text = LoginForm.MNV;
+            HoTenTextBox.Text = LoginForm.HOTEN;
         }
 
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
-
+            TimeTextBox.Text = DateTime.Now.ToString("HH:mm:ss");
         }
     }
 }

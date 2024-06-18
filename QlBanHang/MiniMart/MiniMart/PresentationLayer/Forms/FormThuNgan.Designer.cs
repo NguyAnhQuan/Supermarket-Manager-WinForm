@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.TitlePanel = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.HoTenTextBox = new System.Windows.Forms.TextBox();
@@ -38,7 +39,7 @@
             this.TimKiemButton = new System.Windows.Forms.Button();
             this.XoaButton = new System.Windows.Forms.Button();
             this.SuaButton = new System.Windows.Forms.Button();
-            this.ThemButton = new System.Windows.Forms.Button();
+            this.ThanhToanButton = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.DiaChiKHTextBox = new System.Windows.Forms.TextBox();
             this.SDTKHTextBox = new System.Windows.Forms.TextBox();
@@ -64,6 +65,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.TitlePanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -144,7 +146,7 @@
             this.panel4.Controls.Add(this.TimKiemButton);
             this.panel4.Controls.Add(this.XoaButton);
             this.panel4.Controls.Add(this.SuaButton);
-            this.panel4.Controls.Add(this.ThemButton);
+            this.panel4.Controls.Add(this.ThanhToanButton);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.panel4.Location = new System.Drawing.Point(0, 727);
@@ -185,16 +187,16 @@
             this.SuaButton.Text = "Sửa";
             this.SuaButton.UseVisualStyleBackColor = true;
             // 
-            // ThemButton
+            // ThanhToanButton
             // 
-            this.ThemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ThemButton.Location = new System.Drawing.Point(74, 11);
-            this.ThemButton.Margin = new System.Windows.Forms.Padding(2);
-            this.ThemButton.Name = "ThemButton";
-            this.ThemButton.Size = new System.Drawing.Size(193, 38);
-            this.ThemButton.TabIndex = 0;
-            this.ThemButton.Text = "Thêm";
-            this.ThemButton.UseVisualStyleBackColor = true;
+            this.ThanhToanButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ThanhToanButton.Location = new System.Drawing.Point(74, 11);
+            this.ThanhToanButton.Margin = new System.Windows.Forms.Padding(2);
+            this.ThanhToanButton.Name = "ThanhToanButton";
+            this.ThanhToanButton.Size = new System.Drawing.Size(193, 38);
+            this.ThanhToanButton.TabIndex = 0;
+            this.ThanhToanButton.Text = "Thanh toán";
+            this.ThanhToanButton.UseVisualStyleBackColor = true;
             // 
             // panel3
             // 
@@ -211,7 +213,7 @@
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Location = new System.Drawing.Point(0, 477);
+            this.panel3.Location = new System.Drawing.Point(0, 516);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1175, 99);
             this.panel3.TabIndex = 12;
@@ -320,14 +322,13 @@
             // 
             this.ThuNganGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.ThuNganGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ThuNganGridView.Location = new System.Drawing.Point(2, 94);
+            this.ThuNganGridView.Location = new System.Drawing.Point(0, 94);
             this.ThuNganGridView.Margin = new System.Windows.Forms.Padding(2);
             this.ThuNganGridView.Name = "ThuNganGridView";
             this.ThuNganGridView.RowHeadersWidth = 82;
             this.ThuNganGridView.RowTemplate.Height = 33;
-            this.ThuNganGridView.Size = new System.Drawing.Size(1173, 378);
+            this.ThuNganGridView.Size = new System.Drawing.Size(1175, 417);
             this.ThuNganGridView.TabIndex = 13;
-            this.ThuNganGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // panel1
             // 
@@ -346,9 +347,9 @@
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.label14);
-            this.panel1.Location = new System.Drawing.Point(0, 582);
+            this.panel1.Location = new System.Drawing.Point(0, 621);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1175, 137);
+            this.panel1.Size = new System.Drawing.Size(1175, 100);
             this.panel1.TabIndex = 14;
             // 
             // GiaTextBox
@@ -356,7 +357,7 @@
             this.GiaTextBox.BackColor = System.Drawing.SystemColors.HighlightText;
             this.GiaTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.GiaTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.GiaTextBox.Location = new System.Drawing.Point(514, 38);
+            this.GiaTextBox.Location = new System.Drawing.Point(448, 38);
             this.GiaTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.GiaTextBox.Name = "GiaTextBox";
             this.GiaTextBox.Size = new System.Drawing.Size(158, 27);
@@ -378,10 +379,10 @@
             this.SoLuongTextBox.BackColor = System.Drawing.SystemColors.HighlightText;
             this.SoLuongTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.SoLuongTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.SoLuongTextBox.Location = new System.Drawing.Point(514, 93);
+            this.SoLuongTextBox.Location = new System.Drawing.Point(645, 38);
             this.SoLuongTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.SoLuongTextBox.Name = "SoLuongTextBox";
-            this.SoLuongTextBox.Size = new System.Drawing.Size(158, 27);
+            this.SoLuongTextBox.Size = new System.Drawing.Size(77, 27);
             this.SoLuongTextBox.TabIndex = 22;
             // 
             // TenspTextBox
@@ -438,7 +439,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(511, 21);
+            this.label6.Location = new System.Drawing.Point(445, 21);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(28, 16);
             this.label6.TabIndex = 14;
@@ -456,7 +457,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(511, 75);
+            this.label12.Location = new System.Drawing.Point(642, 20);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(60, 16);
             this.label12.TabIndex = 11;
@@ -470,6 +471,11 @@
             this.label14.Size = new System.Drawing.Size(88, 16);
             this.label14.TabIndex = 1;
             this.label14.Text = "Mã sản phẩm";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // FormThuNgan
             // 
@@ -509,7 +515,7 @@
         private System.Windows.Forms.Button TimKiemButton;
         private System.Windows.Forms.Button XoaButton;
         private System.Windows.Forms.Button SuaButton;
-        private System.Windows.Forms.Button ThemButton;
+        private System.Windows.Forms.Button ThanhToanButton;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox DiaChiKHTextBox;
         private System.Windows.Forms.TextBox SDTKHTextBox;
@@ -535,5 +541,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Timer timer1;
     }
 }

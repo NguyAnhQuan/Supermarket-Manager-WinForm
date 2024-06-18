@@ -15,17 +15,15 @@ namespace MiniMart.PresentationLayer.Forms
         public FormAdmin()
         {
             InitializeComponent();
-            
+
+            MnvTextBox.Text = LoginForm.MNV;
+            HoTenTextBox.Text = LoginForm.HOTEN;
         }
 
-        private void FormAdmin_Load(object sender, EventArgs e)
+
+        private void timer1_Tick_1(object sender, EventArgs e)
         {
-
-        }
-
-        private void TitlePanel_Paint(object sender, PaintEventArgs e)
-        {
-
+            TimeTextBox.Text = DateTime.Now.ToString("HH:mm:ss");
         }
     }
 }

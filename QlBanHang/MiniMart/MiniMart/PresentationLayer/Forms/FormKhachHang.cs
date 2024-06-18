@@ -15,6 +15,14 @@ namespace MiniMart.PresentationLayer.Forms
         public FormKhachHang()
         {
             InitializeComponent();
+
+            MnvTextBox.Text = LoginForm.MNV;
+            HoTenTextBox.Text = LoginForm.HOTEN;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            TimeTextBox.Text = DateTime.Now.ToString("HH:mm:ss");
         }
     }
 }

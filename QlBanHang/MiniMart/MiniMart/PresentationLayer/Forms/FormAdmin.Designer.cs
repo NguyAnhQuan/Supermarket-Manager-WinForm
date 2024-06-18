@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.TitlePanel = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.HoTenTextBox = new System.Windows.Forms.TextBox();
@@ -46,12 +47,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.TimKiemButton = new System.Windows.Forms.Button();
             this.XoaButton = new System.Windows.Forms.Button();
             this.SuaButton = new System.Windows.Forms.Button();
             this.ThemButton = new System.Windows.Forms.Button();
             this.DangNhapDirdView = new System.Windows.Forms.DataGridView();
             this.NhanVienGirdView = new System.Windows.Forms.DataGridView();
-            this.TimKiemButton = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.TitlePanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -71,7 +73,6 @@
             this.TitlePanel.Name = "TitlePanel";
             this.TitlePanel.Size = new System.Drawing.Size(1169, 89);
             this.TitlePanel.TabIndex = 2;
-            this.TitlePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.TitlePanel_Paint);
             // 
             // flowLayoutPanel1
             // 
@@ -261,6 +262,17 @@
             this.panel4.Size = new System.Drawing.Size(1169, 61);
             this.panel4.TabIndex = 8;
             // 
+            // TimKiemButton
+            // 
+            this.TimKiemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.TimKiemButton.Location = new System.Drawing.Point(871, 12);
+            this.TimKiemButton.Margin = new System.Windows.Forms.Padding(2);
+            this.TimKiemButton.Name = "TimKiemButton";
+            this.TimKiemButton.Size = new System.Drawing.Size(193, 38);
+            this.TimKiemButton.TabIndex = 3;
+            this.TimKiemButton.Text = "Tìm kiếm";
+            this.TimKiemButton.UseVisualStyleBackColor = true;
+            // 
             // XoaButton
             // 
             this.XoaButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -326,16 +338,10 @@
             this.NhanVienGirdView.Size = new System.Drawing.Size(430, 411);
             this.NhanVienGirdView.TabIndex = 10;
             // 
-            // TimKiemButton
+            // timer1
             // 
-            this.TimKiemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.TimKiemButton.Location = new System.Drawing.Point(871, 12);
-            this.TimKiemButton.Margin = new System.Windows.Forms.Padding(2);
-            this.TimKiemButton.Name = "TimKiemButton";
-            this.TimKiemButton.Size = new System.Drawing.Size(193, 38);
-            this.TimKiemButton.TabIndex = 3;
-            this.TimKiemButton.Text = "Tìm kiếm";
-            this.TimKiemButton.UseVisualStyleBackColor = true;
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
             // 
             // FormAdmin
             // 
@@ -347,11 +353,10 @@
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.TitlePanel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormAdmin";
             this.Text = "FormAdmin";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.FormAdmin_Load);
             this.TitlePanel.ResumeLayout(false);
             this.TitlePanel.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -390,5 +395,6 @@
         private System.Windows.Forms.DataGridView DangNhapDirdView;
         private System.Windows.Forms.DataGridView NhanVienGirdView;
         private System.Windows.Forms.Button TimKiemButton;
+        private System.Windows.Forms.Timer timer1;
     }
 }

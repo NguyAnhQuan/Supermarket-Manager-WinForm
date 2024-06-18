@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.TitlePanel = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.HoTenTextBox = new System.Windows.Forms.TextBox();
@@ -39,18 +40,19 @@
             this.SDTKHTextBox = new System.Windows.Forms.TextBox();
             this.HoTenKHTextBox = new System.Windows.Forms.TextBox();
             this.HangKhachTextBox = new System.Windows.Forms.TextBox();
-            this.HkhTextBox = new System.Windows.Forms.TextBox();
+            this.MkhTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.TimKiemButton = new System.Windows.Forms.Button();
             this.XoaButton = new System.Windows.Forms.Button();
             this.SuaButton = new System.Windows.Forms.Button();
             this.ThemButton = new System.Windows.Forms.Button();
             this.KhachHangDirdView = new System.Windows.Forms.DataGridView();
-            this.TimKiemButton = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.TitlePanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -134,7 +136,7 @@
             this.panel3.Controls.Add(this.SDTKHTextBox);
             this.panel3.Controls.Add(this.HoTenKHTextBox);
             this.panel3.Controls.Add(this.HangKhachTextBox);
-            this.panel3.Controls.Add(this.HkhTextBox);
+            this.panel3.Controls.Add(this.MkhTextBox);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label4);
@@ -189,16 +191,16 @@
             this.HangKhachTextBox.Size = new System.Drawing.Size(158, 27);
             this.HangKhachTextBox.TabIndex = 19;
             // 
-            // HkhTextBox
+            // MkhTextBox
             // 
-            this.HkhTextBox.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.HkhTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.HkhTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.HkhTextBox.Location = new System.Drawing.Point(47, 38);
-            this.HkhTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.HkhTextBox.Name = "HkhTextBox";
-            this.HkhTextBox.Size = new System.Drawing.Size(158, 27);
-            this.HkhTextBox.TabIndex = 18;
+            this.MkhTextBox.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.MkhTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.MkhTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.MkhTextBox.Location = new System.Drawing.Point(47, 38);
+            this.MkhTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.MkhTextBox.Name = "MkhTextBox";
+            this.MkhTextBox.Size = new System.Drawing.Size(158, 27);
+            this.MkhTextBox.TabIndex = 18;
             // 
             // label5
             // 
@@ -258,6 +260,17 @@
             this.panel4.Size = new System.Drawing.Size(1178, 61);
             this.panel4.TabIndex = 9;
             // 
+            // TimKiemButton
+            // 
+            this.TimKiemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.TimKiemButton.Location = new System.Drawing.Point(899, 11);
+            this.TimKiemButton.Margin = new System.Windows.Forms.Padding(2);
+            this.TimKiemButton.Name = "TimKiemButton";
+            this.TimKiemButton.Size = new System.Drawing.Size(193, 38);
+            this.TimKiemButton.TabIndex = 4;
+            this.TimKiemButton.Text = "Tìm kiếm";
+            this.TimKiemButton.UseVisualStyleBackColor = true;
+            // 
             // XoaButton
             // 
             this.XoaButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -307,16 +320,10 @@
             this.KhachHangDirdView.Size = new System.Drawing.Size(1178, 402);
             this.KhachHangDirdView.TabIndex = 10;
             // 
-            // TimKiemButton
+            // timer1
             // 
-            this.TimKiemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.TimKiemButton.Location = new System.Drawing.Point(899, 11);
-            this.TimKiemButton.Margin = new System.Windows.Forms.Padding(2);
-            this.TimKiemButton.Name = "TimKiemButton";
-            this.TimKiemButton.Size = new System.Drawing.Size(193, 38);
-            this.TimKiemButton.TabIndex = 4;
-            this.TimKiemButton.Text = "Tìm kiếm";
-            this.TimKiemButton.UseVisualStyleBackColor = true;
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // FormKhachHang
             // 
@@ -354,7 +361,7 @@
         private System.Windows.Forms.TextBox SDTKHTextBox;
         private System.Windows.Forms.TextBox HoTenKHTextBox;
         private System.Windows.Forms.TextBox HangKhachTextBox;
-        private System.Windows.Forms.TextBox HkhTextBox;
+        private System.Windows.Forms.TextBox MkhTextBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -366,5 +373,6 @@
         private System.Windows.Forms.Button ThemButton;
         private System.Windows.Forms.DataGridView KhachHangDirdView;
         private System.Windows.Forms.Button TimKiemButton;
+        private System.Windows.Forms.Timer timer1;
     }
 }
