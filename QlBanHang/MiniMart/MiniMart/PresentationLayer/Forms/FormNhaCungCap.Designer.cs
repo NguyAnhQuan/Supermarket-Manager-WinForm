@@ -36,17 +36,17 @@
             this.TitleLabel = new System.Windows.Forms.Label();
             this.TimeTextBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.DiaChiTextBox = new System.Windows.Forms.TextBox();
+            this.HopTacTextBox = new System.Windows.Forms.TextBox();
+            this.TenTextBox = new System.Windows.Forms.TextBox();
+            this.SdtTextBox = new System.Windows.Forms.TextBox();
             this.MnccTextBox = new System.Windows.Forms.TextBox();
-            this.SoLuongTextBox = new System.Windows.Forms.TextBox();
-            this.MaSPTextBox = new System.Windows.Forms.TextBox();
-            this.ThoiGianTextBox = new System.Windows.Forms.TextBox();
-            this.MnxTextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.KhoDataGridView = new System.Windows.Forms.DataGridView();
+            this.NccDataGridView = new System.Windows.Forms.DataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
             this.TimKiemButton = new System.Windows.Forms.Button();
             this.XoaButton = new System.Windows.Forms.Button();
@@ -56,7 +56,7 @@
             this.TitlePanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.KhoDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NccDataGridView)).BeginInit();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -132,11 +132,11 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.DiaChiTextBox);
+            this.panel1.Controls.Add(this.HopTacTextBox);
+            this.panel1.Controls.Add(this.TenTextBox);
+            this.panel1.Controls.Add(this.SdtTextBox);
             this.panel1.Controls.Add(this.MnccTextBox);
-            this.panel1.Controls.Add(this.SoLuongTextBox);
-            this.panel1.Controls.Add(this.MaSPTextBox);
-            this.panel1.Controls.Add(this.ThoiGianTextBox);
-            this.panel1.Controls.Add(this.MnxTextBox);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label3);
@@ -147,60 +147,60 @@
             this.panel1.Size = new System.Drawing.Size(1174, 157);
             this.panel1.TabIndex = 14;
             // 
+            // DiaChiTextBox
+            // 
+            this.DiaChiTextBox.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.DiaChiTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.DiaChiTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.DiaChiTextBox.Location = new System.Drawing.Point(902, 38);
+            this.DiaChiTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.DiaChiTextBox.Name = "DiaChiTextBox";
+            this.DiaChiTextBox.Size = new System.Drawing.Size(158, 27);
+            this.DiaChiTextBox.TabIndex = 25;
+            // 
+            // HopTacTextBox
+            // 
+            this.HopTacTextBox.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.HopTacTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.HopTacTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.HopTacTextBox.Location = new System.Drawing.Point(710, 97);
+            this.HopTacTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.HopTacTextBox.Name = "HopTacTextBox";
+            this.HopTacTextBox.Size = new System.Drawing.Size(158, 27);
+            this.HopTacTextBox.TabIndex = 23;
+            // 
+            // TenTextBox
+            // 
+            this.TenTextBox.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.TenTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TenTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.TenTextBox.Location = new System.Drawing.Point(501, 38);
+            this.TenTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.TenTextBox.Name = "TenTextBox";
+            this.TenTextBox.Size = new System.Drawing.Size(158, 27);
+            this.TenTextBox.TabIndex = 21;
+            // 
+            // SdtTextBox
+            // 
+            this.SdtTextBox.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.SdtTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SdtTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.SdtTextBox.Location = new System.Drawing.Point(301, 97);
+            this.SdtTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.SdtTextBox.Name = "SdtTextBox";
+            this.SdtTextBox.Size = new System.Drawing.Size(158, 27);
+            this.SdtTextBox.TabIndex = 19;
+            // 
             // MnccTextBox
             // 
             this.MnccTextBox.BackColor = System.Drawing.SystemColors.HighlightText;
             this.MnccTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.MnccTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.MnccTextBox.Location = new System.Drawing.Point(902, 38);
+            this.MnccTextBox.Location = new System.Drawing.Point(105, 38);
             this.MnccTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.MnccTextBox.Name = "MnccTextBox";
             this.MnccTextBox.Size = new System.Drawing.Size(158, 27);
-            this.MnccTextBox.TabIndex = 25;
-            // 
-            // SoLuongTextBox
-            // 
-            this.SoLuongTextBox.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.SoLuongTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SoLuongTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.SoLuongTextBox.Location = new System.Drawing.Point(710, 97);
-            this.SoLuongTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.SoLuongTextBox.Name = "SoLuongTextBox";
-            this.SoLuongTextBox.Size = new System.Drawing.Size(158, 27);
-            this.SoLuongTextBox.TabIndex = 23;
-            // 
-            // MaSPTextBox
-            // 
-            this.MaSPTextBox.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.MaSPTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.MaSPTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.MaSPTextBox.Location = new System.Drawing.Point(501, 38);
-            this.MaSPTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.MaSPTextBox.Name = "MaSPTextBox";
-            this.MaSPTextBox.Size = new System.Drawing.Size(158, 27);
-            this.MaSPTextBox.TabIndex = 21;
-            // 
-            // ThoiGianTextBox
-            // 
-            this.ThoiGianTextBox.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.ThoiGianTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ThoiGianTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.ThoiGianTextBox.Location = new System.Drawing.Point(301, 97);
-            this.ThoiGianTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.ThoiGianTextBox.Name = "ThoiGianTextBox";
-            this.ThoiGianTextBox.Size = new System.Drawing.Size(158, 27);
-            this.ThoiGianTextBox.TabIndex = 19;
-            // 
-            // MnxTextBox
-            // 
-            this.MnxTextBox.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.MnxTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.MnxTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.MnxTextBox.Location = new System.Drawing.Point(105, 38);
-            this.MnxTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.MnxTextBox.Name = "MnxTextBox";
-            this.MnxTextBox.Size = new System.Drawing.Size(158, 27);
-            this.MnxTextBox.TabIndex = 18;
+            this.MnccTextBox.TabIndex = 18;
             // 
             // label7
             // 
@@ -247,21 +247,22 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Số điện thoại";
             // 
-            // KhoDataGridView
+            // NccDataGridView
             // 
-            this.KhoDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.NccDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.KhoDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.KhoDataGridView.ColumnHeadersHeight = 46;
-            this.KhoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.KhoDataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.KhoDataGridView.Location = new System.Drawing.Point(0, 94);
-            this.KhoDataGridView.Margin = new System.Windows.Forms.Padding(2);
-            this.KhoDataGridView.Name = "KhoDataGridView";
-            this.KhoDataGridView.RowHeadersWidth = 82;
-            this.KhoDataGridView.RowTemplate.Height = 33;
-            this.KhoDataGridView.Size = new System.Drawing.Size(1174, 484);
-            this.KhoDataGridView.TabIndex = 15;
+            this.NccDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.NccDataGridView.ColumnHeadersHeight = 46;
+            this.NccDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.NccDataGridView.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.NccDataGridView.Location = new System.Drawing.Point(0, 94);
+            this.NccDataGridView.Margin = new System.Windows.Forms.Padding(2);
+            this.NccDataGridView.Name = "NccDataGridView";
+            this.NccDataGridView.RowHeadersWidth = 82;
+            this.NccDataGridView.RowTemplate.Height = 33;
+            this.NccDataGridView.Size = new System.Drawing.Size(1174, 484);
+            this.NccDataGridView.TabIndex = 15;
+            this.NccDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.NccDataGridView_CellClick);
             // 
             // panel4
             // 
@@ -286,6 +287,7 @@
             this.TimKiemButton.TabIndex = 4;
             this.TimKiemButton.Text = "Tìm kiếm";
             this.TimKiemButton.UseVisualStyleBackColor = true;
+            this.TimKiemButton.Click += new System.EventHandler(this.TimKiemButton_Click);
             // 
             // XoaButton
             // 
@@ -297,6 +299,7 @@
             this.XoaButton.TabIndex = 1;
             this.XoaButton.Text = "Xóa";
             this.XoaButton.UseVisualStyleBackColor = true;
+            this.XoaButton.Click += new System.EventHandler(this.XoaButton_Click);
             // 
             // SuaButton
             // 
@@ -308,6 +311,7 @@
             this.SuaButton.TabIndex = 2;
             this.SuaButton.Text = "Sửa";
             this.SuaButton.UseVisualStyleBackColor = true;
+            this.SuaButton.Click += new System.EventHandler(this.SuaButton_Click);
             // 
             // ThemButton
             // 
@@ -319,6 +323,7 @@
             this.ThemButton.TabIndex = 0;
             this.ThemButton.Text = "Thêm";
             this.ThemButton.UseVisualStyleBackColor = true;
+            this.ThemButton.Click += new System.EventHandler(this.ThemButton_Click);
             // 
             // timer1
             // 
@@ -331,7 +336,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1174, 807);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.KhoDataGridView);
+            this.Controls.Add(this.NccDataGridView);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.TitlePanel);
             this.Name = "FormNhaCungCap";
@@ -342,7 +347,7 @@
             this.flowLayoutPanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.KhoDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NccDataGridView)).EndInit();
             this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -357,17 +362,17 @@
         private System.Windows.Forms.Label TitleLabel;
         private System.Windows.Forms.TextBox TimeTextBox;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox DiaChiTextBox;
+        private System.Windows.Forms.TextBox HopTacTextBox;
+        private System.Windows.Forms.TextBox TenTextBox;
+        private System.Windows.Forms.TextBox SdtTextBox;
         private System.Windows.Forms.TextBox MnccTextBox;
-        private System.Windows.Forms.TextBox SoLuongTextBox;
-        private System.Windows.Forms.TextBox MaSPTextBox;
-        private System.Windows.Forms.TextBox ThoiGianTextBox;
-        private System.Windows.Forms.TextBox MnxTextBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView KhoDataGridView;
+        private System.Windows.Forms.DataGridView NccDataGridView;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button TimKiemButton;
         private System.Windows.Forms.Button XoaButton;

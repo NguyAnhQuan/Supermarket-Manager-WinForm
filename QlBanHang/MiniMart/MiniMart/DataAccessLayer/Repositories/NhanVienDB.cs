@@ -41,16 +41,16 @@ namespace MiniMart.DataAccessLayer.Repositories
             return ExecuteQuery(query);
         }
 
-        public static void AddNewEntry(string Mnv, string Sdt, DateTime SinhNhat, string DiaChi, string HoTen, string GioiTinh, string ChucVu, float Luong)
+        public static void AddNewEntry(string Mnv, string Sdt, string SinhNhat, string DiaChi, string HoTen, string GioiTinh, string ChucVu, float Luong)
         {
             string query = @"INSERT INTO NhanVien (Mnv, Sdt, SinhNhat, DiaChi, HoTen, GioiTinh, ChucVu, Luong)
-                             VALUES (@Mnv, @Sdt, @SinhNhat, @DiaChi, @HoTen,  @GioiTinh, @ChucVu, @Luong)";
+                             VALUES (@Mnv, @DiaChi, @SinhNhat, @DiaChi, @HoTen,  @GioiTinh, @ChucVu, @Luong)";
             try
             {
                 database.OpenConnection();
                 SqlCommand cmd = new SqlCommand(query, database.GetConnection());
                 cmd.Parameters.AddWithValue("@Mnv", Mnv);
-                cmd.Parameters.AddWithValue("@Sdt", Sdt);
+                cmd.Parameters.AddWithValue("@DiaChi", Sdt);
                 cmd.Parameters.AddWithValue("@SinhNhat", SinhNhat);
                 cmd.Parameters.AddWithValue("@DiaChi", DiaChi);
                 cmd.Parameters.AddWithValue("@HoTen", HoTen);
@@ -69,15 +69,15 @@ namespace MiniMart.DataAccessLayer.Repositories
             }
         }
 
-        public static void UpdateEntry(string Mnv, string Sdt, DateTime SinhNhat, string DiaChi, string HoTen, string GioiTinh, string ChucVu, float Luong)
+        public static void UpdateEntry(string Mnv, string Sdt, string SinhNhat, string DiaChi, string HoTen, string GioiTinh, string ChucVu, float Luong)
         {
-            string query = @"UPDATE NhanVien SET Sdt = @Sdt, SinhNhat = @SinhNhat, DiaChi = @DiaChi, HoTen = @HoTen, GioiTinh = @GioiTinh, ChucVu = @ChucVu, Luong = @Luong  WHERE Mnv = @Mnv";
+            string query = @"UPDATE NhanVien SET Sdt = @Sdt, SinhNhat = @SinhNhat, DiaChi = @DiaChi, HoTen = @HoTen, GioiTinh = @GioiTinh, ChucVu = @ChucVu, Luong = @Luong,  WHERE Mnv = @Mnv";
             try
             {
                 database.OpenConnection();
                 SqlCommand cmd = new SqlCommand(query, database.GetConnection());
                 cmd.Parameters.AddWithValue("@Mnv", Mnv);
-                cmd.Parameters.AddWithValue("@Sdt", Sdt);
+                cmd.Parameters.AddWithValue("@DiaChi", Sdt);
                 cmd.Parameters.AddWithValue("@SinhNhat", SinhNhat);
                 cmd.Parameters.AddWithValue("@DiaChi", DiaChi);
                 cmd.Parameters.AddWithValue("@HoTen", HoTen);
@@ -100,12 +100,13 @@ namespace MiniMart.DataAccessLayer.Repositories
         {
             try
             {
+                //DeleteRelatedEntries(Mnv);
+
                 string query = @"DELETE FROM NhanVien WHERE Mnv = @Mnv";
                 database.OpenConnection();
                 SqlCommand cmd = new SqlCommand(query, database.GetConnection());
                 cmd.Parameters.AddWithValue("@Mnv", Mnv);
-                int rowsAffected = cmd.ExecuteNonQuery(); 
-                MessageBox.Show("Deleted successfully! Rows affected: " + rowsAffected);
+                cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
@@ -116,8 +117,6 @@ namespace MiniMart.DataAccessLayer.Repositories
                 database.CloseConnection();
             }
         }
-
-
 
 
         //public static void DeleteRelatedEntries(string Mnv)
@@ -144,12 +143,12 @@ namespace MiniMart.DataAccessLayer.Repositories
 
 
 
-        public static DataTable SearchData(string Mnv, string Sdt, string DiaChi, string HoTen, string GioiTinh, string ChucVu, float Luong)
+        public static DataTable SearchData(string Mnv, string Sdt, string SinhNhat, string DiaChi, string HoTen, string GioiTinh, string ChucVu, float Luong)
         {
             string query = $@"SELECT * FROM NhanVien
                                 where Mnv like @Mnv
                                 and Sdt like @Sdt
-                                
+                                and SinhNhat like @SinhNhat
                                 and DiaChi like @DiaChi
                                 and HoTen like @HoTen
                                 and GioiTinh like @GioiTinh
@@ -160,7 +159,8 @@ namespace MiniMart.DataAccessLayer.Repositories
                 database.OpenConnection();
                 SqlCommand cmd = new SqlCommand(query, database.GetConnection());
                 cmd.Parameters.AddWithValue("@Mnv","%" + Mnv + "%");
-                cmd.Parameters.AddWithValue("@Sdt","%" + Sdt + "%");
+                cmd.Parameters.AddWithValue("@DiaChi","%" + Sdt + "%");
+                cmd.Parameters.AddWithValue("@SinhNhat", "%" + SinhNhat + "%");
                 cmd.Parameters.AddWithValue("@DiaChi", "%" + DiaChi + "%"); 
                 cmd.Parameters.AddWithValue("@HoTen", "%" + HoTen + "%");
                 cmd.Parameters.AddWithValue("@GioiTinh", "%" + GioiTinh + "%");
