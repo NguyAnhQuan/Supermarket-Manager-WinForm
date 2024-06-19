@@ -13,9 +13,7 @@ namespace MiniMart.BusinessLogicLayer.Services
         public DataTable GetKhachHang()
         {
             return KhachHangDB.KhachHang();
-        }
-
-        
+        }        
 
         public void AddNewEntry(string Mkh, string HoTen, string DiaChi, int Sdt, string HangKhach)
         {

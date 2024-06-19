@@ -51,12 +51,14 @@
     <Compile Include="BusinessLogicLayer\Services\KhachHangLG.cs" />
     <Compile Include="BusinessLogicLayer\Services\KhoLG.cs" />
     <Compile Include="BusinessLogicLayer\Services\LoginLogic.cs" />
+    <Compile Include="BusinessLogicLayer\Services\NhanVienLG.cs" />
     <Compile Include="BusinessLogicLayer\Services\SanPhamLG.cs" />
     <Compile Include="DataAccessLayer\database.cs" />
     <Compile Include="DataAccessLayer\IDatabaseConnection.cs" />
     <Compile Include="DataAccessLayer\Repositories\KhachHangDB.cs" />
     <Compile Include="DataAccessLayer\Repositories\KhoDb.cs" />
     <Compile Include="DataAccessLayer\Repositories\Login.cs" />
+    <Compile Include="DataAccessLayer\Repositories\NhanVienDB.cs" />
     <Compile Include="DataAccessLayer\Repositories\SanPhamDB.cs" />
     <Compile Include="PresentationLayer\Forms\FormAdmin.cs">
       <SubType>Form</SubType>
