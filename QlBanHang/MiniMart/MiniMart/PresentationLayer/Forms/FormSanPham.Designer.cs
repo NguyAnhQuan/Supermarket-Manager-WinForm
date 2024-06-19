@@ -232,6 +232,7 @@
             this.NhapDataGridView.RowTemplate.Height = 33;
             this.NhapDataGridView.Size = new System.Drawing.Size(1186, 347);
             this.NhapDataGridView.TabIndex = 5;
+            this.NhapDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.NhapDataGridView_CellClick);
             // 
             // panel1
             // 
