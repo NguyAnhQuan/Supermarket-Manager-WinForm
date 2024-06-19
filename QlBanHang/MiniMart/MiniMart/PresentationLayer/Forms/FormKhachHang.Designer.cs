@@ -68,8 +68,9 @@
             this.TitlePanel.Controls.Add(this.TimeTextBox);
             this.TitlePanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.TitlePanel.Location = new System.Drawing.Point(0, 0);
+            this.TitlePanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TitlePanel.Name = "TitlePanel";
-            this.TitlePanel.Size = new System.Drawing.Size(1178, 89);
+            this.TitlePanel.Size = new System.Drawing.Size(1767, 138);
             this.TitlePanel.TabIndex = 3;
             // 
             // flowLayoutPanel1
@@ -77,31 +78,30 @@
             this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.Controls.Add(this.HoTenTextBox);
             this.flowLayoutPanel1.Controls.Add(this.MnvTextBox);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(1056, 6);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(1585, 9);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(109, 72);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(164, 112);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // HoTenTextBox
             // 
             this.HoTenTextBox.BackColor = System.Drawing.SystemColors.Menu;
             this.HoTenTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.HoTenTextBox.Location = new System.Drawing.Point(2, 2);
-            this.HoTenTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.HoTenTextBox.Location = new System.Drawing.Point(3, 3);
             this.HoTenTextBox.Name = "HoTenTextBox";
             this.HoTenTextBox.ReadOnly = true;
-            this.HoTenTextBox.Size = new System.Drawing.Size(102, 15);
+            this.HoTenTextBox.Size = new System.Drawing.Size(153, 24);
             this.HoTenTextBox.TabIndex = 0;
             // 
             // MnvTextBox
             // 
             this.MnvTextBox.BackColor = System.Drawing.SystemColors.Menu;
             this.MnvTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.MnvTextBox.Location = new System.Drawing.Point(2, 21);
-            this.MnvTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.MnvTextBox.Location = new System.Drawing.Point(3, 33);
             this.MnvTextBox.Name = "MnvTextBox";
             this.MnvTextBox.ReadOnly = true;
-            this.MnvTextBox.Size = new System.Drawing.Size(102, 15);
+            this.MnvTextBox.Size = new System.Drawing.Size(153, 24);
             this.MnvTextBox.TabIndex = 1;
             // 
             // TitleLabel
@@ -109,9 +109,10 @@
             this.TitleLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.TitleLabel.AutoSize = true;
             this.TitleLabel.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TitleLabel.Location = new System.Drawing.Point(494, 20);
+            this.TitleLabel.Location = new System.Drawing.Point(741, 31);
+            this.TitleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TitleLabel.Name = "TitleLabel";
-            this.TitleLabel.Size = new System.Drawing.Size(190, 35);
+            this.TitleLabel.Size = new System.Drawing.Size(304, 56);
             this.TitleLabel.TabIndex = 3;
             this.TitleLabel.Text = "Khách Hàng";
             // 
@@ -120,11 +121,10 @@
             this.TimeTextBox.BackColor = System.Drawing.SystemColors.Menu;
             this.TimeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TimeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.TimeTextBox.Location = new System.Drawing.Point(18, 28);
-            this.TimeTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.TimeTextBox.Location = new System.Drawing.Point(27, 44);
             this.TimeTextBox.Name = "TimeTextBox";
             this.TimeTextBox.ReadOnly = true;
-            this.TimeTextBox.Size = new System.Drawing.Size(127, 23);
+            this.TimeTextBox.Size = new System.Drawing.Size(190, 37);
             this.TimeTextBox.TabIndex = 2;
             // 
             // panel3
@@ -142,9 +142,10 @@
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Location = new System.Drawing.Point(0, 501);
+            this.panel3.Location = new System.Drawing.Point(0, 783);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1178, 99);
+            this.panel3.Size = new System.Drawing.Size(1766, 154);
             this.panel3.TabIndex = 8;
             // 
             // DiaChiKHTextBox
@@ -152,10 +153,9 @@
             this.DiaChiKHTextBox.BackColor = System.Drawing.SystemColors.HighlightText;
             this.DiaChiKHTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.DiaChiKHTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.DiaChiKHTextBox.Location = new System.Drawing.Point(506, 38);
-            this.DiaChiKHTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.DiaChiKHTextBox.Location = new System.Drawing.Point(759, 59);
             this.DiaChiKHTextBox.Name = "DiaChiKHTextBox";
-            this.DiaChiKHTextBox.Size = new System.Drawing.Size(158, 27);
+            this.DiaChiKHTextBox.Size = new System.Drawing.Size(236, 38);
             this.DiaChiKHTextBox.TabIndex = 25;
             // 
             // SDTKHTextBox
@@ -163,10 +163,9 @@
             this.SDTKHTextBox.BackColor = System.Drawing.SystemColors.HighlightText;
             this.SDTKHTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.SDTKHTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.SDTKHTextBox.Location = new System.Drawing.Point(737, 38);
-            this.SDTKHTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.SDTKHTextBox.Location = new System.Drawing.Point(1106, 59);
             this.SDTKHTextBox.Name = "SDTKHTextBox";
-            this.SDTKHTextBox.Size = new System.Drawing.Size(158, 27);
+            this.SDTKHTextBox.Size = new System.Drawing.Size(236, 38);
             this.SDTKHTextBox.TabIndex = 22;
             // 
             // HoTenKHTextBox
@@ -174,10 +173,9 @@
             this.HoTenKHTextBox.BackColor = System.Drawing.SystemColors.HighlightText;
             this.HoTenKHTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.HoTenKHTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.HoTenKHTextBox.Location = new System.Drawing.Point(272, 38);
-            this.HoTenKHTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.HoTenKHTextBox.Location = new System.Drawing.Point(408, 59);
             this.HoTenKHTextBox.Name = "HoTenKHTextBox";
-            this.HoTenKHTextBox.Size = new System.Drawing.Size(158, 27);
+            this.HoTenKHTextBox.Size = new System.Drawing.Size(236, 38);
             this.HoTenKHTextBox.TabIndex = 21;
             // 
             // HangKhachTextBox
@@ -185,10 +183,9 @@
             this.HangKhachTextBox.BackColor = System.Drawing.SystemColors.HighlightText;
             this.HangKhachTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.HangKhachTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.HangKhachTextBox.Location = new System.Drawing.Point(961, 38);
-            this.HangKhachTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.HangKhachTextBox.Location = new System.Drawing.Point(1442, 59);
             this.HangKhachTextBox.Name = "HangKhachTextBox";
-            this.HangKhachTextBox.Size = new System.Drawing.Size(158, 27);
+            this.HangKhachTextBox.Size = new System.Drawing.Size(236, 38);
             this.HangKhachTextBox.TabIndex = 19;
             // 
             // MkhTextBox
@@ -196,54 +193,58 @@
             this.MkhTextBox.BackColor = System.Drawing.SystemColors.HighlightText;
             this.MkhTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.MkhTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.MkhTextBox.Location = new System.Drawing.Point(47, 38);
-            this.MkhTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.MkhTextBox.Location = new System.Drawing.Point(70, 59);
             this.MkhTextBox.Name = "MkhTextBox";
-            this.MkhTextBox.Size = new System.Drawing.Size(158, 27);
+            this.MkhTextBox.Size = new System.Drawing.Size(236, 38);
             this.MkhTextBox.TabIndex = 18;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(503, 21);
+            this.label5.Location = new System.Drawing.Point(754, 33);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 16);
+            this.label5.Size = new System.Drawing.Size(78, 25);
             this.label5.TabIndex = 14;
             this.label5.Text = "Địa chỉ";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(269, 21);
+            this.label3.Location = new System.Drawing.Point(404, 33);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 16);
+            this.label3.Size = new System.Drawing.Size(75, 25);
             this.label3.TabIndex = 12;
             this.label3.Text = "Họ tên";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(958, 21);
+            this.label4.Location = new System.Drawing.Point(1437, 33);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 16);
+            this.label4.Size = new System.Drawing.Size(127, 25);
             this.label4.TabIndex = 11;
             this.label4.Text = "Hạng khách";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(44, 21);
+            this.label2.Location = new System.Drawing.Point(66, 33);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 16);
+            this.label2.Size = new System.Drawing.Size(160, 25);
             this.label2.TabIndex = 10;
             this.label2.Text = "Mã khách hàng";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(734, 21);
+            this.label1.Location = new System.Drawing.Point(1101, 33);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 16);
+            this.label1.Size = new System.Drawing.Size(138, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "Số điện thoại";
             // 
@@ -255,54 +256,55 @@
             this.panel4.Controls.Add(this.ThemButton);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.panel4.Location = new System.Drawing.Point(0, 606);
+            this.panel4.Location = new System.Drawing.Point(0, 947);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1178, 61);
+            this.panel4.Size = new System.Drawing.Size(1767, 95);
             this.panel4.TabIndex = 9;
             // 
             // TimKiemButton
             // 
             this.TimKiemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.TimKiemButton.Location = new System.Drawing.Point(899, 11);
-            this.TimKiemButton.Margin = new System.Windows.Forms.Padding(2);
+            this.TimKiemButton.Location = new System.Drawing.Point(1348, 17);
             this.TimKiemButton.Name = "TimKiemButton";
-            this.TimKiemButton.Size = new System.Drawing.Size(193, 38);
+            this.TimKiemButton.Size = new System.Drawing.Size(290, 59);
             this.TimKiemButton.TabIndex = 4;
             this.TimKiemButton.Text = "Tìm kiếm";
             this.TimKiemButton.UseVisualStyleBackColor = true;
+            this.TimKiemButton.Click += new System.EventHandler(this.TimKiemButton_Click);
             // 
             // XoaButton
             // 
             this.XoaButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.XoaButton.Location = new System.Drawing.Point(624, 11);
-            this.XoaButton.Margin = new System.Windows.Forms.Padding(2);
+            this.XoaButton.Location = new System.Drawing.Point(936, 17);
             this.XoaButton.Name = "XoaButton";
-            this.XoaButton.Size = new System.Drawing.Size(193, 38);
+            this.XoaButton.Size = new System.Drawing.Size(290, 59);
             this.XoaButton.TabIndex = 1;
             this.XoaButton.Text = "Xóa";
             this.XoaButton.UseVisualStyleBackColor = true;
+            this.XoaButton.Click += new System.EventHandler(this.XoaButton_Click);
             // 
             // SuaButton
             // 
             this.SuaButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.SuaButton.Location = new System.Drawing.Point(349, 11);
-            this.SuaButton.Margin = new System.Windows.Forms.Padding(2);
+            this.SuaButton.Location = new System.Drawing.Point(524, 17);
             this.SuaButton.Name = "SuaButton";
-            this.SuaButton.Size = new System.Drawing.Size(193, 39);
+            this.SuaButton.Size = new System.Drawing.Size(290, 61);
             this.SuaButton.TabIndex = 2;
             this.SuaButton.Text = "Sửa";
             this.SuaButton.UseVisualStyleBackColor = true;
+            this.SuaButton.Click += new System.EventHandler(this.SuaButton_Click);
             // 
             // ThemButton
             // 
             this.ThemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ThemButton.Location = new System.Drawing.Point(74, 11);
-            this.ThemButton.Margin = new System.Windows.Forms.Padding(2);
+            this.ThemButton.Location = new System.Drawing.Point(111, 17);
             this.ThemButton.Name = "ThemButton";
-            this.ThemButton.Size = new System.Drawing.Size(193, 38);
+            this.ThemButton.Size = new System.Drawing.Size(290, 59);
             this.ThemButton.TabIndex = 0;
             this.ThemButton.Text = "Thêm";
             this.ThemButton.UseVisualStyleBackColor = true;
+            this.ThemButton.Click += new System.EventHandler(this.ThemButton_Click);
             // 
             // KhachHangDirdView
             // 
@@ -312,13 +314,13 @@
             this.KhachHangDirdView.ColumnHeadersHeight = 46;
             this.KhachHangDirdView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.KhachHangDirdView.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.KhachHangDirdView.Location = new System.Drawing.Point(0, 94);
-            this.KhachHangDirdView.Margin = new System.Windows.Forms.Padding(2);
+            this.KhachHangDirdView.Location = new System.Drawing.Point(0, 147);
             this.KhachHangDirdView.Name = "KhachHangDirdView";
             this.KhachHangDirdView.RowHeadersWidth = 82;
             this.KhachHangDirdView.RowTemplate.Height = 33;
-            this.KhachHangDirdView.Size = new System.Drawing.Size(1178, 402);
+            this.KhachHangDirdView.Size = new System.Drawing.Size(1767, 628);
             this.KhachHangDirdView.TabIndex = 10;
+            this.KhachHangDirdView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.KhachHangDirdView_CellClick);
             // 
             // timer1
             // 
@@ -327,13 +329,14 @@
             // 
             // FormKhachHang
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1178, 667);
+            this.ClientSize = new System.Drawing.Size(1767, 1042);
             this.Controls.Add(this.KhachHangDirdView);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.TitlePanel);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FormKhachHang";
             this.Text = "FormKhachHang";
             this.TitlePanel.ResumeLayout(false);

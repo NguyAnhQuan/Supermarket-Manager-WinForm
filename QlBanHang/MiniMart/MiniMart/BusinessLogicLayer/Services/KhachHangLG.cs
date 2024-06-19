@@ -32,9 +32,9 @@ namespace MiniMart.BusinessLogicLayer.Services
             KhachHangDB.DeleteEntry(Mkh);
         }
 
-        public DataTable SearchData(string columnName, string keyword, DateTime fromDate, DateTime toDate)
+        public DataTable SearchData(string Mkh, string HoTen, string DiaChi, string Sdt, string HangKhach)
         {
-            return KhachHangDB.SearchData(columnName, keyword, fromDate, toDate);
+            return KhachHangDB.SearchData( Mkh, HoTen, DiaChi, Sdt, HangKhach);
         }
 
     }

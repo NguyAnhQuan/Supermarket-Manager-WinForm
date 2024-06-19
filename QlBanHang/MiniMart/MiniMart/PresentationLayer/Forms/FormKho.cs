@@ -18,10 +18,8 @@ namespace MiniMart.PresentationLayer.Form
             MnvTextBox.Text = LoginForm.MNV;
             HoTenTextBox.Text = LoginForm.HOTEN;
 
-            // Bind data to DataGridView when the form is loaded
             LoadDataToDataGridView();
 
-            // Attach event handlers for CellClick event and buttons
             KhoDataGridView.CellClick += KhoDataGridView_CellClick;
             ThemButton.Click += ThemButton_Click;
             SuaButton.Click += SuaButton_Click;
@@ -57,7 +55,7 @@ namespace MiniMart.PresentationLayer.Form
                 string mncc = MnccTextBox.Text;
                 int soLuong = int.Parse(SoLuongTextBox.Text);
                 decimal tongGia = decimal.Parse(TongGiaTextBox.Text);
-                DateTime thoiGian = DateTime.Now; // Sử dụng thời gian hiện tại của máy
+                DateTime thoiGian = DateTime.Now; 
 
                 khoService.AddNewEntry(mnx, msp, mncc, soLuong, tongGia, thoiGian);
                 MessageBox.Show("Thêm dữ liệu thành công!");
@@ -84,7 +82,7 @@ namespace MiniMart.PresentationLayer.Form
                 khoService.UpdateEntry(mnx, msp, mncc, soLuong, tongGia, thoiGian);
                 MessageBox.Show("Cập nhật dữ liệu thành công!");
 
-                LoadDataToDataGridView(); // Refresh data grid view
+                LoadDataToDataGridView(); 
             }
             catch (Exception ex)
             {
@@ -98,18 +96,19 @@ namespace MiniMart.PresentationLayer.Form
             {
                 string mnx = MnxTextBox.Text;
 
-                // Hiển thị thông báo xác nhận trước khi xóa
                 DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa mục này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes)
                 {
-                    // Nếu người dùng chọn "Yes", thực hiện xóa
                     khoService.DeleteEntry(mnx);
                     MessageBox.Show("Xóa dữ liệu thành công!");
 
-                    LoadDataToDataGridView(); // Làm mới DataGridView
+                    LoadDataToDataGridView();
                 }
-                // Nếu người dùng chọn "No", không làm gì
+                else
+                {
+                    MessageBox.Show("Đã hoàn trả dữ liệu!");
+                }
             }
             catch (Exception ex)
             {
