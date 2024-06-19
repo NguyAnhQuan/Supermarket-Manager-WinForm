@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MiniMart.PresentationLayer.Forms
-{
+{ 
     public partial class FormNhanVien : System.Windows.Forms.Form
     {
         private NhanVienLG NhanVienService;

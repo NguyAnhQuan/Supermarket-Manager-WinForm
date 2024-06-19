@@ -148,7 +148,7 @@ namespace MiniMart.DataAccessLayer.Repositories
         {
             string query = $@"SELECT * FROM NhanVien
                                 where Mnv like @Mnv
-                                and Sdt like @Sdt
+                                and Sdt like @Sdt 
                                 
                                 and DiaChi like @DiaChi
                                 and HoTen like @HoTen
