@@ -11,13 +11,6 @@ namespace MiniMart.BusinessLogicLayer.Services
             return KhoDb.DataNhap();
         }
 
-        public DataTable GetSanPhamHetHan()
-        {
-            return KhoDb.SanPhamHetHan();
-        }
-
-
-
         public void AddNewEntry(string mnx, string msp, string mncc, int soLuong, decimal tongGia, DateTime thoiGian)
         {
             KhoDb.AddNewEntry(mnx, msp, mncc, soLuong, tongGia, thoiGian);
@@ -36,11 +29,6 @@ namespace MiniMart.BusinessLogicLayer.Services
         public DataTable SearchData(string columnName, string keyword, DateTime fromDate, DateTime toDate)
         {
             return KhoDb.SearchData(columnName, keyword, fromDate, toDate);
-        }
-
-        public TimeSpan CalculateDateDifference(DateTime date1, DateTime date2)
-        {
-            return date2 - date1;
         }
     }
 }

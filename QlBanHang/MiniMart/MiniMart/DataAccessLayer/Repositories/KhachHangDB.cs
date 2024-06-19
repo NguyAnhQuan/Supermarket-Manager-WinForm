@@ -1,11 +1,15 @@
 ﻿using System;
-using System.Data;
+using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MiniMart.DataAccessLayer.Repositories
 {
-    internal class KhoDb
+    internal class KhachHangDB
     {
         private static IDatabaseConnection database = new Database();
 
@@ -31,26 +35,25 @@ namespace MiniMart.DataAccessLayer.Repositories
             return dataTable;
         }
 
-        public static DataTable DataNhap()
+        public static DataTable KhachHang()
         {
-            string query = @"SELECT * FROM KhoNX WHERE Mnx LIKE 'KN%'";
+            string query = @"SELECT * FROM KhachHang";
             return ExecuteQuery(query);
-        }        
+        }
 
-        public static void AddNewEntry(string mnx, string msp, string mncc, int soLuong, decimal tongGia, DateTime thoiGian)
+        public static void AddNewEntry(string Mkh, string HoTen, string DiaChi, int Sdt, string HangKhach)
         {
-            string query = @"INSERT INTO KhoNX (Mnx, Msp, Mncc, SoLuong, TongGia, ThoiGian)
-                             VALUES (@Mnx, @Msp, @Mncc, @SoLuong, @TongGia, @ThoiGian)";
+            string query = @"INSERT INTO KhoNX (Mkh, HoTen, DiaChi, Sdt, HangKhach)
+                             VALUES (@Mkh, @HoTen, @DiaChi, @Sdt, @HangKhach)";
             try
             {
                 database.OpenConnection();
                 SqlCommand cmd = new SqlCommand(query, database.GetConnection());
-                cmd.Parameters.AddWithValue("@Mnx", mnx);
-                cmd.Parameters.AddWithValue("@Msp", msp);
-                cmd.Parameters.AddWithValue("@Mncc", mncc);
-                cmd.Parameters.AddWithValue("@SoLuong", soLuong);
-                cmd.Parameters.AddWithValue("@TongGia", tongGia);
-                cmd.Parameters.AddWithValue("@ThoiGian", thoiGian);
+                cmd.Parameters.AddWithValue("@Mkh", Mkh);
+                cmd.Parameters.AddWithValue("@HoTen", HoTen);
+                cmd.Parameters.AddWithValue("@DiaChi", DiaChi);
+                cmd.Parameters.AddWithValue("@Sdt", Sdt);
+                cmd.Parameters.AddWithValue("@HangKhach", HangKhach);
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -63,20 +66,19 @@ namespace MiniMart.DataAccessLayer.Repositories
             }
         }
 
-        public static void UpdateEntry(string mnx, string msp, string mncc, int soLuong, decimal tongGia, DateTime thoiGian)
+        public static void UpdateEntry(string Mkh, string HoTen, string DiaChi, int Sdt, string HangKhach)
         {
-            string query = @"UPDATE KhoNX SET Msp = @Msp, Mncc = @Mncc, SoLuong = @SoLuong, 
-                             TongGia = @TongGia, ThoiGian = @ThoiGian WHERE Mnx = @Mnx";
+            string query = @"UPDATE KhoNX SET HoTen = @HoTen, DiaChi = @DiaChi, Sdt = @Sdt, 
+                             HangKhach = @HangKhach WHERE Mkh = @Mkh";
             try
             {
                 database.OpenConnection();
                 SqlCommand cmd = new SqlCommand(query, database.GetConnection());
-                cmd.Parameters.AddWithValue("@Mnx", mnx);
-                cmd.Parameters.AddWithValue("@Msp", msp);
-                cmd.Parameters.AddWithValue("@Mncc", mncc);
-                cmd.Parameters.AddWithValue("@SoLuong", soLuong);
-                cmd.Parameters.AddWithValue("@TongGia", tongGia);
-                cmd.Parameters.AddWithValue("@ThoiGian", thoiGian);
+                cmd.Parameters.AddWithValue("@Mkh", Mkh);
+                cmd.Parameters.AddWithValue("@HoTen", HoTen);
+                cmd.Parameters.AddWithValue("@DiaChi", DiaChi);
+                cmd.Parameters.AddWithValue("@Sdt", Sdt);
+                cmd.Parameters.AddWithValue("@HangKhach", HangKhach);
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -89,16 +91,14 @@ namespace MiniMart.DataAccessLayer.Repositories
             }
         }
 
-        public static void DeleteEntry(string mnx)
+        public static void DeleteEntry(string Mkh)
         {
             try
             {
-                DeleteRelatedEntries(mnx);
-
-                string query = @"DELETE FROM KhoNX WHERE Mnx = @Mnx";
+                string query = @"DELETE FROM KhachHang WHERE Mkh = @Mkh";
                 database.OpenConnection();
                 SqlCommand cmd = new SqlCommand(query, database.GetConnection());
-                cmd.Parameters.AddWithValue("@Mnx", mnx);
+                cmd.Parameters.AddWithValue("@Mkh", Mkh);
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -112,32 +112,32 @@ namespace MiniMart.DataAccessLayer.Repositories
         }
 
 
-        public static void DeleteRelatedEntries(string mnx)
-        {
-            string query = @"DELETE FROM NganSach WHERE Mnx = @Mnx";
-            try
-            {
-                database.OpenConnection();
-                SqlCommand cmd = new SqlCommand(query, database.GetConnection());
-                cmd.Parameters.AddWithValue("@Mnx", mnx);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-            finally
-            {
-                database.CloseConnection();
-            }
-        }
+        //public static void DeleteRelatedEntries(string Mkh)
+        //{
+        //    string query = @"DELETE FROM NganSach WHERE Mkh = @Mkh";
+        //    try
+        //    {
+        //        database.OpenConnection();
+        //        SqlCommand cmd = new SqlCommand(query, database.GetConnection());
+        //        cmd.Parameters.AddWithValue("@Mkh", Mkh);
+        //        cmd.ExecuteNonQuery();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Error: " + ex.Message);
+        //    }
+        //    finally
+        //    {
+        //        database.CloseConnection();
+        //    }
+        //}
 
 
 
 
         public static DataTable SearchData(string columnName, string keyword, DateTime fromDate, DateTime toDate)
         {
-            string query = $@"SELECT * FROM KhoNX
+            string query = $@"SELECT * FROM KhachHang
                               WHERE {columnName} LIKE @Keyword
                               AND ThoiGian BETWEEN @FromDate AND @ToDate";
             try
