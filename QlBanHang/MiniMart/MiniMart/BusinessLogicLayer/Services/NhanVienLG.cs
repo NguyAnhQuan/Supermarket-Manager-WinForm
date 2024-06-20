@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text; 
+using System.Text;
 using System.Threading.Tasks;
 
 namespace MiniMart.BusinessLogicLayer.Services
@@ -15,12 +15,12 @@ namespace MiniMart.BusinessLogicLayer.Services
             return NhanVienDB.NhanVien();
         }
 
-        public void AddNewEntry(string Mnv, string Sdt, string SinhNhat, string DiaChi, string HoTen, string GioiTinh, string ChucVu, float Luong)
+        public void AddNewEntry(string Mnv, string Sdt, DateTime SinhNhat, string DiaChi, string HoTen, string GioiTinh, string ChucVu, float Luong)
         {
-            NhanVienDB.AddNewEntry( Mnv,  Sdt,  SinhNhat,  DiaChi,  HoTen,  GioiTinh,  ChucVu, Luong);
+            NhanVienDB.AddNewEntry(Mnv, Sdt, SinhNhat, DiaChi, HoTen, GioiTinh, ChucVu, Luong);
         }
 
-        public void UpdateEntry(string Mnv, string Sdt, string SinhNhat, string DiaChi, string HoTen, string GioiTinh, string ChucVu, float Luong)
+        public void UpdateEntry(string Mnv, string Sdt, DateTime SinhNhat, string DiaChi, string HoTen, string GioiTinh, string ChucVu, float Luong)
         {
             NhanVienDB.UpdateEntry(Mnv, Sdt, SinhNhat, DiaChi, HoTen, GioiTinh, ChucVu, Luong);
         }
@@ -30,9 +30,9 @@ namespace MiniMart.BusinessLogicLayer.Services
             NhanVienDB.DeleteEntry(Mnv);
         }
 
-        public DataTable SearchData(string Mnv, string Sdt, string SinhNhat, string DiaChi, string HoTen, string GioiTinh, string ChucVu, float Luong)
+        public DataTable SearchData(string Mnv, string Sdt, string DiaChi, string HoTen, string GioiTinh, string ChucVu, float Luong)
         {
-            return NhanVienDB.SearchData(Mnv, Sdt, SinhNhat, DiaChi, HoTen, GioiTinh, ChucVu, Luong);
+            return NhanVienDB.SearchData(Mnv, Sdt, DiaChi, HoTen, GioiTinh, ChucVu, Luong);
         }
     }
 }

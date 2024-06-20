@@ -1,38 +1,41 @@
 ﻿using MiniMart.DataAccessLayer.Repositories;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MiniMart.BusinessLogicLayer.Services
 {
     internal class SanPhamLG
     {
+        private readonly SanPhamDB sanPhamDB;
+
+        public SanPhamLG()
+        {
+            sanPhamDB = new SanPhamDB();
+        }
+
         public DataTable GetSanPham()
         {
             return SanPhamDB.SanPham();
         }
 
-        public void AddNewEntry(string Mkh, string HoTen, string DiaChi, int Sdt, string HangKhach)
+        public void AddNewEntry(string Msp, string Mncc, string TenSp, int SoLuong, float Gia, DateTime NgayNhap, DateTime HetHan, bool HetHang, string PhanLoai)
         {
-            SanPhamDB.AddNewEntry(Mkh, HoTen, DiaChi, Sdt, HangKhach);
+            SanPhamDB.AddNewEntry(Msp, Mncc, TenSp, SoLuong, Gia, NgayNhap, HetHan, HetHang ? "Yes" : "No", PhanLoai);
         }
 
-        public void UpdateEntry(string Mkh, string HoTen, string DiaChi, int Sdt, string HangKhach)
+        public void UpdateEntry(string Msp, string Mncc, string TenSp, int SoLuong, float Gia, DateTime NgayNhap, DateTime HetHan, bool HetHang, string PhanLoai)
         {
-            SanPhamDB.UpdateEntry(Mkh, HoTen, DiaChi, Sdt, HangKhach);
+            SanPhamDB.UpdateEntry(Msp, Mncc, TenSp, SoLuong, Gia, NgayNhap, HetHan, HetHang ? "Yes" : "No", PhanLoai);
         }
 
-        public void DeleteEntry(string Mkh)
+        public void DeleteEntry(string Msp)
         {
-            SanPhamDB.DeleteEntry(Mkh);
+            SanPhamDB.DeleteEntry(Msp);
         }
 
-        public DataTable SearchData(string Mkh, string HoTen, string DiaChi, string Sdt, string HangKhach)
+        public DataTable SearchData(string Msp, string Mncc, string TenSp, int SoLuong, float Gia, DateTime NgayNhap, DateTime HetHan, bool HetHang, string PhanLoai)
         {
-            return SanPhamDB.SearchData(Mkh, HoTen, DiaChi, Sdt, HangKhach);
+            return SanPhamDB.SearchData(Msp, Mncc, TenSp, SoLuong, Gia, NgayNhap, HetHan, HetHang ? "Yes" : "No", PhanLoai);
         }
     }
 }

@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace MiniMart.DataAccessLayer.Repositories
@@ -13,16 +9,22 @@ namespace MiniMart.DataAccessLayer.Repositories
     {
         private static IDatabaseConnection database = new Database();
 
-        private static DataTable ExecuteQuery(string query)
+        private static DataTable ExecuteQuery(string query, SqlParameter[] parameters = null)
         {
             DataTable dataTable = new DataTable();
             try
             {
                 database.OpenConnection();
-                SqlCommand cmd = new SqlCommand(query, database.GetConnection());
-                SqlDataReader reader = cmd.ExecuteReader();
-                dataTable.Load(reader);
-                reader.Close();
+                using (SqlCommand cmd = new SqlCommand(query, database.GetConnection()))
+                {
+                    if (parameters != null)
+                    {
+                        cmd.Parameters.AddRange(parameters);
+                    }
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    dataTable.Load(reader);
+                    reader.Close();
+                }
             }
             catch (Exception ex)
             {
@@ -41,144 +43,76 @@ namespace MiniMart.DataAccessLayer.Repositories
             return ExecuteQuery(query);
         }
 
-        public static void AddNewEntry(string Msp, string Mncc, string TenSp, int SoLuong, int Gia, DateTime NgayNhap, DateTime HetHan, string HetHang, string PhanLoai)
+        public static void AddNewEntry(string Msp, string Mncc, string TenSp, int SoLuong, float Gia, DateTime NgayNhap, DateTime HetHan, string HetHang, string PhanLoai)
         {
             string query = @"INSERT INTO SanPham (Msp, Mncc, TenSp, SoLuong, Gia, NgayNhap, HetHan, HetHang, PhanLoai)
                              VALUES (@Msp, @Mncc, @TenSp, @SoLuong, @Gia, @NgayNhap, @HetHan, @HetHang, @PhanLoai)";
-            try
-            {
-                database.OpenConnection();
-                SqlCommand cmd = new SqlCommand(query, database.GetConnection());
-                cmd.Parameters.AddWithValue("@Msp", Msp);
-                cmd.Parameters.AddWithValue("@Mncc", Mncc);
-                cmd.Parameters.AddWithValue("@TenSp", TenSp);
-                cmd.Parameters.AddWithValue("@SoLuong", SoLuong);
-                cmd.Parameters.AddWithValue("@Gia", Gia);
-                cmd.Parameters.AddWithValue("@NgayNhap", NgayNhap);
-                cmd.Parameters.AddWithValue("@HetHan", HetHan);
-                cmd.Parameters.AddWithValue("@HetHang", HetHang);
-                cmd.Parameters.AddWithValue("@PhanLoai", PhanLoai);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-            finally
-            {
-                database.CloseConnection();
-            }
+            SqlParameter[] parameters = {
+                new SqlParameter("@Msp", Msp),
+                new SqlParameter("@Mncc", Mncc),
+                new SqlParameter("@TenSp", TenSp),
+                new SqlParameter("@SoLuong", SoLuong),
+                new SqlParameter("@Gia", Gia),
+                new SqlParameter("@NgayNhap", NgayNhap),
+                new SqlParameter("@HetHan", HetHan),
+                new SqlParameter("@HetHang", HetHang),
+                new SqlParameter("@PhanLoai", PhanLoai)
+            };
+            ExecuteQuery(query, parameters);
         }
 
-        public static void UpdateEntry(string Msp, string Mncc, string TenSp, int SoLuong, string Gia, DateTime NgayNhap, DateTime HetHan, string HetHang, string PhanLoai)
+        public static void UpdateEntry(string Msp, string Mncc, string TenSp, int SoLuong, float Gia, DateTime NgayNhap, DateTime HetHan, string HetHang, string PhanLoai)
         {
             string query = @"UPDATE SanPham SET Mncc = @Mncc, TenSp = @TenSp, SoLuong = @SoLuong, NgayNhap = @NgayNhap,
                                 HetHan = @HetHan, HetHang = @HetHang, PhanLoai = @PhanLoai
-                             Gia = @Gia WHERE Msp = @Msp";
-            try
-            {
-                database.OpenConnection();
-                SqlCommand cmd = new SqlCommand(query, database.GetConnection());
-                cmd.Parameters.AddWithValue("@Msp", Msp);
-                cmd.Parameters.AddWithValue("@Mncc", Mncc);
-                cmd.Parameters.AddWithValue("@TenSp", TenSp);
-                cmd.Parameters.AddWithValue("@SoLuong", SoLuong);
-                cmd.Parameters.AddWithValue("@Gia", Gia);
-                cmd.Parameters.AddWithValue("@NgayNhap", NgayNhap);
-                cmd.Parameters.AddWithValue("@HetHan", HetHan);
-                cmd.Parameters.AddWithValue("@HetHang", HetHang);
-                cmd.Parameters.AddWithValue("@PhanLoai", PhanLoai);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-            finally
-            {
-                database.CloseConnection();
-            }
+                             WHERE Msp = @Msp";
+            SqlParameter[] parameters = {
+                new SqlParameter("@Msp", Msp),
+                new SqlParameter("@Mncc", Mncc),
+                new SqlParameter("@TenSp", TenSp),
+                new SqlParameter("@SoLuong", SoLuong),
+                new SqlParameter("@Gia", Gia),
+                new SqlParameter("@NgayNhap", NgayNhap),
+                new SqlParameter("@HetHan", HetHan),
+                new SqlParameter("@HetHang", HetHang),
+                new SqlParameter("@PhanLoai", PhanLoai)
+            };
+            ExecuteQuery(query, parameters);
         }
 
         public static void DeleteEntry(string Msp)
         {
-            try
-            {
-                //DeleteRelatedEntries(Msp);
-
-                string query = @"DELETE FROM SanPham WHERE Msp = @Msp";
-                database.OpenConnection();
-                SqlCommand cmd = new SqlCommand(query, database.GetConnection());
-                cmd.Parameters.AddWithValue("@Msp", Msp);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-            finally
-            {
-                database.CloseConnection();
-            }
+            string query = @"DELETE FROM SanPham WHERE Msp = @Msp";
+            SqlParameter[] parameters = {
+                new SqlParameter("@Msp", Msp)
+            };
+            ExecuteQuery(query, parameters);
         }
 
-
-        //public static void DeleteRelatedEntries(string Msp)
-        //{
-        //    string query = @"DELETE FROM HoaDon WHERE Msp = @Msp;
-        //                    DELETE FROM UuDai WHERE Msp = @Msp";
-        //    try
-        //    {
-        //        database.OpenConnection();
-        //        SqlCommand cmd = new SqlCommand(query, database.GetConnection());
-        //        cmd.Parameters.AddWithValue("@Msp", Msp);
-        //        cmd.ExecuteNonQuery();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Error: " + ex.Message);
-        //    }
-        //    finally
-        //    {
-        //        database.CloseConnection();
-        //    }
-        //}
-
-
-
-
-        public static DataTable SearchData(string Msp, string Mncc, string TenSp, string SoLuong, string Gia)
+        public static DataTable SearchData(string Msp, string Mncc, string TenSp, int SoLuong, float Gia, DateTime NgayNhap, DateTime HetHan, string HetHang, string PhanLoai)
         {
-            string query = $@"SELECT * FROM SanPham
-                                where Msp like @Msp
-                                and Mncc like @Mncc
-                                and TenSp like @TenSp
-                                and SoLuong like @SoLuong
-                                and Gia like @Gia";
-            try
-            {
-                database.OpenConnection();
-                SqlCommand cmd = new SqlCommand(query, database.GetConnection());
-                cmd.Parameters.AddWithValue("@Msp", "%" + Msp + "%");
-                cmd.Parameters.AddWithValue("@Mncc", "%" + Mncc + "%");
-                cmd.Parameters.AddWithValue("@TenSp", "%" + TenSp + "%");
-                cmd.Parameters.AddWithValue("@SoLuong", "%" + SoLuong + "%");
-                cmd.Parameters.AddWithValue("@Gia", "%" + Gia + "%");
-                SqlDataReader reader = cmd.ExecuteReader();
-                DataTable dataTable = new DataTable();
-                dataTable.Load(reader);
-                reader.Close();
-                return dataTable;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-                return null;
-            }
-            finally
-            {
-                database.CloseConnection();
-            }
+            string query = @"SELECT * FROM SanPham
+                             WHERE Msp LIKE @Msp
+                             AND Mncc LIKE @Mncc
+                             AND TenSp LIKE @TenSp
+                             AND SoLuong = @SoLuong
+                             AND Gia = @Gia
+                             AND NgayNhap = @NgayNhap
+                             AND HetHan = @HetHan
+                             AND HetHang LIKE @HetHang
+                             AND PhanLoai LIKE @PhanLoai";
+            SqlParameter[] parameters = {
+                new SqlParameter("@Msp", "%" + Msp + "%"),
+                new SqlParameter("@Mncc", "%" + Mncc + "%"),
+                new SqlParameter("@TenSp", "%" + TenSp + "%"),
+                new SqlParameter("@SoLuong", SoLuong),
+                new SqlParameter("@Gia", Gia),
+                new SqlParameter("@NgayNhap", NgayNhap),
+                new SqlParameter("@HetHan", HetHan),
+                new SqlParameter("@HetHang", "%" + HetHang + "%"),
+                new SqlParameter("@PhanLoai", "%" + PhanLoai + "%")
+            };
+            return ExecuteQuery(query, parameters);
         }
     }
 }

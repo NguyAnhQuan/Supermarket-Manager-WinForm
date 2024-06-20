@@ -1,28 +1,22 @@
 ﻿using MiniMart.BusinessLogicLayer.Services;
-using MiniMart.DataAccessLayer.Repositories;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MiniMart.PresentationLayer.Forms
 {
     public partial class FormSanPham : System.Windows.Forms.Form
     {
-        private SanPhamLG SanPhamService;
+        private SanPhamLG sanPhamService;
 
         public FormSanPham()
         {
             InitializeComponent();
-            SanPhamService = new SanPhamLG();
+            sanPhamService = new SanPhamLG();
 
             MnvTextBox.Text = LoginForm.MNV;
             HoTenTextBox.Text = LoginForm.HOTEN;
+
             LoadDataToDataGridView();
         }
 
@@ -35,14 +29,14 @@ namespace MiniMart.PresentationLayer.Forms
         {
             try
             {
-                DataTable data = SanPhamService.GetSanPham();
+                DataTable data = sanPhamService.GetSanPham();
                 if (data != null)
                 {
                     SanPhamDirdView.DataSource = data;
                 }
                 else
                 {
-                    MessageBox.Show("Không thể tải dữ liệu khách hàng.");
+                    MessageBox.Show("Không thể tải dữ liệu sản phẩm.");
                 }
             }
             catch (Exception ex)
@@ -51,19 +45,21 @@ namespace MiniMart.PresentationLayer.Forms
             }
         }
 
-        
-
         private void ThemButton_Click(object sender, EventArgs e)
         {
             try
             {
-                string Mkh = MkhTextBox.Text;
-                string HoTen = HoTenKHTextBox.Text;
-                string DiaChi = DiaChiKHTextBox.Text;
-                int Sdt = int.Parse(SDTKHTextBox.Text);
-                string HangKhach = HangKhachTextBox.Text;
+                string Msp = MspTextBox.Text;
+                string Mncc = MnccTextBox.Text;
+                string TenSp = TenspTextBox.Text;
+                int SoLuong = int.Parse(SoLuongTextBox.Text);
+                float Gia = float.Parse(GiaTextBox.Text);
+                DateTime NgayNhap = NgayNhapDateTimePicker.Value;
+                DateTime HetHan = HanDateTimePicker.Value;
+                string HetHang = HetHangCheckBox.Checked ? "Yes" : "No";
+                string PhanLoai = LoaiTextBox.Text;
 
-                SanPhamService.AddNewEntry(Mkh, HoTen, DiaChi, Sdt, HangKhach);
+                sanPhamService.AddNewEntry(Msp, Mncc, TenSp, SoLuong, Gia, NgayNhap, HetHan, HetHang, PhanLoai);
                 MessageBox.Show("Thêm dữ liệu thành công!");
 
                 LoadDataToDataGridView(); // Refresh data grid view
@@ -78,13 +74,17 @@ namespace MiniMart.PresentationLayer.Forms
         {
             try
             {
-                string Mkh = MkhTextBox.Text;
-                string HoTen = HoTenKHTextBox.Text;
-                string DiaChi = DiaChiKHTextBox.Text;
-                int Sdt = int.Parse(SDTKHTextBox.Text);
-                string HangKhach = HangKhachTextBox.Text;
+                string Msp = MspTextBox.Text;
+                string Mncc = MnccTextBox.Text;
+                string TenSp = TenspTextBox.Text;
+                int SoLuong = int.Parse(SoLuongTextBox.Text);
+                float Gia = float.Parse(GiaTextBox.Text);
+                DateTime NgayNhap = NgayNhapDateTimePicker.Value;
+                DateTime HetHan = HanDateTimePicker.Value;
+                string HetHang = HetHangCheckBox.Checked ? "Yes" : "No";
+                string PhanLoai = LoaiTextBox.Text;
 
-                SanPhamService.UpdateEntry(Mkh, HoTen, DiaChi, Sdt, HangKhach);
+                sanPhamService.UpdateEntry(Msp, Mncc, TenSp, SoLuong, Gia, NgayNhap, HetHan, HetHang, PhanLoai);
                 MessageBox.Show("Đã sửa dữ liệu thành công!");
 
                 LoadDataToDataGridView(); // Refresh data grid view
@@ -99,16 +99,16 @@ namespace MiniMart.PresentationLayer.Forms
         {
             try
             {
-                string Mkh = MkhTextBox.Text;
+                string Msp = MspTextBox.Text;
 
                 DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa mục này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes)
                 {
-                    SanPhamService.DeleteEntry(Mkh);
+                    sanPhamService.DeleteEntry(Msp);
                     MessageBox.Show("Xóa dữ liệu thành công!");
 
-                    LoadDataToDataGridView();
+                    LoadDataToDataGridView(); // Refresh data grid view
                 }
                 else
                 {
@@ -123,18 +123,17 @@ namespace MiniMart.PresentationLayer.Forms
 
         private void TimKiemButton_Click(object sender, EventArgs e)
         {
-            string Mkh = MkhTextBox.Text; if (Mkh == null) { Mkh = ""; }
-            string HoTen = HoTenKHTextBox.Text; if (HoTen == null) { HoTen = ""; }
-            string DiaChi = DiaChiKHTextBox.Text; if (DiaChi == null) { DiaChi = ""; }
-            string Sdt = SDTKHTextBox.Text;
-            string HangKhach = HangKhachTextBox.Text; if (HangKhach == null) { HangKhach = ""; }
+            string Msp = MspTextBox.Text;
+            string Mncc = MnccTextBox.Text;
+            string TenSp = TenspTextBox.Text;
+            int SoLuong = int.TryParse(SoLuongTextBox.Text, out int sl) ? sl : 0;
+            float Gia = float.TryParse(GiaTextBox.Text, out float gia) ? gia : 0;
+            DateTime NgayNhap = NgayNhapDateTimePicker.Value;
+            DateTime HetHan = HanDateTimePicker.Value;
+            string HetHang = HetHangCheckBox.Checked ? "Yes" : "No";
+            string PhanLoai = LoaiTextBox.Text;
 
-            if (Mkh == null && HoTen == null && DiaChi == null && Sdt == null && HangKhach == null)
-            {
-                SanPhamDirdView.DataSource = SanPhamService.GetSanPham();
-            }
-
-            DataTable result = SanPhamDB.SearchData(Mkh, HoTen, DiaChi, Sdt, HangKhach);
+            DataTable result = sanPhamService.SearchData(Msp, Mncc, TenSp, SoLuong, Gia, NgayNhap, HetHan, HetHang, PhanLoai);
 
             if (result != null)
             {
@@ -146,20 +145,20 @@ namespace MiniMart.PresentationLayer.Forms
             }
         }
 
-        private void SanPhamDirdView_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void NhapDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow selectedRow = SanPhamDirdView.Rows[e.RowIndex];
-                MkhTextBox.Text = selectedRow.Cells["Mkh"].Value.ToString();
-                HoTenKHTextBox.Text = selectedRow.Cells["HoTen"].Value.ToString();
-                DiaChiKHTextBox.Text = selectedRow.Cells["DiaChi"].Value.ToString();
-                SDTKHTextBox.Text = selectedRow.Cells["Sdt"].Value.ToString();
-                HangKhachTextBox.Text = selectedRow.Cells["HangKhach"].Value.ToString();
-            }
-            else
-            {
-                //MessageBox.Show("Không có dữ liệu đêe hiển thị");
+                MspTextBox.Text = selectedRow.Cells["Msp"].Value.ToString();
+                MnccTextBox.Text = selectedRow.Cells["Mncc"].Value.ToString();
+                TenspTextBox.Text = selectedRow.Cells["TenSp"].Value.ToString();
+                SoLuongTextBox.Text = selectedRow.Cells["SoLuong"].Value.ToString();
+                GiaTextBox.Text = selectedRow.Cells["Gia"].Value.ToString();
+                NgayNhapDateTimePicker.Value = Convert.ToDateTime(selectedRow.Cells["NgayNhap"].Value);
+                HanDateTimePicker.Value = Convert.ToDateTime(selectedRow.Cells["HetHan"].Value);
+                HetHangCheckBox.Checked = selectedRow.Cells["HetHang"].Value.ToString() == "Yes";
+                LoaiTextBox.Text = selectedRow.Cells["PhanLoai"].Value.ToString();
             }
         }
     }

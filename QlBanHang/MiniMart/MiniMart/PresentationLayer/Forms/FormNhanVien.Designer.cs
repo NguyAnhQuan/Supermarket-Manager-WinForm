@@ -11,7 +11,7 @@
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing) 
+        protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
             {
@@ -42,14 +42,13 @@
             this.ThemButton = new System.Windows.Forms.Button();
             this.NhanVienDirdView = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.SinhNhatdateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.LuongTextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.ChucVuTextBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.DiaChiNVTextBox = new System.Windows.Forms.TextBox();
             this.SDTNVTextBox = new System.Windows.Forms.TextBox();
             this.HoTenNVTextBox = new System.Windows.Forms.TextBox();
-            this.SinhNhatTextBox = new System.Windows.Forms.TextBox();
             this.GioiTinhTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.MaNVTextBox = new System.Windows.Forms.TextBox();
@@ -59,6 +58,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.ChucVutextBox = new System.Windows.Forms.TextBox();
             this.TitlePanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -156,6 +156,7 @@
             this.TimKiemButton.TabIndex = 4;
             this.TimKiemButton.Text = "Tìm kiếm";
             this.TimKiemButton.UseVisualStyleBackColor = true;
+            this.TimKiemButton.Click += new System.EventHandler(this.TimKiemButton_Click);
             // 
             // XoaButton
             // 
@@ -166,6 +167,7 @@
             this.XoaButton.TabIndex = 1;
             this.XoaButton.Text = "Xóa";
             this.XoaButton.UseVisualStyleBackColor = true;
+            this.XoaButton.Click += new System.EventHandler(this.XoaButton_Click);
             // 
             // SuaButton
             // 
@@ -176,6 +178,7 @@
             this.SuaButton.TabIndex = 2;
             this.SuaButton.Text = "Sửa";
             this.SuaButton.UseVisualStyleBackColor = true;
+            this.SuaButton.Click += new System.EventHandler(this.SuaButton_Click);
             // 
             // ThemButton
             // 
@@ -186,10 +189,11 @@
             this.ThemButton.TabIndex = 0;
             this.ThemButton.Text = "Thêm";
             this.ThemButton.UseVisualStyleBackColor = true;
+            this.ThemButton.Click += new System.EventHandler(this.ThemButton_Click);
             // 
             // NhanVienDirdView
             // 
-            this.NhanVienDirdView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.NhanVienDirdView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.NhanVienDirdView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.NhanVienDirdView.ColumnHeadersHeight = 46;
@@ -201,20 +205,21 @@
             this.NhanVienDirdView.RowTemplate.Height = 33;
             this.NhanVienDirdView.Size = new System.Drawing.Size(1752, 678);
             this.NhanVienDirdView.TabIndex = 11;
+            this.NhanVienDirdView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.NhanVienDirdView_CellClick);
             // 
             // panel3
             // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.ChucVutextBox);
+            this.panel3.Controls.Add(this.SinhNhatdateTimePicker);
             this.panel3.Controls.Add(this.LuongTextBox);
             this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.ChucVuTextBox);
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.DiaChiNVTextBox);
             this.panel3.Controls.Add(this.SDTNVTextBox);
             this.panel3.Controls.Add(this.HoTenNVTextBox);
-            this.panel3.Controls.Add(this.SinhNhatTextBox);
             this.panel3.Controls.Add(this.GioiTinhTextBox);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.MaNVTextBox);
@@ -229,6 +234,13 @@
             this.panel3.Size = new System.Drawing.Size(1751, 221);
             this.panel3.TabIndex = 12;
             // 
+            // SinhNhatdateTimePicker
+            // 
+            this.SinhNhatdateTimePicker.Location = new System.Drawing.Point(1442, 66);
+            this.SinhNhatdateTimePicker.Name = "SinhNhatdateTimePicker";
+            this.SinhNhatdateTimePicker.Size = new System.Drawing.Size(236, 31);
+            this.SinhNhatdateTimePicker.TabIndex = 32;
+            // 
             // LuongTextBox
             // 
             this.LuongTextBox.BackColor = System.Drawing.SystemColors.HighlightText;
@@ -238,6 +250,7 @@
             this.LuongTextBox.Name = "LuongTextBox";
             this.LuongTextBox.Size = new System.Drawing.Size(236, 38);
             this.LuongTextBox.TabIndex = 29;
+            this.LuongTextBox.Text = "0";
             // 
             // label7
             // 
@@ -248,16 +261,6 @@
             this.label7.Size = new System.Drawing.Size(72, 25);
             this.label7.TabIndex = 28;
             this.label7.Text = "Lương";
-            // 
-            // ChucVuTextBox
-            // 
-            this.ChucVuTextBox.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.ChucVuTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ChucVuTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.ChucVuTextBox.Location = new System.Drawing.Point(1016, 148);
-            this.ChucVuTextBox.Name = "ChucVuTextBox";
-            this.ChucVuTextBox.Size = new System.Drawing.Size(236, 38);
-            this.ChucVuTextBox.TabIndex = 31;
             // 
             // label8
             // 
@@ -298,16 +301,6 @@
             this.HoTenNVTextBox.Name = "HoTenNVTextBox";
             this.HoTenNVTextBox.Size = new System.Drawing.Size(236, 38);
             this.HoTenNVTextBox.TabIndex = 21;
-            // 
-            // SinhNhatTextBox
-            // 
-            this.SinhNhatTextBox.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.SinhNhatTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SinhNhatTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.SinhNhatTextBox.Location = new System.Drawing.Point(1442, 59);
-            this.SinhNhatTextBox.Name = "SinhNhatTextBox";
-            this.SinhNhatTextBox.Size = new System.Drawing.Size(236, 38);
-            this.SinhNhatTextBox.TabIndex = 19;
             // 
             // GioiTinhTextBox
             // 
@@ -394,6 +387,16 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // ChucVutextBox
+            // 
+            this.ChucVutextBox.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.ChucVutextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ChucVutextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.ChucVutextBox.Location = new System.Drawing.Point(1016, 148);
+            this.ChucVutextBox.Name = "ChucVutextBox";
+            this.ChucVutextBox.Size = new System.Drawing.Size(236, 38);
+            this.ChucVutextBox.TabIndex = 33;
+            // 
             // FormNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -437,7 +440,6 @@
         private System.Windows.Forms.TextBox DiaChiNVTextBox;
         private System.Windows.Forms.TextBox SDTNVTextBox;
         private System.Windows.Forms.TextBox HoTenNVTextBox;
-        private System.Windows.Forms.TextBox SinhNhatTextBox;
         private System.Windows.Forms.TextBox MaNVTextBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
@@ -446,10 +448,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox LuongTextBox;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox ChucVuTextBox;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox GioiTinhTextBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.DateTimePicker SinhNhatdateTimePicker;
+        private System.Windows.Forms.TextBox ChucVutextBox;
     }
 }
