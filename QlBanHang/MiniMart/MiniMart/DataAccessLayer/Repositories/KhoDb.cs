@@ -48,7 +48,6 @@ namespace MiniMart.DataAccessLayer.Repositories
             {
                 database.OpenConnection();
 
-                // Thêm mới vào bảng KhoNX
                 SqlCommand cmdInsert = new SqlCommand(queryInsertKhoNX, database.GetConnection());
                 cmdInsert.Parameters.AddWithValue("@Mnx", mnx);
                 cmdInsert.Parameters.AddWithValue("@Msp", msp);
@@ -58,7 +57,6 @@ namespace MiniMart.DataAccessLayer.Repositories
                 cmdInsert.Parameters.AddWithValue("@ThoiGian", thoiGian);
                 cmdInsert.ExecuteNonQuery();
 
-                // Cập nhật số lượng trong bảng SanPham
                 SqlCommand cmdUpdate = new SqlCommand(queryUpdateSanPham, database.GetConnection());
                 cmdUpdate.Parameters.AddWithValue("@Msp", msp);
                 cmdUpdate.Parameters.AddWithValue("@SoLuong", soLuong);

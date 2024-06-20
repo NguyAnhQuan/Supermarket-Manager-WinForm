@@ -135,10 +135,8 @@ namespace MiniMart.PresentationLayer.Forms
 
                 float giasp = float.Parse(selectedRow.Cells["Gia"].Value.ToString());
 
-                // Lưu giá sản phẩm vào Tag của SoLuongTextBox để sử dụng sau này
                 SoLuongTextBox.Tag = giasp;
 
-                // Tính giá dựa trên số lượng nếu đã có sẵn số lượng trong SoLuongTextBox
                 if (int.TryParse(SoLuongTextBox.Text, out int soluong))
                 {
                     GiaTextBox.Text = (giasp * soluong).ToString();
@@ -205,7 +203,7 @@ namespace MiniMart.PresentationLayer.Forms
             }
             else
             {
-                GiaTextBox.Text = "0"; // Đặt giá trị mặc định nếu dữ liệu không hợp lệ
+                GiaTextBox.Text = "0"; 
             }
         }
 

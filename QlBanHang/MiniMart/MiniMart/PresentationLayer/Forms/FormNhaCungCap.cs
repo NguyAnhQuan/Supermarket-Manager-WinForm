@@ -120,7 +120,7 @@ namespace MiniMart.PresentationLayer.Forms
                 NhaCungCapService.UpdateEntry(Mncc, Ten, DiaChi, Sdt, HopTac);
                 MessageBox.Show("Đã sửa dữ liệu thành công!");
 
-                LoadDataToDataGridView(); // Refresh data grid view
+                LoadDataToDataGridView(); 
             }
             catch (Exception ex)
             {
@@ -141,7 +141,7 @@ namespace MiniMart.PresentationLayer.Forms
                 NhaCungCapService.AddNewEntry(Mncc, Ten, DiaChi, Sdt, HopTac);
                 MessageBox.Show("Thêm dữ liệu thành công!");
 
-                LoadDataToDataGridView(); // Refresh data grid view
+                LoadDataToDataGridView(); 
             }
             catch (Exception ex)
             {

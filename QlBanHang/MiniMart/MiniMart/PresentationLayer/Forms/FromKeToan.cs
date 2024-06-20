@@ -16,15 +16,12 @@ namespace MiniMart.PresentationLayer.Forms
             MnvTextBox.Text = LoginForm.MNV;
             HoTenTextBox.Text = LoginForm.HOTEN;
 
-            // Khởi tạo đối tượng của lớp KeToanLG
             keToanLG = new KeToanLG();
 
-            // Khởi tạo sự kiện CheckedChanged cho các checkbox
             ThuCheckBox.CheckedChanged += ThuCheckBox_CheckedChanged;
             ChiCheckBox.CheckedChanged += ChiCheckBox_CheckedChanged;
             TaiChinhcheckBox.CheckedChanged += TaiChinhcheckBox_CheckedChanged;
 
-            // Khởi động timer để cập nhật thời gian
             timer1.Start();
         }
 
@@ -67,7 +64,7 @@ namespace MiniMart.PresentationLayer.Forms
                 else
                 {
                     MessageBox.Show("Không có dữ liệu để hiển thị.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    TaiChinhcheckBox.Checked = false; // Hủy chọn checkbox nếu không có dữ liệu
+                    TaiChinhcheckBox.Checked = false; 
                 }
             }
             else
@@ -90,15 +87,11 @@ namespace MiniMart.PresentationLayer.Forms
                     if (double.TryParse(value.ToString(), out numericValue))
                     {
                         KeToanchart.Series[seriesName].Points.AddY(numericValue);
-                    }
-                    else
-                    {
-                        // Xử lý khi không thể chuyển đổi giá trị sang số double (tuỳ theo logic của ứng dụng)
-                    }
+                    }                    
                 }
                 else
                 {
-                    // Xử lý khi giá trị là null (tuỳ theo logic của ứng dụng)
+                    MessageBox.Show("Không nhận được dữ liệu");
                 }
             }
         }

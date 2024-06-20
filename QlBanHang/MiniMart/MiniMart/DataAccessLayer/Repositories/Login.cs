@@ -9,16 +9,13 @@ namespace MiniMart.DataAccessLayer.Repositories
     {
         private static IDatabaseConnection database = new Database();
 
-        // Phương thức để kiểm tra đăng nhập và lấy chức vụ
         public static string KiemTraDangNhapVaLayChucVu(string maDangNhap, string matKhau)
         {
             string chucVuin = null;
             try
             {
-                // Mở kết nối
                 database.OpenConnection();
 
-                // Tạo câu lệnh SQL để kiểm tra đăng nhập và lấy chức vụ
                 string query = @"
                     SELECT  LEFT(nv.ChucVu, CHARINDEX(' ', nv.ChucVu) - 1) AS ChucVu
                     FROM DangNhap dn
@@ -28,7 +25,6 @@ namespace MiniMart.DataAccessLayer.Repositories
                 cmd.Parameters.AddWithValue("@maDangNhap", maDangNhap);
                 cmd.Parameters.AddWithValue("@matKhau", matKhau);
 
-                // Thực thi câu lệnh SQL và lấy chức vụ
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
@@ -38,12 +34,10 @@ namespace MiniMart.DataAccessLayer.Repositories
             }
             catch (Exception ex)
             {
-                // Xử lý exception
                 MessageBox.Show("Error: " + ex.Message);
             }
             finally
             {
-                // Đóng kết nối sau khi thực hiện xong
                 database.CloseConnection();
             }
             return chucVuin;
@@ -56,10 +50,8 @@ namespace MiniMart.DataAccessLayer.Repositories
             string hoten = null;
             try
             {
-                // Mở kết nối
                 database.OpenConnection();
 
-                // Tạo câu lệnh SQL để kiểm tra chức vụ
                 string query = @"
                     SELECT Mnv, ChucVu, HoTen
                     FROM NhanVien
@@ -67,7 +59,6 @@ namespace MiniMart.DataAccessLayer.Repositories
                 SqlCommand cmd = new SqlCommand(query, database.GetConnection());
                 cmd.Parameters.AddWithValue("@chucVu", chucVuout);
 
-                // Thực thi câu lệnh SQL và lấy chức vụ, Mnv, hoten
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
@@ -79,12 +70,10 @@ namespace MiniMart.DataAccessLayer.Repositories
             }
             catch (Exception ex)
             {
-                // Xử lý exception
                 MessageBox.Show("Error: " + ex.Message);
             }
             finally
             {
-                // Đóng kết nối sau khi thực hiện xong
                 database.CloseConnection();
             }
             return (chucVu, mnv, hoten);

@@ -62,7 +62,7 @@ namespace MiniMart.PresentationLayer.Forms
                 sanPhamService.AddNewEntry(Msp, Mncc, TenSp, SoLuong, Gia, NgayNhap, HetHan, HetHang, PhanLoai);
                 MessageBox.Show("Thêm dữ liệu thành công!");
 
-                LoadDataToDataGridView(); // Refresh data grid view
+                LoadDataToDataGridView(); 
             }
             catch (Exception ex)
             {
@@ -106,7 +106,7 @@ namespace MiniMart.PresentationLayer.Forms
                 sanPhamService.UpdateEntry(Msp, Mncc, TenSp, SoLuong, Gia, NgayNhap, HetHan, HetHang, PhanLoai);
                 MessageBox.Show("Đã sửa dữ liệu thành công!");
 
-                LoadDataToDataGridView(); // Refresh data grid view
+                LoadDataToDataGridView(); 
             }
             catch (Exception ex)
             {
@@ -127,7 +127,7 @@ namespace MiniMart.PresentationLayer.Forms
                     sanPhamService.DeleteEntry(Msp);
                     MessageBox.Show("Xóa dữ liệu thành công!");
 
-                    LoadDataToDataGridView(); // Refresh data grid view
+                    LoadDataToDataGridView(); 
                 }
                 else
                 {

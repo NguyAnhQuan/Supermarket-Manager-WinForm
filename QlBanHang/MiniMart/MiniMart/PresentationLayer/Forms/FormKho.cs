@@ -60,7 +60,7 @@ namespace MiniMart.PresentationLayer.Form
                 khoService.AddNewEntry(mnx, msp, mncc, soLuong, tongGia, thoiGian);
                 MessageBox.Show("Thêm dữ liệu thành công!");
 
-                LoadDataToDataGridView(); // Refresh data grid view
+                LoadDataToDataGridView(); 
             }
             catch (Exception ex)
             {
@@ -118,24 +118,20 @@ namespace MiniMart.PresentationLayer.Form
 
         private void TimKiemKhoButton_Click(object sender, EventArgs e)
         {
-            // Lấy giá trị của các điều khiển từ người dùng nhập vào
             string keyword = TimKiemTextBox.Text.Trim();
             DateTime fromDate = dateTimePicker1.Value;
             DateTime toDate = dateTimePicker2.Value;
 
-            // Kiểm tra xem TimKiemComboBox đã chọn hay chưa
             if (TimKiemComboBox.SelectedItem == null || string.IsNullOrEmpty(TimKiemComboBox.SelectedItem.ToString()))
             {
                 MessageBox.Show("Vui lòng chọn tiêu chí tìm kiếm.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return; // Dừng xử lý tiếp theo
+                return; 
             }
 
             string columnName = TimKiemComboBox.SelectedItem.ToString();
 
-            // Gọi phương thức để thực hiện tìm kiếm dữ liệu
             DataTable result = khoService.SearchData(columnName, keyword, fromDate, toDate);
 
-            // Hiển thị kết quả lên KhoDataGridView (giả sử đã có phương thức hiển thị dữ liệu lên DataGridView)
             if (result != null)
             {
                 KhoDataGridView.DataSource = result;

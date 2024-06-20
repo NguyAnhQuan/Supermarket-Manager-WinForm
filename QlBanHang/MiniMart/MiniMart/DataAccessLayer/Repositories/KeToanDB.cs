@@ -11,7 +11,7 @@ namespace MiniMart.DataAccessLayer.Repositories
 
         public KeToanDB()
         {
-            database = new Database(); // Đảm bảo rằng lớp Database của bạn được khởi tạo đúng cách
+            database = new Database(); 
         }
 
         public DataTable GetThanhTienFromHoaDon()

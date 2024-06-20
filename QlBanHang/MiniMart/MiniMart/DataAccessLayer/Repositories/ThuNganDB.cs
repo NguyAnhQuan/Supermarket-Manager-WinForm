@@ -73,7 +73,7 @@ namespace MiniMart.DataAccessLayer.Repositories
                 }
                 else
                 {
-                    return "HD1"; // Nếu chưa có dữ liệu, trả về HD1
+                    return "HD1"; 
                 }
             }
             catch (Exception ex)
