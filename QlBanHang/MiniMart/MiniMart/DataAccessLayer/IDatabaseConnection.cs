@@ -13,4 +13,6 @@ namespace MiniMart.DataAccessLayer
         void CloseConnection();
         SqlConnection GetConnection();
     }
+
+
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace MiniMart.DataAccessLayer.Repositories
 {
-    internal class ThuNganDB
+    internal class ThuNganDB : IThuNganRepository
     {
 
         private static IDatabaseConnection database = new Database();
@@ -42,7 +42,7 @@ namespace MiniMart.DataAccessLayer.Repositories
             return dataTable;
         }
 
-        public static DataTable SearchData(string Msp,  string TenSp, string PhanLoai)
+        public DataTable SearchData(string Msp, string TenSp, string PhanLoai)
         {
             string query = @"SELECT * FROM SanPham
                              WHERE Msp LIKE @Msp
@@ -56,7 +56,7 @@ namespace MiniMart.DataAccessLayer.Repositories
             return ExecuteQuery(query, parameters);
         }
 
-        public static string TruyvanHD()
+        public string TruyvanHD()
         {
             string query = @"SELECT MAX(CAST(SUBSTRING(Mhd, 3, LEN(Mhd) - 2) AS INT)) AS MaxMhd
                      FROM HoaDon
@@ -73,7 +73,7 @@ namespace MiniMart.DataAccessLayer.Repositories
                 }
                 else
                 {
-                    return "HD1"; 
+                    return "HD1";
                 }
             }
             catch (Exception ex)
@@ -87,7 +87,7 @@ namespace MiniMart.DataAccessLayer.Repositories
             }
         }
 
-        public static void ThemHD(string Mhd, DateTime NgayXuat, string Msp, int SoLuong, float DonGia, float ThanhTien, string Mkh, string Mnv)
+        public void ThemHD(string Mhd, DateTime NgayXuat, string Msp, int SoLuong, float DonGia, float ThanhTien, string Mkh, string Mnv)
         {
             string query = @"INSERT INTO HoaDon (Mhd, NgayXuat, Msp, SoLuong, DonGia, ThanhTien, Mkh, Mnv)
                      VALUES (@Mhd, @NgayXuat, @Msp, @SoLuong, @DonGia,  @ThanhTien, @Mkh, @Mnv);
@@ -116,18 +116,14 @@ namespace MiniMart.DataAccessLayer.Repositories
             }
         }
 
-
-
-        public static DataTable SearchDataKH(string Mkh)
+        public DataTable SearchDataKH(string Mkh)
         {
             string query = @"SELECT * FROM KhachHang WHERE Mkh LIKE @Mkh";
-            SqlParameter[] parameters = 
+            SqlParameter[] parameters =
             {
-                new SqlParameter("@Mkh", "%" + Mkh + "%") 
+                new SqlParameter("@Mkh", "%" + Mkh + "%")
             };
             return ExecuteQuery(query, parameters);
         }
-
-
     }
 }

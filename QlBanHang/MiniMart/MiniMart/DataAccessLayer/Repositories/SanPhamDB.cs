@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace MiniMart.DataAccessLayer.Repositories
 {
-    internal class SanPhamDB
+    internal class SanPhamDB : ISanPhamRepository
     {
         private static IDatabaseConnection database = new Database();
 
@@ -37,13 +37,13 @@ namespace MiniMart.DataAccessLayer.Repositories
             return dataTable;
         }
 
-        public static DataTable SanPham()
+        public DataTable SanPham()
         {
             string query = @"SELECT * FROM SanPham";
             return ExecuteQuery(query);
         }
 
-        public static void AddNewEntry(string Msp, string Mncc, string TenSp, int SoLuong, float Gia, DateTime NgayNhap, DateTime HetHan, bool HetHang, string PhanLoai)
+        public void AddNewEntry(string Msp, string Mncc, string TenSp, int SoLuong, float Gia, DateTime NgayNhap, DateTime HetHan, bool HetHang, string PhanLoai)
         {
             string query = @"INSERT INTO SanPham (Msp, Mncc, TenSp, SoLuong, Gia, NgayNhap, HetHan, HetHang, PhanLoai)
                              VALUES (@Msp, @Mncc, @TenSp, @SoLuong, @Gia, @NgayNhap, @HetHan, @HetHang, @PhanLoai)";
@@ -61,7 +61,7 @@ namespace MiniMart.DataAccessLayer.Repositories
             ExecuteQuery(query, parameters);
         }
 
-        public static void UpdateEntry(string Msp, string Mncc, string TenSp, int SoLuong, float Gia, DateTime NgayNhap, DateTime HetHan, bool HetHang, string PhanLoai)
+        public void UpdateEntry(string Msp, string Mncc, string TenSp, int SoLuong, float Gia, DateTime NgayNhap, DateTime HetHan, bool HetHang, string PhanLoai)
         {
             string query = @"UPDATE SanPham SET Mncc = @Mncc, TenSp = @TenSp, SoLuong = @SoLuong, NgayNhap = @NgayNhap,
                                 HetHan = @HetHan, HetHang = @HetHang, PhanLoai = @PhanLoai
@@ -80,7 +80,7 @@ namespace MiniMart.DataAccessLayer.Repositories
             ExecuteQuery(query, parameters);
         }
 
-        public static void DeleteEntry(string Msp)
+        public void DeleteEntry(string Msp)
         {
             string query = @"DELETE FROM SanPham WHERE Msp = @Msp";
             SqlParameter[] parameters = {
@@ -89,7 +89,7 @@ namespace MiniMart.DataAccessLayer.Repositories
             ExecuteQuery(query, parameters);
         }
 
-        public static DataTable SearchData(string Msp, string Mncc, string TenSp, int SoLuong, float Gia, DateTime NgayNhap, DateTime HetHan, bool HetHang, string PhanLoai)
+        public DataTable SearchData(string Msp, string Mncc, string TenSp, int SoLuong, float Gia, DateTime NgayNhap, DateTime HetHan, bool HetHang, string PhanLoai)
         {
             string query = @"SELECT * FROM SanPham
                              WHERE Msp LIKE @Msp

@@ -1,25 +1,99 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace MiniMart.DataAccessLayer.Repositories
 {
-    internal class NhanVienDB
+    internal class NhanVienDB : INhanVienRepository
     {
-        private static IDatabaseConnection database = new Database();
+        private static readonly IDatabaseConnection database = new Database();
 
-        private static DataTable ExecuteQuery(string query)
+        public DataTable GetNhanVien()
+        {
+            string query = @"SELECT * FROM NhanVien";
+            return ExecuteQuery(query);
+        }
+
+        public void AddNewEntry(string Mnv, string Sdt, DateTime SinhNhat, string DiaChi, string HoTen, string GioiTinh, string ChucVu, float Luong)
+        {
+            string query = @"INSERT INTO NhanVien (Mnv, Sdt, SinhNhat, DiaChi, HoTen, GioiTinh, ChucVu, Luong)
+                             VALUES (@Mnv, @Sdt, @SinhNhat, @DiaChi, @HoTen,  @GioiTinh, @ChucVu, @Luong)";
+            SqlParameter[] parameters =
+            {
+                new SqlParameter("@Mnv", Mnv),
+                new SqlParameter("@Sdt", Sdt),
+                new SqlParameter("@SinhNhat", SinhNhat),
+                new SqlParameter("@DiaChi", DiaChi),
+                new SqlParameter("@HoTen", HoTen),
+                new SqlParameter("@GioiTinh", GioiTinh),
+                new SqlParameter("@ChucVu", ChucVu),
+                new SqlParameter("@Luong", Luong)
+            };
+            ExecuteNonQuery(query, parameters);
+        }
+
+        public void UpdateEntry(string Mnv, string Sdt, DateTime SinhNhat, string DiaChi, string HoTen, string GioiTinh, string ChucVu, float Luong)
+        {
+            string query = @"UPDATE NhanVien SET Sdt = @Sdt, SinhNhat = @SinhNhat, DiaChi = @DiaChi, HoTen = @HoTen, GioiTinh = @GioiTinh, ChucVu = @ChucVu, Luong = @Luong  WHERE Mnv = @Mnv";
+            SqlParameter[] parameters =
+            {
+                new SqlParameter("@Mnv", Mnv),
+                new SqlParameter("@Sdt", Sdt),
+                new SqlParameter("@SinhNhat", SinhNhat),
+                new SqlParameter("@DiaChi", DiaChi),
+                new SqlParameter("@HoTen", HoTen),
+                new SqlParameter("@GioiTinh", GioiTinh),
+                new SqlParameter("@ChucVu", ChucVu),
+                new SqlParameter("@Luong", Luong)
+            };
+            ExecuteNonQuery(query, parameters);
+        }
+
+        public void DeleteEntry(string Mnv)
+        {
+            string query = @"DELETE FROM NhanVien WHERE Mnv = @Mnv";
+            SqlParameter[] parameters =
+            {
+                new SqlParameter("@Mnv", Mnv)
+            };
+            ExecuteNonQuery(query, parameters);
+        }
+
+        public DataTable SearchData(string Mnv, string Sdt, string DiaChi, string HoTen, string GioiTinh, string ChucVu, float Luong)
+        {
+            string query = @"SELECT * FROM NhanVien
+                             WHERE Mnv LIKE @Mnv
+                             AND Sdt LIKE @Sdt
+                             AND DiaChi LIKE @DiaChi
+                             AND HoTen LIKE @HoTen
+                             AND GioiTinh LIKE @GioiTinh
+                             AND ChucVu LIKE @ChucVu
+                             AND Luong LIKE @Luong";
+            SqlParameter[] parameters =
+            {
+                new SqlParameter("@Mnv", "%" + Mnv + "%"),
+                new SqlParameter("@Sdt", "%" + Sdt + "%"),
+                new SqlParameter("@DiaChi", "%" + DiaChi + "%"),
+                new SqlParameter("@HoTen", "%" + HoTen + "%"),
+                new SqlParameter("@GioiTinh", "%" + GioiTinh + "%"),
+                new SqlParameter("@ChucVu", "%" + ChucVu + "%"),
+                new SqlParameter("@Luong", "%" + Luong + "%")
+            };
+            return ExecuteQuery(query, parameters);
+        }
+
+        private static DataTable ExecuteQuery(string query, SqlParameter[] parameters = null)
         {
             DataTable dataTable = new DataTable();
             try
             {
                 database.OpenConnection();
                 SqlCommand cmd = new SqlCommand(query, database.GetConnection());
+                if (parameters != null)
+                {
+                    cmd.Parameters.AddRange(parameters);
+                }
                 SqlDataReader reader = cmd.ExecuteReader();
                 dataTable.Load(reader);
                 reader.Close();
@@ -35,147 +109,21 @@ namespace MiniMart.DataAccessLayer.Repositories
             return dataTable;
         }
 
-        public static DataTable NhanVien()
+        private static void ExecuteNonQuery(string query, SqlParameter[] parameters = null)
         {
-            string query = @"SELECT * FROM NhanVien";
-            return ExecuteQuery(query);
-        }
-
-        public static void AddNewEntry(string Mnv, string Sdt, DateTime SinhNhat, string DiaChi, string HoTen, string GioiTinh, string ChucVu, float Luong)
-        {
-            string query = @"INSERT INTO NhanVien (Mnv, Sdt, SinhNhat, DiaChi, HoTen, GioiTinh, ChucVu, Luong)
-                             VALUES (@Mnv, @Sdt, @SinhNhat, @DiaChi, @HoTen,  @GioiTinh, @ChucVu, @Luong)";
             try
             {
                 database.OpenConnection();
                 SqlCommand cmd = new SqlCommand(query, database.GetConnection());
-                cmd.Parameters.AddWithValue("@Mnv", Mnv);
-                cmd.Parameters.AddWithValue("@Sdt", Sdt);
-                cmd.Parameters.AddWithValue("@SinhNhat", SinhNhat);
-                cmd.Parameters.AddWithValue("@DiaChi", DiaChi);
-                cmd.Parameters.AddWithValue("@HoTen", HoTen);
-                cmd.Parameters.AddWithValue("@GioiTinh", GioiTinh);
-                cmd.Parameters.AddWithValue("@ChucVu", ChucVu);
-                cmd.Parameters.AddWithValue("@Luong", Luong);
+                if (parameters != null)
+                {
+                    cmd.Parameters.AddRange(parameters);
+                }
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
-            }
-            finally
-            {
-                database.CloseConnection();
-            }
-        }
-
-        public static void UpdateEntry(string Mnv, string Sdt, DateTime SinhNhat, string DiaChi, string HoTen, string GioiTinh, string ChucVu, float Luong)
-        {
-            string query = @"UPDATE NhanVien SET Sdt = @Sdt, SinhNhat = @SinhNhat, DiaChi = @DiaChi, HoTen = @HoTen, GioiTinh = @GioiTinh, ChucVu = @ChucVu, Luong = @Luong  WHERE Mnv = @Mnv";
-            try
-            {
-                database.OpenConnection();
-                SqlCommand cmd = new SqlCommand(query, database.GetConnection());
-                cmd.Parameters.AddWithValue("@Mnv", Mnv);
-                cmd.Parameters.AddWithValue("@Sdt", Sdt);
-                cmd.Parameters.AddWithValue("@SinhNhat", SinhNhat);
-                cmd.Parameters.AddWithValue("@DiaChi", DiaChi);
-                cmd.Parameters.AddWithValue("@HoTen", HoTen);
-                cmd.Parameters.AddWithValue("@GioiTinh", GioiTinh);
-                cmd.Parameters.AddWithValue("@ChucVu", ChucVu);
-                cmd.Parameters.AddWithValue("@Luong", Luong);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-            finally
-            {
-                database.CloseConnection();
-            }
-        }
-
-        public static void DeleteEntry(string Mnv)
-        {
-            try
-            {
-                string query = @"DELETE FROM NhanVien WHERE Mnv = @Mnv";
-                database.OpenConnection();
-                SqlCommand cmd = new SqlCommand(query, database.GetConnection());
-                cmd.Parameters.AddWithValue("@Mnv", Mnv);
-                int rowsAffected = cmd.ExecuteNonQuery();
-                MessageBox.Show("Deleted successfully! Rows affected: " + rowsAffected);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-            finally
-            {
-                database.CloseConnection();
-            }
-        }
-
-
-
-
-        //public static void DeleteRelatedEntries(string Mnv)
-        //{
-        //    string query = @"DELETE FROM HoaDon WHERE Mnv = @Mnv;
-        //                    DELETE FROM UuDai WHERE Mnv = @Mnv";
-        //    try
-        //    {
-        //        database.OpenConnection();
-        //        SqlCommand cmd = new SqlCommand(query, database.GetConnection());
-        //        cmd.Parameters.AddWithValue("@Mnv", Mnv);
-        //        cmd.ExecuteNonQuery();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Error: " + ex.Message);
-        //    }
-        //    finally
-        //    {
-        //        database.CloseConnection();
-        //    }
-        //}
-
-
-
-
-        public static DataTable SearchData(string Mnv, string Sdt, string DiaChi, string HoTen, string GioiTinh, string ChucVu, float Luong)
-        {
-            string query = $@"SELECT * FROM NhanVien
-                                where Mnv like @Mnv
-                                and Sdt like @Sdt 
-                                
-                                and DiaChi like @DiaChi
-                                and HoTen like @HoTen
-                                and GioiTinh like @GioiTinh
-                                and ChucVu like @ChucVu
-                                and Luong like @Luong";
-            try
-            {
-                database.OpenConnection();
-                SqlCommand cmd = new SqlCommand(query, database.GetConnection());
-                cmd.Parameters.AddWithValue("@Mnv", "%" + Mnv + "%");
-                cmd.Parameters.AddWithValue("@Sdt", "%" + Sdt + "%");
-                cmd.Parameters.AddWithValue("@DiaChi", "%" + DiaChi + "%");
-                cmd.Parameters.AddWithValue("@HoTen", "%" + HoTen + "%");
-                cmd.Parameters.AddWithValue("@GioiTinh", "%" + GioiTinh + "%");
-                cmd.Parameters.AddWithValue("@ChucVu", "%" + ChucVu + "%");
-                cmd.Parameters.AddWithValue("@Luong", "%" + Luong + "%");
-                SqlDataReader reader = cmd.ExecuteReader();
-                DataTable dataTable = new DataTable();
-                dataTable.Load(reader);
-                reader.Close();
-                return dataTable;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-                return null;
             }
             finally
             {

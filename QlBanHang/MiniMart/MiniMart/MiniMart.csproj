@@ -59,6 +59,10 @@
     <Compile Include="BusinessLogicLayer\Services\ThuNganLG.cs" />
     <Compile Include="DataAccessLayer\database.cs" />
     <Compile Include="DataAccessLayer\IDatabaseConnection.cs" />
+    <Compile Include="DataAccessLayer\interface\INhaCungCapRepository.cs" />
+    <Compile Include="DataAccessLayer\interface\INhanVienRepository.cs" />
+    <Compile Include="DataAccessLayer\interface\ISanPhamRepository.cs" />
+    <Compile Include="DataAccessLayer\interface\IThuNganRepository.cs" />
     <Compile Include="DataAccessLayer\Repositories\AdminDB.cs" />
     <Compile Include="DataAccessLayer\Repositories\KeToanDB.cs" />
     <Compile Include="DataAccessLayer\Repositories\KhachHangDB.cs" />

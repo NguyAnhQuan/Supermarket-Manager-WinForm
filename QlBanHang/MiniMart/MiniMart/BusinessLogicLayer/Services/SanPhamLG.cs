@@ -6,36 +6,36 @@ namespace MiniMart.BusinessLogicLayer.Services
 {
     internal class SanPhamLG
     {
-        private readonly SanPhamDB sanPhamDB;
+        private readonly ISanPhamRepository sanPhamRepository;
 
-        public SanPhamLG()
+        public SanPhamLG(ISanPhamRepository repository)
         {
-            sanPhamDB = new SanPhamDB();
+            sanPhamRepository = repository;
         }
 
         public DataTable GetSanPham()
         {
-            return SanPhamDB.SanPham();
+            return sanPhamRepository.SanPham();
         }
 
         public void AddNewEntry(string Msp, string Mncc, string TenSp, int SoLuong, float Gia, DateTime NgayNhap, DateTime HetHan, bool HetHang, string PhanLoai)
         {
-            SanPhamDB.AddNewEntry(Msp, Mncc, TenSp, SoLuong, Gia, NgayNhap, HetHan, HetHang ? true : false, PhanLoai);
+            sanPhamRepository.AddNewEntry(Msp, Mncc, TenSp, SoLuong, Gia, NgayNhap, HetHan, HetHang, PhanLoai);
         }
 
         public void UpdateEntry(string Msp, string Mncc, string TenSp, int SoLuong, float Gia, DateTime NgayNhap, DateTime HetHan, bool HetHang, string PhanLoai)
         {
-            SanPhamDB.UpdateEntry(Msp, Mncc, TenSp, SoLuong, Gia, NgayNhap, HetHan, HetHang ? true : false, PhanLoai);
+            sanPhamRepository.UpdateEntry(Msp, Mncc, TenSp, SoLuong, Gia, NgayNhap, HetHan, HetHang, PhanLoai);
         }
 
         public void DeleteEntry(string Msp)
         {
-            SanPhamDB.DeleteEntry(Msp);
+            sanPhamRepository.DeleteEntry(Msp);
         }
 
         public DataTable SearchData(string Msp, string Mncc, string TenSp, int SoLuong, float Gia, DateTime NgayNhap, DateTime HetHan, bool HetHang, string PhanLoai)
         {
-            return SanPhamDB.SearchData(Msp, Mncc, TenSp, SoLuong, Gia, NgayNhap, HetHan, HetHang ? true : false, PhanLoai);
+            return sanPhamRepository.SearchData(Msp, Mncc, TenSp, SoLuong, Gia, NgayNhap, HetHan, HetHang, PhanLoai);
         }
     }
 }

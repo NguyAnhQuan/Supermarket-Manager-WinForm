@@ -1,4 +1,5 @@
 ﻿using MiniMart.BusinessLogicLayer.Services;
+using MiniMart.DataAccessLayer.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,9 +21,9 @@ namespace MiniMart.PresentationLayer.Forms
         {
             InitializeComponent();
 
-            sanPhamService = new SanPhamLG();
+            sanPhamService = new SanPhamLG(new SanPhamDB());
             khachhangService = new KhachHangLG();
-            thuNganService = new ThuNganLG();
+            thuNganService = new ThuNganLG(new ThuNganDB());
 
             MnvTextBox.Text = LoginForm.MNV;
             HoTenTextBox.Text = LoginForm.HOTEN;

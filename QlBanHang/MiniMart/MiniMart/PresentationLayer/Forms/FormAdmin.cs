@@ -1,4 +1,5 @@
 ﻿using MiniMart.BusinessLogicLayer.Services;
+using MiniMart.DataAccessLayer.Repositories;
 using System;
 using System.Data;
 using System.Windows.Forms;

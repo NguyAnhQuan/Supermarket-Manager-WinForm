@@ -1,25 +1,20 @@
 ﻿using MiniMart.BusinessLogicLayer.Services;
 using MiniMart.DataAccessLayer.Repositories;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MiniMart.PresentationLayer.Forms
 {
     public partial class FormNhaCungCap : System.Windows.Forms.Form
     {
-        private NhaCungCapLG NhaCungCapService;
+        private readonly NhaCungCapLG NhaCungCapService;
 
         public FormNhaCungCap()
         {
             InitializeComponent();
-            NhaCungCapService = new NhaCungCapLG();
+
+            NhaCungCapService = new NhaCungCapLG(new NhaCungCapDB());
 
             MnvTextBox.Text = LoginForm.MNV;
             HoTenTextBox.Text = LoginForm.HOTEN;
@@ -52,24 +47,15 @@ namespace MiniMart.PresentationLayer.Forms
             }
         }
 
-        
-
-  
-
         private void TimKiemButton_Click(object sender, EventArgs e)
         {
-            string Mncc = MnccTextBox.Text; if (Mncc == null) { Mncc = ""; }
-            string Ten = TenTextBox.Text; if (Ten == null) { Ten = ""; }
-            string DiaChi = DiaChiTextBox.Text; if (DiaChi == null) { DiaChi = ""; }
-            string Sdt = SdtTextBox.Text;
-            string HopTac = HopTacTextBox.Text; if (HopTac == null) { HopTac = ""; }
+            string Mncc = MnccTextBox.Text.Trim();
+            string Ten = TenTextBox.Text.Trim();
+            string DiaChi = DiaChiTextBox.Text.Trim();
+            string Sdt = SdtTextBox.Text.Trim();
+            string HopTac = HopTacTextBox.Text.Trim();
 
-            if (Mncc == null && Ten == null && DiaChi == null && Sdt == null && HopTac == null)
-            {
-                NccDataGridView.DataSource = NhaCungCapService.GetNhaCungCap();
-            }
-
-            DataTable result = NhaCungCapDB.SearchData(Mncc, Ten, DiaChi, Sdt, HopTac);
+            DataTable result = NhaCungCapService.SearchData(Mncc, Ten, DiaChi, Sdt, HopTac);
 
             if (result != null)
             {
@@ -85,7 +71,7 @@ namespace MiniMart.PresentationLayer.Forms
         {
             try
             {
-                string Mncc = MnccTextBox.Text;
+                string Mncc = MnccTextBox.Text.Trim();
 
                 DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa mục này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
@@ -98,7 +84,7 @@ namespace MiniMart.PresentationLayer.Forms
                 }
                 else
                 {
-                    MessageBox.Show("Đã hoàn trả dữ liệu!");
+                    MessageBox.Show("Đã huỷ xóa dữ liệu!");
                 }
             }
             catch (Exception ex)
@@ -111,16 +97,16 @@ namespace MiniMart.PresentationLayer.Forms
         {
             try
             {
-                string Mncc = MnccTextBox.Text;
-                string Ten = TenTextBox.Text;
-                string DiaChi = DiaChiTextBox.Text;
-                int Sdt = int.Parse(SdtTextBox.Text);
-                string HopTac = HopTacTextBox.Text;
+                string Mncc = MnccTextBox.Text.Trim();
+                string Ten = TenTextBox.Text.Trim();
+                string DiaChi = DiaChiTextBox.Text.Trim();
+                int Sdt = int.Parse(SdtTextBox.Text.Trim());
+                string HopTac = HopTacTextBox.Text.Trim();
 
                 NhaCungCapService.UpdateEntry(Mncc, Ten, DiaChi, Sdt, HopTac);
-                MessageBox.Show("Đã sửa dữ liệu thành công!");
+                MessageBox.Show("Sửa dữ liệu thành công!");
 
-                LoadDataToDataGridView(); 
+                LoadDataToDataGridView();
             }
             catch (Exception ex)
             {
@@ -132,16 +118,16 @@ namespace MiniMart.PresentationLayer.Forms
         {
             try
             {
-                string Mncc = MnccTextBox.Text;
-                string Ten = TenTextBox.Text;
-                string DiaChi = DiaChiTextBox.Text;
-                int Sdt = int.Parse(SdtTextBox.Text);
-                string HopTac = HopTacTextBox.Text;
+                string Mncc = MnccTextBox.Text.Trim();
+                string Ten = TenTextBox.Text.Trim();
+                string DiaChi = DiaChiTextBox.Text.Trim();
+                int Sdt = int.Parse(SdtTextBox.Text.Trim());
+                string HopTac = HopTacTextBox.Text.Trim();
 
                 NhaCungCapService.AddNewEntry(Mncc, Ten, DiaChi, Sdt, HopTac);
                 MessageBox.Show("Thêm dữ liệu thành công!");
 
-                LoadDataToDataGridView(); 
+                LoadDataToDataGridView();
             }
             catch (Exception ex)
             {
@@ -162,7 +148,7 @@ namespace MiniMart.PresentationLayer.Forms
             }
             else
             {
-                //MessageBox.Show("Không có dữ liệu đêe hiển thị");
+                //MessageBox.Show("Không có dữ liệu để hiển thị");
             }
         }
     }

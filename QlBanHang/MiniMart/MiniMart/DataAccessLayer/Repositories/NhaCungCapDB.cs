@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace MiniMart.DataAccessLayer.Repositories
 {
-    internal class NhaCungCapDB
+    internal class NhaCungCapDB : INhaCungCapRepository
     {
         private static IDatabaseConnection database = new Database();
 
@@ -26,7 +22,7 @@ namespace MiniMart.DataAccessLayer.Repositories
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                throw new Exception("Error executing query: " + ex.Message);
             }
             finally
             {
@@ -35,13 +31,13 @@ namespace MiniMart.DataAccessLayer.Repositories
             return dataTable;
         }
 
-        public static DataTable NhaCungCap()
+        public DataTable NhaCungCap()
         {
             string query = @"SELECT * FROM NhaCungCap";
             return ExecuteQuery(query);
         }
 
-        public static void AddNewEntry(string Mncc, string Ten, string DiaChi, int Sdt, string HopTac)
+        public void AddNewEntry(string Mncc, string Ten, string DiaChi, int Sdt, string HopTac)
         {
             string query = @"INSERT INTO NhaCungCap (Mncc, Ten, DiaChi, Sdt, HopTac)
                              VALUES (@Mncc, @Ten, @DiaChi, @Sdt, @HopTac)";
@@ -58,7 +54,7 @@ namespace MiniMart.DataAccessLayer.Repositories
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                throw new Exception("Error adding new entry: " + ex.Message);
             }
             finally
             {
@@ -66,7 +62,7 @@ namespace MiniMart.DataAccessLayer.Repositories
             }
         }
 
-        public static void UpdateEntry(string Mncc, string Ten, string DiaChi, int Sdt, string HopTac)
+        public void UpdateEntry(string Mncc, string Ten, string DiaChi, int Sdt, string HopTac)
         {
             string query = @"UPDATE NhaCungCap SET Ten = @Ten, DiaChi = @DiaChi, Sdt = @Sdt, 
                              HopTac = @HopTac WHERE Mncc = @Mncc";
@@ -83,7 +79,7 @@ namespace MiniMart.DataAccessLayer.Repositories
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                throw new Exception("Error updating entry: " + ex.Message);
             }
             finally
             {
@@ -91,7 +87,7 @@ namespace MiniMart.DataAccessLayer.Repositories
             }
         }
 
-        public static void DeleteEntry(string Mncc)
+        public void DeleteEntry(string Mncc)
         {
             try
             {
@@ -105,7 +101,7 @@ namespace MiniMart.DataAccessLayer.Repositories
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                throw new Exception("Error deleting entry: " + ex.Message);
             }
             finally
             {
@@ -113,8 +109,7 @@ namespace MiniMart.DataAccessLayer.Repositories
             }
         }
 
-
-        public static void DeleteRelatedEntries(string Mncc)
+        public void DeleteRelatedEntries(string Mncc)
         {
             string query = @"DELETE FROM HoaDon WHERE Mncc = @Mncc;
                             DELETE FROM UuDai WHERE Mncc = @Mncc";
@@ -127,7 +122,7 @@ namespace MiniMart.DataAccessLayer.Repositories
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                throw new Exception("Error deleting related entries: " + ex.Message);
             }
             finally
             {
@@ -135,10 +130,7 @@ namespace MiniMart.DataAccessLayer.Repositories
             }
         }
 
-
-
-
-        public static DataTable SearchData(string Mncc, string Ten, string DiaChi, string Sdt, string HopTac)
+        public DataTable SearchData(string Mncc, string Ten, string DiaChi, string Sdt, string HopTac)
         {
             string query = $@"SELECT * FROM NhaCungCap
                                 where Mncc like @Mncc
@@ -163,8 +155,7 @@ namespace MiniMart.DataAccessLayer.Repositories
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
-                return null;
+                throw new Exception("Error searching data: " + ex.Message);
             }
             finally
             {
