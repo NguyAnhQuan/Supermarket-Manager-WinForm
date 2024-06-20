@@ -35,23 +35,34 @@ namespace MiniMart.DataAccessLayer.Repositories
         {
             string query = @"SELECT * FROM KhoNX WHERE Mnx LIKE 'KN%'";
             return ExecuteQuery(query);
-        }        
+        }
 
         public static void AddNewEntry(string mnx, string msp, string mncc, int soLuong, decimal tongGia, DateTime thoiGian)
         {
-            string query = @"INSERT INTO KhoNX (Mnx, Msp, Mncc, SoLuong, TongGia, ThoiGian)
-                             VALUES (@Mnx, @Msp, @Mncc, @SoLuong, @TongGia, @ThoiGian)";
+            string queryInsertKhoNX = @"INSERT INTO KhoNX (Mnx, Msp, Mncc, SoLuong, TongGia, ThoiGian)
+                                 VALUES (@Mnx, @Msp, @Mncc, @SoLuong, @TongGia, @ThoiGian)";
+
+            string queryUpdateSanPham = @"UPDATE SanPham SET SoLuong = SoLuong + @SoLuong WHERE Msp = @Msp";
+
             try
             {
                 database.OpenConnection();
-                SqlCommand cmd = new SqlCommand(query, database.GetConnection());
-                cmd.Parameters.AddWithValue("@Mnx", mnx);
-                cmd.Parameters.AddWithValue("@Msp", msp);
-                cmd.Parameters.AddWithValue("@Mncc", mncc);
-                cmd.Parameters.AddWithValue("@SoLuong", soLuong);
-                cmd.Parameters.AddWithValue("@TongGia", tongGia);
-                cmd.Parameters.AddWithValue("@ThoiGian", thoiGian);
-                cmd.ExecuteNonQuery();
+
+                // Thêm mới vào bảng KhoNX
+                SqlCommand cmdInsert = new SqlCommand(queryInsertKhoNX, database.GetConnection());
+                cmdInsert.Parameters.AddWithValue("@Mnx", mnx);
+                cmdInsert.Parameters.AddWithValue("@Msp", msp);
+                cmdInsert.Parameters.AddWithValue("@Mncc", mncc);
+                cmdInsert.Parameters.AddWithValue("@SoLuong", soLuong);
+                cmdInsert.Parameters.AddWithValue("@TongGia", tongGia);
+                cmdInsert.Parameters.AddWithValue("@ThoiGian", thoiGian);
+                cmdInsert.ExecuteNonQuery();
+
+                // Cập nhật số lượng trong bảng SanPham
+                SqlCommand cmdUpdate = new SqlCommand(queryUpdateSanPham, database.GetConnection());
+                cmdUpdate.Parameters.AddWithValue("@Msp", msp);
+                cmdUpdate.Parameters.AddWithValue("@SoLuong", soLuong);
+                cmdUpdate.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
@@ -62,6 +73,7 @@ namespace MiniMart.DataAccessLayer.Repositories
                 database.CloseConnection();
             }
         }
+
 
         public static void UpdateEntry(string mnx, string msp, string mncc, int soLuong, decimal tongGia, DateTime thoiGian)
         {

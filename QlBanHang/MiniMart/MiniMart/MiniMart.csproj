@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLogicLayer\Services\AdminLG.cs" />
+    <Compile Include="BusinessLogicLayer\Services\KeToanLG.cs" />
     <Compile Include="BusinessLogicLayer\Services\KhachHangLG.cs" />
     <Compile Include="BusinessLogicLayer\Services\KhoLG.cs" />
     <Compile Include="BusinessLogicLayer\Services\LoginLogic.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="DataAccessLayer\database.cs" />
     <Compile Include="DataAccessLayer\IDatabaseConnection.cs" />
     <Compile Include="DataAccessLayer\Repositories\AdminDB.cs" />
+    <Compile Include="DataAccessLayer\Repositories\KeToanDB.cs" />
     <Compile Include="DataAccessLayer\Repositories\KhachHangDB.cs" />
     <Compile Include="DataAccessLayer\Repositories\KhoDb.cs" />
     <Compile Include="DataAccessLayer\Repositories\Login.cs" />
