@@ -17,7 +17,7 @@ namespace MiniMart
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new LoginForm());
-            Application.Run(new MiniMart.PresentationLayer.Forms.FormNhanVien());
+            Application.Run(new MiniMart.PresentationLayer.Form.FormKho());
         }
     }
 }

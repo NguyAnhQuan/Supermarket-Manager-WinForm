@@ -56,7 +56,7 @@ namespace MiniMart.PresentationLayer.Forms
                 float Gia = float.Parse(GiaTextBox.Text);
                 DateTime NgayNhap = NgayNhapDateTimePicker.Value;
                 DateTime HetHan = HanDateTimePicker.Value;
-                string HetHang = HetHangCheckBox.Checked ? "Yes" : "No";
+                bool HetHang = HetHangCheckBox.Checked ? true : false;
                 string PhanLoai = LoaiTextBox.Text;
 
                 sanPhamService.AddNewEntry(Msp, Mncc, TenSp, SoLuong, Gia, NgayNhap, HetHan, HetHang, PhanLoai);
@@ -67,6 +67,25 @@ namespace MiniMart.PresentationLayer.Forms
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi: " + ex.Message);
+            }
+        }
+
+        
+
+        private void NhapDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = SanPhamDirdView.Rows[e.RowIndex];
+                MspTextBox.Text = selectedRow.Cells["Msp"].Value.ToString();
+                MnccTextBox.Text = selectedRow.Cells["Mncc"].Value.ToString();
+                TenspTextBox.Text = selectedRow.Cells["TenSp"].Value.ToString();
+                SoLuongTextBox.Text = selectedRow.Cells["SoLuong"].Value.ToString();
+                GiaTextBox.Text = selectedRow.Cells["Gia"].Value.ToString();
+                NgayNhapDateTimePicker.Value = Convert.ToDateTime(selectedRow.Cells["NgayNhap"].Value);
+                HanDateTimePicker.Value = Convert.ToDateTime(selectedRow.Cells["HetHan"].Value);
+                HetHangCheckBox.Checked = selectedRow.Cells["HetHang"].Value.ToString() == "Yes" ? true : false;
+                LoaiTextBox.Text = selectedRow.Cells["PhanLoai"].Value.ToString();
             }
         }
 
@@ -81,7 +100,7 @@ namespace MiniMart.PresentationLayer.Forms
                 float Gia = float.Parse(GiaTextBox.Text);
                 DateTime NgayNhap = NgayNhapDateTimePicker.Value;
                 DateTime HetHan = HanDateTimePicker.Value;
-                string HetHang = HetHangCheckBox.Checked ? "Yes" : "No";
+                bool HetHang = HetHangCheckBox.Checked ? true : false;
                 string PhanLoai = LoaiTextBox.Text;
 
                 sanPhamService.UpdateEntry(Msp, Mncc, TenSp, SoLuong, Gia, NgayNhap, HetHan, HetHang, PhanLoai);
@@ -130,7 +149,7 @@ namespace MiniMart.PresentationLayer.Forms
             float Gia = float.TryParse(GiaTextBox.Text, out float gia) ? gia : 0;
             DateTime NgayNhap = NgayNhapDateTimePicker.Value;
             DateTime HetHan = HanDateTimePicker.Value;
-            string HetHang = HetHangCheckBox.Checked ? "Yes" : "No";
+            bool HetHang = HetHangCheckBox.Checked ? true : false;
             string PhanLoai = LoaiTextBox.Text;
 
             DataTable result = sanPhamService.SearchData(Msp, Mncc, TenSp, SoLuong, Gia, NgayNhap, HetHan, HetHang, PhanLoai);
@@ -142,23 +161,6 @@ namespace MiniMart.PresentationLayer.Forms
             else
             {
                 MessageBox.Show("Không tìm thấy dữ liệu phù hợp.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-
-        private void NhapDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow selectedRow = SanPhamDirdView.Rows[e.RowIndex];
-                MspTextBox.Text = selectedRow.Cells["Msp"].Value.ToString();
-                MnccTextBox.Text = selectedRow.Cells["Mncc"].Value.ToString();
-                TenspTextBox.Text = selectedRow.Cells["TenSp"].Value.ToString();
-                SoLuongTextBox.Text = selectedRow.Cells["SoLuong"].Value.ToString();
-                GiaTextBox.Text = selectedRow.Cells["Gia"].Value.ToString();
-                NgayNhapDateTimePicker.Value = Convert.ToDateTime(selectedRow.Cells["NgayNhap"].Value);
-                HanDateTimePicker.Value = Convert.ToDateTime(selectedRow.Cells["HetHan"].Value);
-                HetHangCheckBox.Checked = selectedRow.Cells["HetHang"].Value.ToString() == "Yes";
-                LoaiTextBox.Text = selectedRow.Cells["PhanLoai"].Value.ToString();
             }
         }
     }

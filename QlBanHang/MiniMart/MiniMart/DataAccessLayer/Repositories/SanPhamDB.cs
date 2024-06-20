@@ -43,7 +43,7 @@ namespace MiniMart.DataAccessLayer.Repositories
             return ExecuteQuery(query);
         }
 
-        public static void AddNewEntry(string Msp, string Mncc, string TenSp, int SoLuong, float Gia, DateTime NgayNhap, DateTime HetHan, string HetHang, string PhanLoai)
+        public static void AddNewEntry(string Msp, string Mncc, string TenSp, int SoLuong, float Gia, DateTime NgayNhap, DateTime HetHan, bool HetHang, string PhanLoai)
         {
             string query = @"INSERT INTO SanPham (Msp, Mncc, TenSp, SoLuong, Gia, NgayNhap, HetHan, HetHang, PhanLoai)
                              VALUES (@Msp, @Mncc, @TenSp, @SoLuong, @Gia, @NgayNhap, @HetHan, @HetHang, @PhanLoai)";
@@ -61,7 +61,7 @@ namespace MiniMart.DataAccessLayer.Repositories
             ExecuteQuery(query, parameters);
         }
 
-        public static void UpdateEntry(string Msp, string Mncc, string TenSp, int SoLuong, float Gia, DateTime NgayNhap, DateTime HetHan, string HetHang, string PhanLoai)
+        public static void UpdateEntry(string Msp, string Mncc, string TenSp, int SoLuong, float Gia, DateTime NgayNhap, DateTime HetHan, bool HetHang, string PhanLoai)
         {
             string query = @"UPDATE SanPham SET Mncc = @Mncc, TenSp = @TenSp, SoLuong = @SoLuong, NgayNhap = @NgayNhap,
                                 HetHan = @HetHan, HetHang = @HetHang, PhanLoai = @PhanLoai
@@ -89,7 +89,7 @@ namespace MiniMart.DataAccessLayer.Repositories
             ExecuteQuery(query, parameters);
         }
 
-        public static DataTable SearchData(string Msp, string Mncc, string TenSp, int SoLuong, float Gia, DateTime NgayNhap, DateTime HetHan, string HetHang, string PhanLoai)
+        public static DataTable SearchData(string Msp, string Mncc, string TenSp, int SoLuong, float Gia, DateTime NgayNhap, DateTime HetHan, bool HetHang, string PhanLoai)
         {
             string query = @"SELECT * FROM SanPham
                              WHERE Msp LIKE @Msp

@@ -72,6 +72,7 @@ namespace MiniMart
 
                     default:
                         MessageBox.Show("Chức vụ không xác định.");
+                        //formToOpen = new MiniMart.PresentationLayer.Forms.FromKeToan();
                         return;
                 }
 

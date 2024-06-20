@@ -20,12 +20,12 @@ namespace MiniMart.BusinessLogicLayer.Services
 
         public void AddNewEntry(string Msp, string Mncc, string TenSp, int SoLuong, float Gia, DateTime NgayNhap, DateTime HetHan, bool HetHang, string PhanLoai)
         {
-            SanPhamDB.AddNewEntry(Msp, Mncc, TenSp, SoLuong, Gia, NgayNhap, HetHan, HetHang ? "Yes" : "No", PhanLoai);
+            SanPhamDB.AddNewEntry(Msp, Mncc, TenSp, SoLuong, Gia, NgayNhap, HetHan, HetHang ? true : false, PhanLoai);
         }
 
         public void UpdateEntry(string Msp, string Mncc, string TenSp, int SoLuong, float Gia, DateTime NgayNhap, DateTime HetHan, bool HetHang, string PhanLoai)
         {
-            SanPhamDB.UpdateEntry(Msp, Mncc, TenSp, SoLuong, Gia, NgayNhap, HetHan, HetHang ? "Yes" : "No", PhanLoai);
+            SanPhamDB.UpdateEntry(Msp, Mncc, TenSp, SoLuong, Gia, NgayNhap, HetHan, HetHang ? true : false, PhanLoai);
         }
 
         public void DeleteEntry(string Msp)
@@ -35,7 +35,7 @@ namespace MiniMart.BusinessLogicLayer.Services
 
         public DataTable SearchData(string Msp, string Mncc, string TenSp, int SoLuong, float Gia, DateTime NgayNhap, DateTime HetHan, bool HetHang, string PhanLoai)
         {
-            return SanPhamDB.SearchData(Msp, Mncc, TenSp, SoLuong, Gia, NgayNhap, HetHan, HetHang ? "Yes" : "No", PhanLoai);
+            return SanPhamDB.SearchData(Msp, Mncc, TenSp, SoLuong, Gia, NgayNhap, HetHan, HetHang ? true : false, PhanLoai);
         }
     }
 }

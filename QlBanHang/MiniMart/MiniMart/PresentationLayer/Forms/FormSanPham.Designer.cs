@@ -43,10 +43,7 @@
             this.TimKiemTextBox = new System.Windows.Forms.TextBox();
             this.SanPhamDirdView = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.NgayNhapTextBox = new System.Windows.Forms.TextBox();
             this.GiaTextBox = new System.Windows.Forms.TextBox();
-            this.HetHangTextBox = new System.Windows.Forms.TextBox();
-            this.HanTextBox = new System.Windows.Forms.TextBox();
             this.SoLuongTextBox = new System.Windows.Forms.TextBox();
             this.TenspTextBox = new System.Windows.Forms.TextBox();
             this.LoaiTextBox = new System.Windows.Forms.TextBox();
@@ -66,6 +63,9 @@
             this.SuaButton = new System.Windows.Forms.Button();
             this.ThemButton = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.NgayNhapDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.HetHangCheckBox = new System.Windows.Forms.CheckBox();
+            this.HanDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.TitlePanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -166,6 +166,7 @@
             this.TimKiemButton.TabIndex = 3;
             this.TimKiemButton.Text = "Tìm Kiếm";
             this.TimKiemButton.UseVisualStyleBackColor = true;
+            this.TimKiemButton.Click += new System.EventHandler(this.TimKiemButton_Click);
             // 
             // TimKiemComboBox
             // 
@@ -234,10 +235,10 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.NgayNhapTextBox);
+            this.panel1.Controls.Add(this.HanDateTimePicker);
+            this.panel1.Controls.Add(this.HetHangCheckBox);
+            this.panel1.Controls.Add(this.NgayNhapDateTimePicker);
             this.panel1.Controls.Add(this.GiaTextBox);
-            this.panel1.Controls.Add(this.HetHangTextBox);
-            this.panel1.Controls.Add(this.HanTextBox);
             this.panel1.Controls.Add(this.SoLuongTextBox);
             this.panel1.Controls.Add(this.TenspTextBox);
             this.panel1.Controls.Add(this.LoaiTextBox);
@@ -258,16 +259,6 @@
             this.panel1.Size = new System.Drawing.Size(1778, 213);
             this.panel1.TabIndex = 6;
             // 
-            // NgayNhapTextBox
-            // 
-            this.NgayNhapTextBox.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.NgayNhapTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.NgayNhapTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.NgayNhapTextBox.Location = new System.Drawing.Point(771, 152);
-            this.NgayNhapTextBox.Name = "NgayNhapTextBox";
-            this.NgayNhapTextBox.Size = new System.Drawing.Size(236, 38);
-            this.NgayNhapTextBox.TabIndex = 26;
-            // 
             // GiaTextBox
             // 
             this.GiaTextBox.BackColor = System.Drawing.SystemColors.HighlightText;
@@ -277,26 +268,6 @@
             this.GiaTextBox.Name = "GiaTextBox";
             this.GiaTextBox.Size = new System.Drawing.Size(236, 38);
             this.GiaTextBox.TabIndex = 25;
-            // 
-            // HetHangTextBox
-            // 
-            this.HetHangTextBox.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.HetHangTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.HetHangTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.HetHangTextBox.Location = new System.Drawing.Point(1172, 152);
-            this.HetHangTextBox.Name = "HetHangTextBox";
-            this.HetHangTextBox.Size = new System.Drawing.Size(236, 38);
-            this.HetHangTextBox.TabIndex = 24;
-            // 
-            // HanTextBox
-            // 
-            this.HanTextBox.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.HanTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.HanTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.HanTextBox.Location = new System.Drawing.Point(1172, 59);
-            this.HanTextBox.Name = "HanTextBox";
-            this.HanTextBox.Size = new System.Drawing.Size(236, 38);
-            this.HanTextBox.TabIndex = 23;
             // 
             // SoLuongTextBox
             // 
@@ -460,6 +431,7 @@
             this.XoaButton.TabIndex = 1;
             this.XoaButton.Text = "Xóa";
             this.XoaButton.UseVisualStyleBackColor = true;
+            this.XoaButton.Click += new System.EventHandler(this.XoaButton_Click);
             // 
             // SuaButton
             // 
@@ -470,6 +442,7 @@
             this.SuaButton.TabIndex = 2;
             this.SuaButton.Text = "Sửa";
             this.SuaButton.UseVisualStyleBackColor = true;
+            this.SuaButton.Click += new System.EventHandler(this.SuaButton_Click);
             // 
             // ThemButton
             // 
@@ -486,6 +459,30 @@
             // 
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // NgayNhapDateTimePicker
+            // 
+            this.NgayNhapDateTimePicker.Location = new System.Drawing.Point(772, 153);
+            this.NgayNhapDateTimePicker.Name = "NgayNhapDateTimePicker";
+            this.NgayNhapDateTimePicker.Size = new System.Drawing.Size(248, 31);
+            this.NgayNhapDateTimePicker.TabIndex = 26;
+            // 
+            // HetHangCheckBox
+            // 
+            this.HetHangCheckBox.AutoSize = true;
+            this.HetHangCheckBox.Location = new System.Drawing.Point(1167, 154);
+            this.HetHangCheckBox.Name = "HetHangCheckBox";
+            this.HetHangCheckBox.Size = new System.Drawing.Size(150, 29);
+            this.HetHangCheckBox.TabIndex = 27;
+            this.HetHangCheckBox.Text = "checkBox1";
+            this.HetHangCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // HanDateTimePicker
+            // 
+            this.HanDateTimePicker.Location = new System.Drawing.Point(1172, 66);
+            this.HanDateTimePicker.Name = "HanDateTimePicker";
+            this.HanDateTimePicker.Size = new System.Drawing.Size(248, 31);
+            this.HanDateTimePicker.TabIndex = 28;
             // 
             // FormSanPham
             // 
@@ -544,14 +541,14 @@
         private System.Windows.Forms.Button SuaButton;
         private System.Windows.Forms.Button ThemButton;
         private System.Windows.Forms.TextBox MnccTextBox;
-        private System.Windows.Forms.TextBox NgayNhapTextBox;
         private System.Windows.Forms.TextBox GiaTextBox;
-        private System.Windows.Forms.TextBox HetHangTextBox;
-        private System.Windows.Forms.TextBox HanTextBox;
         private System.Windows.Forms.TextBox SoLuongTextBox;
         private System.Windows.Forms.TextBox TenspTextBox;
         private System.Windows.Forms.TextBox LoaiTextBox;
         private System.Windows.Forms.TextBox MspTextBox;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.DateTimePicker NgayNhapDateTimePicker;
+        private System.Windows.Forms.CheckBox HetHangCheckBox;
+        private System.Windows.Forms.DateTimePicker HanDateTimePicker;
     }
 }
