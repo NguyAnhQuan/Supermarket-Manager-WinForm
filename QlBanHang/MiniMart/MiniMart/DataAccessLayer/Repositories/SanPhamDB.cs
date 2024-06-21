@@ -5,11 +5,16 @@ using System.Windows.Forms;
 
 namespace MiniMart.DataAccessLayer.Repositories
 {
-    internal class SanPhamDB : ISanPhamRepository
+    public abstract class BaseRepository
     {
         private static IDatabaseConnection database = new Database();
 
-        private static DataTable ExecuteQuery(string query, SqlParameter[] parameters = null)
+        protected BaseRepository()
+        {
+            database = new Database(); 
+        }
+
+        protected DataTable ExecuteQuery(string query, SqlParameter[] parameters = null)
         {
             DataTable dataTable = new DataTable();
             try
@@ -37,6 +42,35 @@ namespace MiniMart.DataAccessLayer.Repositories
             return dataTable;
         }
 
+        protected int ExecuteNonQuery(string query, SqlParameter[] parameters = null)
+        {
+            int rowsAffected = 0;
+            try
+            {
+                database.OpenConnection();
+                using (SqlCommand cmd = new SqlCommand(query, database.GetConnection()))
+                {
+                    if (parameters != null)
+                    {
+                        cmd.Parameters.AddRange(parameters);
+                    }
+                    rowsAffected = cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                database.CloseConnection();
+            }
+            return rowsAffected;
+        }
+    }
+
+    internal class SanPhamDB : BaseRepository, ISanPhamRepository
+    {
         public DataTable SanPham()
         {
             string query = @"SELECT * FROM SanPham";
@@ -58,7 +92,7 @@ namespace MiniMart.DataAccessLayer.Repositories
                 new SqlParameter("@HetHang", HetHang),
                 new SqlParameter("@PhanLoai", PhanLoai)
             };
-            ExecuteQuery(query, parameters);
+            ExecuteNonQuery(query, parameters);
         }
 
         public void UpdateEntry(string Msp, string Mncc, string TenSp, int SoLuong, float Gia, DateTime NgayNhap, DateTime HetHan, bool HetHang, string PhanLoai)
@@ -77,7 +111,7 @@ namespace MiniMart.DataAccessLayer.Repositories
                 new SqlParameter("@HetHang", HetHang),
                 new SqlParameter("@PhanLoai", PhanLoai)
             };
-            ExecuteQuery(query, parameters);
+            ExecuteNonQuery(query, parameters);
         }
 
         public void DeleteEntry(string Msp)
@@ -86,7 +120,7 @@ namespace MiniMart.DataAccessLayer.Repositories
             SqlParameter[] parameters = {
                 new SqlParameter("@Msp", Msp)
             };
-            ExecuteQuery(query, parameters);
+            ExecuteNonQuery(query, parameters);
         }
 
         public DataTable SearchData(string Msp, string Mncc, string TenSp, int SoLuong, float Gia, DateTime NgayNhap, DateTime HetHan, bool HetHang, string PhanLoai)
