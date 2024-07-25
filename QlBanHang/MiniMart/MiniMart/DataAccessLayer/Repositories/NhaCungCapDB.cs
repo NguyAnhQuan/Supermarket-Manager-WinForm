@@ -91,7 +91,7 @@ namespace MiniMart.DataAccessLayer.Repositories
         {
             try
             {
-                DeleteRelatedEntries(Mncc);
+                //DeleteRelatedEntries(Mncc);
 
                 string query = @"DELETE FROM NhaCungCap WHERE Mncc = @Mncc";
                 database.OpenConnection();
@@ -109,26 +109,26 @@ namespace MiniMart.DataAccessLayer.Repositories
             }
         }
 
-        public void DeleteRelatedEntries(string Mncc)
-        {
-            string query = @"DELETE FROM HoaDon WHERE Mncc = @Mncc;
-                            DELETE FROM UuDai WHERE Mncc = @Mncc";
-            try
-            {
-                database.OpenConnection();
-                SqlCommand cmd = new SqlCommand(query, database.GetConnection());
-                cmd.Parameters.AddWithValue("@Mncc", Mncc);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error deleting related entries: " + ex.Message);
-            }
-            finally
-            {
-                database.CloseConnection();
-            }
-        }
+        //public void DeleteRelatedEntries(string Mncc)
+        //{
+        //    string query = @"DELETE FROM HoaDon WHERE Mncc = @Mncc;
+        //                    DELETE FROM UuDai WHERE Mncc = @Mncc";
+        //    try
+        //    {
+        //        database.OpenConnection();
+        //        SqlCommand cmd = new SqlCommand(query, database.GetConnection());
+        //        cmd.Parameters.AddWithValue("@Mncc", Mncc);
+        //        cmd.ExecuteNonQuery();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception("Error deleting related entries: " + ex.Message);
+        //    }
+        //    finally
+        //    {
+        //        database.CloseConnection();
+        //    }
+        //}
 
         public DataTable SearchData(string Mncc, string Ten, string DiaChi, string Sdt, string HopTac)
         {

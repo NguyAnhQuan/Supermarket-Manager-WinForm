@@ -53,8 +53,17 @@ namespace MiniMart.PresentationLayer.Form
                 string mnx = MnxTextBox.Text;
                 string msp = MaSPTextBox.Text;
                 string mncc = MnccTextBox.Text;
-                int soLuong = int.Parse(SoLuongTextBox.Text);
-                decimal tongGia = decimal.Parse(TongGiaTextBox.Text);
+                //int soLuong = int.Parse(SoLuongTextBox.Text);
+                if (!int.TryParse(SoLuongTextBox.Text, out int soLuong))
+                {
+                    MessageBox.Show("Chứa ký tự lạ vui lòng nhập lại");
+                    return;
+                }
+                if (!decimal.TryParse(TongGiaTextBox.Text, out decimal tongGia))
+                {
+                    MessageBox.Show("Tổng giá chứa ký tự lạ vui lòng nhập lại");
+                    return;
+                }
                 DateTime thoiGian = DateTime.Now; 
 
                 khoService.AddNewEntry(mnx, msp, mncc, soLuong, tongGia, thoiGian);
@@ -75,10 +84,22 @@ namespace MiniMart.PresentationLayer.Form
                 string mnx = MnxTextBox.Text;
                 string msp = MaSPTextBox.Text;
                 string mncc = MnccTextBox.Text;
-                int soLuong = int.Parse(SoLuongTextBox.Text);
-                decimal tongGia = decimal.Parse(TongGiaTextBox.Text);
-                DateTime thoiGian = DateTime.ParseExact(ThoiGianTextBox.Text, "dd/MM/yyyy HH:mm:ss", null);
-
+                if (!int.TryParse(SoLuongTextBox.Text, out int soLuong))
+                {
+                    MessageBox.Show("Chứa ký tự lạ vui lòng nhập lại");
+                    return;
+                }
+                if (!decimal.TryParse(TongGiaTextBox.Text, out decimal tongGia))
+                {
+                    MessageBox.Show("Tổng giá chứa ký tự lạ vui lòng nhập lại");
+                    return;
+                }
+                //DateTime thoiGian = DateTime.ParseExact(ThoiGianTextBox.Text, "dd/MM/yyyy HH:mm:ss", null);
+                if (!DateTime.TryParse(ThoiGianTextBox.Text, out DateTime thoiGian))
+                {
+                    MessageBox.Show("Thời gian chứa ký tự lạ vui lòng nhập lại");
+                    return;
+                }
                 khoService.UpdateEntry(mnx, msp, mncc, soLuong, tongGia, thoiGian);
                 MessageBox.Show("Cập nhật dữ liệu thành công!");
 
@@ -146,6 +167,28 @@ namespace MiniMart.PresentationLayer.Form
         private void timer1_Tick(object sender, EventArgs e)
         {
             TimeTextBox.Text = DateTime.Now.ToString("HH:mm:ss");
+        }
+
+        private void buttonReset_Click(object sender, EventArgs e)
+        {
+            MnxTextBox.Text = "";
+            MaSPTextBox.Text = "";
+            MnccTextBox.Text = "";
+            SoLuongTextBox.Text = "";
+            TongGiaTextBox.Text = "";
+            ThoiGianTextBox.Text = "";
+        }
+
+        private void ButtonOut_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+            this.Close();
+        }
+
+        private void buttonPowert_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -34,7 +34,6 @@ namespace MiniMart.PresentationLayer.Forms
             LoadDataToDataGridView();
         }
 
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             TimeTextBox.Text = DateTime.Now.ToString("HH:mm:ss");
@@ -60,10 +59,6 @@ namespace MiniMart.PresentationLayer.Forms
             }
         }
         
-       
-
-
-
         private void ThanhToanButton_Click(object sender, EventArgs e)
         {
             try
@@ -97,8 +92,18 @@ namespace MiniMart.PresentationLayer.Forms
                 string Msp = MspTextBox.Text;
                 string Mhd = thuNganService.SearchHD(); 
                 DateTime NgayXuat = DateTime.Now;
-                int SoLuong = int.Parse(SoLuongTextBox.Text); 
-                float DonGia = float.Parse(GiaTextBox.Text);
+                //int SoLuong = int.Parse(SoLuongTextBox.Text);
+                if (!int.TryParse(SoLuongTextBox.Text, out int SoLuong))
+                {
+                    MessageBox.Show("Chứa ký tự lạ vui lòng nhập lại");
+                    return;
+                }
+                //float DonGia = float.Parse(GiaTextBox.Text);
+                if (!float.TryParse(GiaTextBox.Text, out float DonGia))
+                {
+                    MessageBox.Show("Chứa ký tự lạ vui lòng nhập lại");
+                    return;
+                }
                 //float ThanhTien = DonGia * SoLuong;
                 float ThanhTien = float.Parse(GiaTextBox.Text);
                 string Mkh = HkhTextBox.Text;
@@ -220,6 +225,32 @@ namespace MiniMart.PresentationLayer.Forms
             //GiaTextBox.Text = "";
             SoLuongTextBox.Text = "";
             LoaiTextBox.Text = "";
+        }
+
+        private void buttonReset_Click(object sender, EventArgs e)
+        {
+            HkhTextBox.Text = "";
+            HoTenKHTextBox.Text = "";
+            DiaChiKHTextBox.Text = "";
+            SDTKHTextBox.Text = "";
+            HangKhachTextBox.Text = "";
+            MspTextBox.Text = "";
+            TenspTextBox.Text = "";
+            //GiaTextBox.Text = "";
+            SoLuongTextBox.Text = "";
+            LoaiTextBox.Text = "";
+        }
+
+        private void ButtonOut_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+            this.Close();
+        }
+
+        private void buttonPowert_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

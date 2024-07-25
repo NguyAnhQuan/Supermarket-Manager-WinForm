@@ -39,7 +39,7 @@ namespace MiniMart.DataAccessLayer.Repositories
 
         public DataTable SanPham()
         {
-            string query = @"SELECT * FROM SanPham";
+            string query = "dbo.GetSanPham";
             return ExecuteQuery(query);
         }
 
@@ -95,8 +95,8 @@ namespace MiniMart.DataAccessLayer.Repositories
                              WHERE Msp LIKE @Msp
                              AND Mncc LIKE @Mncc
                              AND TenSp LIKE @TenSp
-                             AND SoLuong = @SoLuong
-                             AND Gia = @Gia
+                             AND SoLuong LIKE @SoLuong
+                             AND Gia LIKE @Gia
                              AND NgayNhap = @NgayNhap
                              AND HetHan = @HetHan
                              AND HetHang LIKE @HetHang
@@ -105,8 +105,8 @@ namespace MiniMart.DataAccessLayer.Repositories
                 new SqlParameter("@Msp", "%" + Msp + "%"),
                 new SqlParameter("@Mncc", "%" + Mncc + "%"),
                 new SqlParameter("@TenSp", "%" + TenSp + "%"),
-                new SqlParameter("@SoLuong", SoLuong),
-                new SqlParameter("@Gia", Gia),
+                new SqlParameter("@SoLuong", "%" + SoLuong + "%"),
+                new SqlParameter("@Gia","%" + Gia + "%"),
                 new SqlParameter("@NgayNhap", NgayNhap),
                 new SqlParameter("@HetHan", HetHan),
                 new SqlParameter("@HetHang", "%" + HetHang + "%"),

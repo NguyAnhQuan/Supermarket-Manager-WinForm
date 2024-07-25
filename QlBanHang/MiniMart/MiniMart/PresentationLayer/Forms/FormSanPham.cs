@@ -53,8 +53,18 @@ namespace MiniMart.PresentationLayer.Forms
                 string Msp = MspTextBox.Text;
                 string Mncc = MnccTextBox.Text;
                 string TenSp = TenspTextBox.Text;
-                int SoLuong = int.Parse(SoLuongTextBox.Text);
-                float Gia = float.Parse(GiaTextBox.Text);
+                //int SoLuong = int.Parse(SoLuongTextBox.Text);
+                if (!int.TryParse(SoLuongTextBox.Text, out int SoLuong))
+                {
+                    MessageBox.Show("Chứa ký tự lạ vui lòng nhập lại");
+                    return;
+                }
+                //float Gia = float.Parse(GiaTextBox.Text);
+                if (!float.TryParse(GiaTextBox.Text, out float Gia))
+                {
+                    MessageBox.Show("Chứa ký tự lạ vui lòng nhập lại");
+                    return;
+                }
                 DateTime NgayNhap = NgayNhapDateTimePicker.Value;
                 DateTime HetHan = HanDateTimePicker.Value;
                 bool HetHang = HetHangCheckBox.Checked ? true : false;
@@ -97,8 +107,18 @@ namespace MiniMart.PresentationLayer.Forms
                 string Msp = MspTextBox.Text;
                 string Mncc = MnccTextBox.Text;
                 string TenSp = TenspTextBox.Text;
-                int SoLuong = int.Parse(SoLuongTextBox.Text);
-                float Gia = float.Parse(GiaTextBox.Text);
+                //int SoLuong = int.Parse(SoLuongTextBox.Text);
+                if (!int.TryParse(SoLuongTextBox.Text, out int SoLuong))
+                {
+                    MessageBox.Show("Chứa ký tự lạ vui lòng nhập lại");
+                    return;
+                }
+                //float Gia = float.Parse(GiaTextBox.Text);
+                if (!float.TryParse(GiaTextBox.Text, out float Gia))
+                {
+                    MessageBox.Show("Chứa ký tự lạ vui lòng nhập lại");
+                    return;
+                }
                 DateTime NgayNhap = NgayNhapDateTimePicker.Value;
                 DateTime HetHan = HanDateTimePicker.Value;
                 bool HetHang = HetHangCheckBox.Checked ? true : false;
@@ -163,6 +183,31 @@ namespace MiniMart.PresentationLayer.Forms
             {
                 MessageBox.Show("Không tìm thấy dữ liệu phù hợp.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void buttonReset_Click(object sender, EventArgs e)
+        {
+            MspTextBox.Text = "";
+            MnccTextBox.Text = "";
+            TenspTextBox.Text = "";
+            SoLuongTextBox.Text = "";
+            GiaTextBox.Text = "";
+            NgayNhapDateTimePicker.Value = DateTime.Now;
+            HanDateTimePicker.Value = DateTime.Now;
+            HetHangCheckBox.Checked = false;
+            LoaiTextBox.Text = "";
+        }
+
+        private void ButtonOut_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+            this.Close();
+        }
+
+        private void buttonPowert_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

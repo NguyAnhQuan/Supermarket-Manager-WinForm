@@ -160,5 +160,25 @@ namespace MiniMart.PresentationLayer.Forms
             }
         }
 
+        private void buttonReset_Click(object sender, EventArgs e)
+        {
+            MdnTextBox.Text = "";
+            ManvTextBox.Text = "";
+            GioVaoTextBox.Text = "";
+            GioRaTextBox.Text = "";
+            MatKhauTextBox.Text = "";
+        }
+
+        private void ButtonOut_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+            this.Close();
+        }
+
+        private void buttonPowert_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

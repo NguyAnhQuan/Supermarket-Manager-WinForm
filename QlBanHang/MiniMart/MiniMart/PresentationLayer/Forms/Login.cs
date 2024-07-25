@@ -48,24 +48,32 @@ namespace MiniMart
                 switch (chucVuin)
                 {
                     case "Kho":
-                        formToOpen = new MiniMart.PresentationLayer.Form.FormKho();
+                        formToOpen = new PresentationLayer.Form.FormKho();
                         break;
                     case "Admin":
-                        formToOpen = new MiniMart.PresentationLayer.Forms.FormAdmin();
+                        formToOpen = new PresentationLayer.Forms.FormAdmin();
                         break;
                     case "NhanVien":
-                        formToOpen = new MiniMart.PresentationLayer.Forms.FormNhanVien();
+                        formToOpen = new PresentationLayer.Forms.FormNhanVien();
                         break;
                     case "ThuNgan":
-                        formToOpen = new MiniMart.PresentationLayer.Forms.FormThuNgan();
+                        formToOpen = new PresentationLayer.Forms.FormThuNgan();
                         break;
                     case "KeToan":
-                        formToOpen = new MiniMart.PresentationLayer.Forms.FromKeToan();
+                        formToOpen = new PresentationLayer.Forms.FromKeToan();
+                        break;
+                    case "KhachHang":
+                        formToOpen = new PresentationLayer.Forms.FormKhachHang();
+                        break;
+                    case "NhaCungCap":
+                        formToOpen = new PresentationLayer.Forms.FormNhaCungCap();
+                        break;
+                    case "SanPham":
+                        formToOpen = new PresentationLayer.Forms.FormSanPham();
                         break;
 
                     default:
                         MessageBox.Show("Chức vụ không xác định.");
-                        //formToOpen = new MiniMart.PresentationLayer.Forms.FromKeToan();
                         return;
                 }
 

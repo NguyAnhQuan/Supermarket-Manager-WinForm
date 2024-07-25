@@ -100,7 +100,11 @@ namespace MiniMart.PresentationLayer.Forms
                 string Mncc = MnccTextBox.Text.Trim();
                 string Ten = TenTextBox.Text.Trim();
                 string DiaChi = DiaChiTextBox.Text.Trim();
-                int Sdt = int.Parse(SdtTextBox.Text.Trim());
+                if (!int.TryParse(SdtTextBox.Text, out int Sdt))
+                {
+                    MessageBox.Show("Chứa ký tự lạ vui lòng nhập lại");
+                    return;
+                }
                 string HopTac = HopTacTextBox.Text.Trim();
 
                 NhaCungCapService.UpdateEntry(Mncc, Ten, DiaChi, Sdt, HopTac);
@@ -121,7 +125,11 @@ namespace MiniMart.PresentationLayer.Forms
                 string Mncc = MnccTextBox.Text.Trim();
                 string Ten = TenTextBox.Text.Trim();
                 string DiaChi = DiaChiTextBox.Text.Trim();
-                int Sdt = int.Parse(SdtTextBox.Text.Trim());
+                if (!int.TryParse(SdtTextBox.Text, out int Sdt))
+                {
+                    MessageBox.Show("Chứa ký tự lạ vui lòng nhập lại");
+                    return;
+                }
                 string HopTac = HopTacTextBox.Text.Trim();
 
                 NhaCungCapService.AddNewEntry(Mncc, Ten, DiaChi, Sdt, HopTac);
@@ -150,6 +158,27 @@ namespace MiniMart.PresentationLayer.Forms
             {
                 //MessageBox.Show("Không có dữ liệu để hiển thị");
             }
+        }
+
+        private void buttonReset_Click(object sender, EventArgs e)
+        {
+            MnccTextBox.Text = "";
+            TenTextBox.Text = "";
+            DiaChiTextBox.Text = "";
+            SdtTextBox.Text = "";
+            HopTacTextBox.Text = "";
+        }
+
+        private void ButtonOut_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+            this.Close();
+        }
+
+        private void buttonPowert_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

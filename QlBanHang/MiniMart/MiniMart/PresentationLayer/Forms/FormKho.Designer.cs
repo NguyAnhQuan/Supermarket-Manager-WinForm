@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormKho));
             this.TitlePanel = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.HoTenTextBox = new System.Windows.Forms.TextBox();
@@ -36,10 +37,17 @@
             this.TitleLabel = new System.Windows.Forms.Label();
             this.TimeTextBox = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.buttonPowert = new System.Windows.Forms.Button();
+            this.ButtonOut = new System.Windows.Forms.Button();
+            this.buttonReset = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.XoaButton = new System.Windows.Forms.Button();
             this.SuaButton = new System.Windows.Forms.Button();
             this.ThemButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.TimKiemKhoBitton = new System.Windows.Forms.Button();
             this.TimKiemComboBox = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -63,7 +71,11 @@
             this.TitlePanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KhoDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -137,6 +149,12 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.buttonPowert);
+            this.panel4.Controls.Add(this.ButtonOut);
+            this.panel4.Controls.Add(this.buttonReset);
+            this.panel4.Controls.Add(this.pictureBox3);
+            this.panel4.Controls.Add(this.pictureBox1);
+            this.panel4.Controls.Add(this.pictureBox2);
             this.panel4.Controls.Add(this.XoaButton);
             this.panel4.Controls.Add(this.SuaButton);
             this.panel4.Controls.Add(this.ThemButton);
@@ -148,10 +166,82 @@
             this.panel4.Size = new System.Drawing.Size(1740, 95);
             this.panel4.TabIndex = 11;
             // 
+            // buttonPowert
+            // 
+            this.buttonPowert.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonPowert.BackgroundImage = global::MiniMart.Properties.Resources.power;
+            this.buttonPowert.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonPowert.Location = new System.Drawing.Point(1653, 17);
+            this.buttonPowert.Name = "buttonPowert";
+            this.buttonPowert.Size = new System.Drawing.Size(75, 59);
+            this.buttonPowert.TabIndex = 24;
+            this.buttonPowert.UseVisualStyleBackColor = true;
+            this.buttonPowert.Click += new System.EventHandler(this.buttonPowert_Click);
+            // 
+            // ButtonOut
+            // 
+            this.ButtonOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ButtonOut.BackgroundImage = global::MiniMart.Properties.Resources._out;
+            this.ButtonOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonOut.Location = new System.Drawing.Point(1554, 17);
+            this.ButtonOut.Name = "ButtonOut";
+            this.ButtonOut.Size = new System.Drawing.Size(75, 59);
+            this.ButtonOut.TabIndex = 23;
+            this.ButtonOut.UseVisualStyleBackColor = true;
+            this.ButtonOut.Click += new System.EventHandler(this.ButtonOut_Click);
+            // 
+            // buttonReset
+            // 
+            this.buttonReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonReset.BackgroundImage = global::MiniMart.Properties.Resources.reset;
+            this.buttonReset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonReset.Location = new System.Drawing.Point(1454, 17);
+            this.buttonReset.Name = "buttonReset";
+            this.buttonReset.Size = new System.Drawing.Size(75, 59);
+            this.buttonReset.TabIndex = 22;
+            this.buttonReset.UseVisualStyleBackColor = true;
+            this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox3.Image = global::MiniMart.Properties.Resources.delete;
+            this.pictureBox3.Location = new System.Drawing.Point(1031, 29);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(34, 34);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 20;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Image = global::MiniMart.Properties.Resources.add;
+            this.pictureBox1.Location = new System.Drawing.Point(127, 27);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(39, 38);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 18;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Image = global::MiniMart.Properties.Resources.fix;
+            this.pictureBox2.Location = new System.Drawing.Point(610, 29);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(34, 34);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 19;
+            this.pictureBox2.TabStop = false;
+            // 
             // XoaButton
             // 
             this.XoaButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.XoaButton.Location = new System.Drawing.Point(1302, 17);
+            this.XoaButton.Location = new System.Drawing.Point(1015, 17);
             this.XoaButton.Name = "XoaButton";
             this.XoaButton.Size = new System.Drawing.Size(290, 59);
             this.XoaButton.TabIndex = 1;
@@ -161,7 +251,7 @@
             // SuaButton
             // 
             this.SuaButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.SuaButton.Location = new System.Drawing.Point(726, 17);
+            this.SuaButton.Location = new System.Drawing.Point(577, 16);
             this.SuaButton.Name = "SuaButton";
             this.SuaButton.Size = new System.Drawing.Size(290, 61);
             this.SuaButton.TabIndex = 2;
@@ -171,7 +261,7 @@
             // ThemButton
             // 
             this.ThemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ThemButton.Location = new System.Drawing.Point(159, 19);
+            this.ThemButton.Location = new System.Drawing.Point(105, 17);
             this.ThemButton.Name = "ThemButton";
             this.ThemButton.Size = new System.Drawing.Size(290, 59);
             this.ThemButton.TabIndex = 0;
@@ -180,8 +270,7 @@
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.pictureBox4);
             this.panel2.Controls.Add(this.TimKiemKhoBitton);
             this.panel2.Controls.Add(this.TimKiemComboBox);
             this.panel2.Controls.Add(this.dateTimePicker1);
@@ -192,6 +281,18 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1740, 66);
             this.panel2.TabIndex = 12;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox4.Image = global::MiniMart.Properties.Resources.search;
+            this.pictureBox4.Location = new System.Drawing.Point(1690, 15);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(26, 32);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 21;
+            this.pictureBox4.TabStop = false;
             // 
             // TimKiemKhoBitton
             // 
@@ -395,8 +496,6 @@
             // 
             // KhoDataGridView
             // 
-            this.KhoDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.KhoDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.KhoDataGridView.ColumnHeadersHeight = 46;
             this.KhoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
@@ -423,6 +522,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.TitlePanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormKho";
             this.Text = "FormKho";
             this.TitlePanel.ResumeLayout(false);
@@ -430,8 +530,12 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KhoDataGridView)).EndInit();
@@ -472,5 +576,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView KhoDataGridView;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button buttonPowert;
+        private System.Windows.Forms.Button ButtonOut;
+        private System.Windows.Forms.Button buttonReset;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }

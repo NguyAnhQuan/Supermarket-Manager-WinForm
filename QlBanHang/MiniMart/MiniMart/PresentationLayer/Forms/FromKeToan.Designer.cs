@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FromKeToan));
             this.TitlePanel = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.HoTenTextBox = new System.Windows.Forms.TextBox();
@@ -42,10 +43,13 @@
             this.TimeTextBox = new System.Windows.Forms.TextBox();
             this.KeToanchart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.TaiChinhcheckBox = new System.Windows.Forms.CheckBox();
             this.ChiCheckBox = new System.Windows.Forms.CheckBox();
             this.ThuCheckBox = new System.Windows.Forms.CheckBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.buttonPowert = new System.Windows.Forms.Button();
+            this.ButtonOut = new System.Windows.Forms.Button();
             this.TitlePanel.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KeToanchart)).BeginInit();
@@ -121,33 +125,36 @@
             // 
             // KeToanchart
             // 
-            chartArea2.Name = "ChartArea1";
-            this.KeToanchart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.KeToanchart.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.KeToanchart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.KeToanchart.Legends.Add(legend1);
             this.KeToanchart.Location = new System.Drawing.Point(0, 148);
             this.KeToanchart.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.KeToanchart.Name = "KeToanchart";
             this.KeToanchart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "ThongKeThu";
-            series5.ChartArea = "ChartArea1";
-            series5.Legend = "Legend1";
-            series5.Name = "ThongKeChi";
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series6.Legend = "Legend1";
-            series6.Name = "ThongKeTaiChinh";
-            this.KeToanchart.Series.Add(series4);
-            this.KeToanchart.Series.Add(series5);
-            this.KeToanchart.Series.Add(series6);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "ThongKeThu";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "ThongKeChi";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Legend = "Legend1";
+            series3.Name = "ThongKeTaiChinh";
+            this.KeToanchart.Series.Add(series1);
+            this.KeToanchart.Series.Add(series2);
+            this.KeToanchart.Series.Add(series3);
             this.KeToanchart.Size = new System.Drawing.Size(1746, 941);
             this.KeToanchart.TabIndex = 6;
             this.KeToanchart.Text = "chart1";
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.buttonPowert);
+            this.panel4.Controls.Add(this.ButtonOut);
+            this.panel4.Controls.Add(this.button1);
             this.panel4.Controls.Add(this.TaiChinhcheckBox);
             this.panel4.Controls.Add(this.ChiCheckBox);
             this.panel4.Controls.Add(this.ThuCheckBox);
@@ -159,10 +166,20 @@
             this.panel4.Size = new System.Drawing.Size(1746, 138);
             this.panel4.TabIndex = 11;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1478, 70);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(207, 47);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Báo cáo";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // TaiChinhcheckBox
             // 
             this.TaiChinhcheckBox.AutoSize = true;
-            this.TaiChinhcheckBox.Location = new System.Drawing.Point(1352, 50);
+            this.TaiChinhcheckBox.Location = new System.Drawing.Point(1087, 59);
             this.TaiChinhcheckBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TaiChinhcheckBox.Name = "TaiChinhcheckBox";
             this.TaiChinhcheckBox.Size = new System.Drawing.Size(267, 35);
@@ -174,7 +191,7 @@
             // ChiCheckBox
             // 
             this.ChiCheckBox.AutoSize = true;
-            this.ChiCheckBox.Location = new System.Drawing.Point(756, 59);
+            this.ChiCheckBox.Location = new System.Drawing.Point(570, 69);
             this.ChiCheckBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ChiCheckBox.Name = "ChiCheckBox";
             this.ChiCheckBox.Size = new System.Drawing.Size(201, 35);
@@ -199,6 +216,30 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // buttonPowert
+            // 
+            this.buttonPowert.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonPowert.BackgroundImage = global::MiniMart.Properties.Resources.power;
+            this.buttonPowert.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonPowert.Location = new System.Drawing.Point(1610, 5);
+            this.buttonPowert.Name = "buttonPowert";
+            this.buttonPowert.Size = new System.Drawing.Size(75, 59);
+            this.buttonPowert.TabIndex = 40;
+            this.buttonPowert.UseVisualStyleBackColor = true;
+            this.buttonPowert.Click += new System.EventHandler(this.buttonPowert_Click);
+            // 
+            // ButtonOut
+            // 
+            this.ButtonOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ButtonOut.BackgroundImage = global::MiniMart.Properties.Resources._out;
+            this.ButtonOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonOut.Location = new System.Drawing.Point(1511, 6);
+            this.ButtonOut.Name = "ButtonOut";
+            this.ButtonOut.Size = new System.Drawing.Size(75, 59);
+            this.ButtonOut.TabIndex = 39;
+            this.ButtonOut.UseVisualStyleBackColor = true;
+            this.ButtonOut.Click += new System.EventHandler(this.ButtonOut_Click);
+            // 
             // FromKeToan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -207,6 +248,7 @@
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.KeToanchart);
             this.Controls.Add(this.TitlePanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FromKeToan";
             this.Text = "FromKeToan";
@@ -235,5 +277,8 @@
         private System.Windows.Forms.CheckBox ChiCheckBox;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.CheckBox TaiChinhcheckBox;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonPowert;
+        private System.Windows.Forms.Button ButtonOut;
     }
 }

@@ -83,7 +83,11 @@ namespace MiniMart.PresentationLayer.Forms
                 string Sdt = SDTNVTextBox.Text;
                 DateTime SinhNhat = SinhNhatdateTimePicker.Value;
                 string ChucVu = ChucVutextBox.Text;
-                float Luong = float.Parse(LuongTextBox.Text);
+                if (!float.TryParse(LuongTextBox.Text, out float Luong))
+                {
+                    MessageBox.Show("Lương chứa ký tự lạ vui lòng nhập lại");
+                    return;
+                }
 
                 nhanVienService.AddNewEntry(Mnv, Sdt, SinhNhat, DiaChi, HoTen, GioiTinh, ChucVu, Luong);
                 MessageBox.Show("Thêm dữ liệu thành công!");
@@ -107,7 +111,11 @@ namespace MiniMart.PresentationLayer.Forms
                 string HoTen = HoTenNVTextBox.Text;
                 string GioiTinh = GioiTinhTextBox.Text;
                 string ChucVu = ChucVutextBox.Text;
-                float Luong = float.Parse(LuongTextBox.Text);
+                if (!float.TryParse(LuongTextBox.Text, out float Luong))
+                {
+                    MessageBox.Show("Lương chứa ký tự lạ vui lòng nhập lại");
+                    return;
+                }
 
                 nhanVienService.UpdateEntry(Mnv, Sdt, SinhNhat, DiaChi, HoTen, GioiTinh, ChucVu, Luong);
                 MessageBox.Show("Sửa dữ liệu thành công!");
@@ -156,6 +164,30 @@ namespace MiniMart.PresentationLayer.Forms
             {
                 MessageBox.Show("Không tìm thấy dữ liệu phù hợp.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void buttonReset_Click(object sender, EventArgs e)
+        {
+            MaNVTextBox.Text = "";
+            HoTenNVTextBox.Text = "";
+            DiaChiNVTextBox.Text = "";
+            SinhNhatdateTimePicker.Value = DateTime.Now;
+            GioiTinhTextBox.Text = "";
+            SDTNVTextBox.Text = "";
+            ChucVutextBox.Text = "";
+            LuongTextBox.Text = "";
+        }
+
+        private void ButtonOut_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+            this.Close();
+        }
+
+        private void buttonPowert_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

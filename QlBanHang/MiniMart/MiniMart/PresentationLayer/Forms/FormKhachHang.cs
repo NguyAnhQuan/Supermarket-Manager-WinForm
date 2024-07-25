@@ -70,13 +70,20 @@ namespace MiniMart.PresentationLayer.Forms
                 string Mkh = MkhTextBox.Text;
                 string HoTen = HoTenKHTextBox.Text;
                 string DiaChi = DiaChiKHTextBox.Text;
-                int Sdt = int.Parse(SDTKHTextBox.Text);
+                string SdtStr = SDTKHTextBox.Text;
                 string HangKhach = HangKhachTextBox.Text;
 
-                KhachHangService.AddNewEntry(Mkh, HoTen, DiaChi, Sdt, HangKhach);
-                MessageBox.Show("Thêm dữ liệu thành công!");
+                if (int.TryParse(SdtStr, out int Sdt))
+                {
+                    KhachHangService.AddNewEntry(Mkh, HoTen, DiaChi, Sdt, HangKhach);
+                    MessageBox.Show("Thêm dữ liệu thành công!");
 
-                LoadDataToDataGridView(); 
+                    LoadDataToDataGridView();
+                }
+                else
+                {
+                    MessageBox.Show("Chứa ký tự lạ vui lòng nhập lại");
+                }
             }
             catch (Exception ex)
             {
@@ -91,7 +98,11 @@ namespace MiniMart.PresentationLayer.Forms
                 string Mkh = MkhTextBox.Text;
                 string HoTen = HoTenKHTextBox.Text;
                 string DiaChi = DiaChiKHTextBox.Text;
-                int Sdt = int.Parse(SDTKHTextBox.Text);
+                if (!int.TryParse(SDTKHTextBox.Text, out int Sdt))
+                {
+                    MessageBox.Show("Chứa ký tự lạ vui lòng nhập lại");
+                    return;
+                }
                 string HangKhach = HangKhachTextBox.Text;
 
                 KhachHangService.UpdateEntry(Mkh, HoTen, DiaChi, Sdt, HangKhach);
@@ -154,6 +165,27 @@ namespace MiniMart.PresentationLayer.Forms
             {
                 MessageBox.Show("Không tìm thấy dữ liệu phù hợp.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void buttonReset_Click(object sender, EventArgs e)
+        {
+            MkhTextBox.Text = "";
+            HoTenKHTextBox.Text = "";
+            DiaChiKHTextBox.Text = "";
+            SDTKHTextBox.Text = "";
+            HangKhachTextBox.Text = "";
+        }
+
+        private void ButtonOut_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+            this.Close();
+        }
+
+        private void buttonPowert_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

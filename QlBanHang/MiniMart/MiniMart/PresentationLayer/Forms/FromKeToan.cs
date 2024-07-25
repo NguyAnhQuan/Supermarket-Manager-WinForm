@@ -106,5 +106,23 @@ namespace MiniMart.PresentationLayer.Forms
             TimeTextBox.Text = DateTime.Now.ToString("HH:mm:ss");
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Report reportForm = new Report();
+
+            reportForm.Show();
+        }
+
+        private void ButtonOut_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+            this.Close();
+        }
+
+        private void buttonPowert_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
