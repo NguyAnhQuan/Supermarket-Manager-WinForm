@@ -1,0 +1,83 @@
+- database 
+- Form login phân quyền
+	+ từ login nếu đăng nhập sử dụng (id và pass được cung cấp) nào thì sẽ ra form đó : 
+		ví dụ: cấp cho nhân viên kho mã DN001 và Pass là NvKho thì khi đăng nhập thành công sẽ truy vấn đến chức vụ 
+		của nhân viên đó là "kho" -> chuyển sang form kho
+	+ nếu đăng nhập bằng pass = '' thì sẽ chỉ cho xem lương ứng với mã nhân viên
+	_ nhận biết caps look bật hay không khi nhập pass - sang form mới tự động full màn
+
+
+- Form Kho 
+	+ thêm lần NX mới được
+	+ yêu cầu xem, tìm kiếm được "nhập xuất" từ db theo từng lựa chọn (nhập hoặc xuất) ra bảng 
+	+ sửa, xóa được (Bảng KhoNX)
+	+ xem được sản phẩn tồn đọng - sắp hết hạn
+	+ báo giá, nếu vượt ngân sách chi báo lỗi (chỉ xem không đc ghi đè)
+	+ xem, sửa, xóa được nhà cung cấp ( chỉ xóa đc khi trong bảng sản phẩm hết hàng của ncc hoặc sp đó hết hạn dùng)
+	+ xóa được sản phẩm (nếu NhânVieen báo hết hàng)
+	+ sửa được sản phẩm
+
+- Form nhanvien
+	+ xem, tìm kiếm được sản phẩm (Bảng sanpham)
+	+ báo được hết hàng hay không (chức vụ nhanVienquay mới báo được)
+	+ đăng nhập bằng Mnv nào thì khi bấm vào xem thông tin sẽ hiện ra: thông tin - lương của mnv đó
+
+- Form ThuNgan
+	+ xem, tìm kiếm được sản phẩm cần thanh toán
+	+ xuất hóa đơn sau mỗi lần thanh toán
+	+ nếu khách hàng có ưu đãi thì sẽ giảm tiền trên hóa đơn
+		--> nếu khách dùng mã uudai thì sẽ xóa mã đó khỏi bảng UuDai
+	+ xác nhận thanh toán thành công hoặc hủy thanh toán
+	+ nếu xác nhận thanh toán thành công - cộng tiền vào ngân sách thu
+	+ nếu số lượng khách mua lớn hơn thực tế trong bảng sản phẩm thì báo lỗi (trường hợp thu ngân nhập nhầm sluong) 
+	+ nếu khách mua hết hàng với số lượng trong bảng sp thì hệ thống tự báo hết hàng thành true trong db để kho - nhân viên biết
+	+ nếu khách hàng chọn tích điểm (đã thanh toán) thì sẽ chuyển sang form khách hàng 
+		--> nhập thông tin khách - số tiền khách vừa thanh toán sẽ chuyển thành điểm
+	_ tính năng nâng cao:
+		* API thanh toán
+		* quét mã qr sản phẩm
+		* gọi liên hệ cho nhân viên quầy nếu khách có thắc mắc hoặc cần support
+	
+
+-Form KeToan
+	+ Xem được hạng mục Ngân sách(chọn hạng mục nào thì xem đc hạng mục đó) 
+		--- nếu thu thì chỉ hiện Mhd ẩn Mnx - chi thì ngược lại
+	+ Cập nhập trạng thái mới nhất của ngân sách đó theo thời gian thực
+	+ xem, tìm kiếm được lịch sử thu hoặc chi của ngân sách đó
+	+ Luôn có 1 ô tổng tiền hiện có = (ngân sách dự trù + ngân sách thu) - (ngân sách chi + lương nhân viên tháng)
+		--- nếu không đủ sẽ hiện số tiền thiếu trong tháng (để báo cáo cho quản lý)
+	_ TN thêm:
+		* hiện tiền thiếu theo tháng
+		* Hiện tiền lãi
+		* biểu đồ thống kê ngân sách theo lịch sử (giờ - ngày - tuần - tháng)
+			--- nếu là giờ thì tính từ 00:00 đến hiện tại
+			--- nếu là ngày tính từ đầu tuần đến hiện tại
+			--- nếu là tháng tính từ tháng 1 đến hiện tại
+
+
+-Form KhachHang
+	+ xem ,sửa ,xóa, thêm được khách hàng
+	+ xem được ưu đãi
+	+ tích điểm cộng dồn của khách 
+		> 1.000.000 inox
+		> 2.000.000 đồng
+		> 5.000.000 bạc
+		> 6.000.000 vàng 
+		> 8.000.000 bạch kim
+
+-Form UuDai
+	+ thêm được ưu đãi <admin>
+	+ tự tính số lượng giảm giá
+		inox giảm 100.000
+		đồng giảm 200.000
+		bạc       500.000
+		vàng      600.000
+		bạch kinh 800.000
+
+- Form Admin
+	lựa chọn hạng mục (uudai - khachhang - KeToan - NhanVien - Kho - ThuNgan)
+	+ có thể Thêm, sửa, xóa, tìm kiếm
+	+ Xuất được file dạng xlsx
+
+
+
